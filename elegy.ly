@@ -176,14 +176,14 @@ scorecontents =
         % arranger = "typeset by Neil Jackson"
         % breakbefore = ##f
     }
-%	\midi
-%	{
-%		\context 
-%		{
-% 	 		\Score
-%  			tempoWholesPerMinute = #(ly:make-moment 210 2)	
-%		}
-%	}
+	\midi
+	{
+		\context 
+		{
+	 		\Score
+ 			tempoWholesPerMinute = #(ly:make-moment 60 4)	
+		}
+	}
 
 }	
 	
