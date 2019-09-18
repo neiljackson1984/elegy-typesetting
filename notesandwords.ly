@@ -1,3 +1,5 @@
+\version "2.18.2"
+
 wx =	%	7 syllables
 \lyricmode{
 vi -- gnes, vi -- gnes, vi -- gno -- let, 

@@ -5,27 +5,27 @@
 
 
 
-
+ 
 #(set-global-staff-size 16)
 
 
-\paper
-{
-%	{	
-%		left-margin = 1\in
-%		line-width = 6.5\in
-%	}
-	print-first-page-number = ##t
-	#(set-paper-size "letter")
-	ragged-bottom = ##t
-	print-all-headers = ##t
-%	system-count = #4
+% \paper
+% {
+% %	{	
+% %		left-margin = 1\in
+% %		line-width = 6.5\in
+% %	}
+	% print-first-page-number = ##t
+	% #(set-paper-size "letter")
+	% ragged-bottom = ##t
+	% print-all-headers = ##t
+% %	system-count = #4
 
-%	oddHeaderMarkupOld = #oddHeaderMarkup
-%  	oddHeaderMarkup = #evenHeaderMarkup
-%	evenHeaderMarkup = #oddHeaderMarkupOld
-%	scoreTitleMarkup = #bookTitleMarkup 
-}
+% %	oddHeaderMarkupOld = #oddHeaderMarkup
+% %  	oddHeaderMarkup = #evenHeaderMarkup
+% %	evenHeaderMarkup = #oddHeaderMarkupOld
+% %	scoreTitleMarkup = #bookTitleMarkup 
+% }
 
 
 scorecontents = 
