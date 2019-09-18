@@ -9,23 +9,23 @@
 #(set-global-staff-size 16)
 
 
-% \paper
-% {
-% %	{	
-% %		left-margin = 1\in
-% %		line-width = 6.5\in
-% %	}
-	% print-first-page-number = ##t
-	% #(set-paper-size "letter")
+\paper
+{
+	% line-width = 6.5\in
+    left-margin = 1\in
+    right-margin = 1\in
+	
+	print-first-page-number = ##t
+	#(set-paper-size "letter")
 	% ragged-bottom = ##t
-	% print-all-headers = ##t
-% %	system-count = #4
+	print-all-headers = ##t
+	% system-count = #4
 
-% %	oddHeaderMarkupOld = #oddHeaderMarkup
-% %  	oddHeaderMarkup = #evenHeaderMarkup
-% %	evenHeaderMarkup = #oddHeaderMarkupOld
-% %	scoreTitleMarkup = #bookTitleMarkup 
-% }
+	oddHeaderMarkupOld = #oddHeaderMarkup
+ 	oddHeaderMarkup = #evenHeaderMarkup
+	evenHeaderMarkup = #oddHeaderMarkupOld
+	scoreTitleMarkup = #bookTitleMarkup 
+}
 
 
 scorecontents = 
@@ -106,38 +106,34 @@ scorecontents =
 
 \book
 {
-
 \header
 {
-	title = "Elegy"
-	composer = "composed by CROBA A. PYIRNHA"
-	arranger = "typeset by Neil Jackson"
-	breakbefore = ##f
-	tagline = ##f
+	tagline =  "Engraved 2019 in Seattle for The Meridian Ensemble; Yuly Kopkin, Artistic Director"
 }
-\markup{Note:}
-\markup{\wordwrap{
-This piece consists of an "A" part (14 measures long) and a "B" part (26 measures long), which are 
-repeated several times with varying lyrics.  The playing order is ABAABAABA.  In order to relieve the 
-player from the burden of keeping track of this pattern while playing, I have unfolded the repeats into 
-one long score that can be played straight through.}}
+
+% \markup{Note:}
+% \markup{\wordwrap{
+% This piece consists of an "A" part (14 measures long) and a "B" part (26 measures long), which are 
+% repeated several times with varying lyrics.  The playing order is ABAABAABA.  In order to relieve the 
+% player from the burden of keeping track of this pattern while playing, I have unfolded the repeats into 
+% one long score that can be played straight through.}}
 
 
-\markup{ }
+% \markup{ }
 
-\markup{Translation:}
-\markup{\wordwrap{
-Margot, labor at the vine soon.
-As I passed through the Lorraine, 
-I chanced upon three capitaines,
-and they called me country-bred.
-But I'm not that country-bred.
-Since the King's son loves me dear,
-he brought a present to me: 
-a big spray of marjoram.
-If it blooms I will be Queen.
-Should it die, I've lost my time.
-}}
+% \markup{Translation:}
+% \markup{\wordwrap{
+% Margot, labor at the vine soon.
+% As I passed through the Lorraine, 
+% I chanced upon three capitaines,
+% and they called me country-bred.
+% But I'm not that country-bred.
+% Since the King's son loves me dear,
+% he brought a present to me: 
+% a big spray of marjoram.
+% If it blooms I will be Queen.
+% Should it die, I've lost my time.
+% }}
 
 
 
@@ -150,15 +146,12 @@ Should it die, I've lost my time.
 
 	\transpose c c \scorecontents
 
-	\header
-	{
-		%piece = "Margot labourez les vignes"
-		breakbefore = ##t
-	}
+
 
 	\layout 
 	{
 		%indent = 1\in
+
 		\context
 		{
 			\Staff
@@ -166,6 +159,23 @@ Should it die, I've lost my time.
 		}
 	}
 	
+    \header
+    {
+        title = \markup{ \caps {Elegy} } 
+        composer = "Vasily Sergeyevich Kalinnikov (1866 – 1901)"
+        poet = \markup {
+          \column {
+            \line {
+              "words by CROBA, A PIRANHA"
+            }
+            \line {
+                phonetization for English speakers by Yuly Kopkin
+            }
+          }
+       }
+        % arranger = "typeset by Neil Jackson"
+        % breakbefore = ##f
+    }
 %	\midi
 %	{
 %		\context 

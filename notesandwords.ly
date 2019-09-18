@@ -121,258 +121,165 @@ timeandkey =
 }
 
 
-sopranonotesA =  
-\relative c'' 
-{
-	\tempo "Andante comodo."
-	\autoBeamOff
-	%{measure 001%}	\partial 8 a8 
-	%{measure 002%}	a a a a a4. a8 
-	%{measure 003%}	a d, e f g4. g8
-	%{measure 004%}	g4( a8) e f f e f
-	%{measure 005%}	d d d d e4. e8 
-	%{measure 006%}	a8 a8 a8 a8 a4. a8
-	%{measure 007%}	a a a a a4 a8 a 
-	%{measure 008%}	d d c c bes a g d 
-	%{measure 009%}	f e f g a4 a8 a8
-	%{measure 010%}	c8 c bes a c4. a8
-	%{measure 011%}	c c bes a c4. d8
-	%{measure 012%}	ees ees d c d4. d8 
-	%{measure 013%}	ees ees d c d4. d8 
-	%{measure 014%}	g f e d c4( d8) e
-	%{measure 015%}	f e d c bes4 c8 d
-	%{measure 016%}	e d c bes a a gis a
-	%{measure 017%}	d4. bes a4 g8 a
-	%{measure 018%}	a a a a a4. a8
-	%{measure 019%}	a a a a a4. a8
-	%{measure 020%}	bes bes a a g4. a8
-	%{measure 021%}	bes bes a a g4 a8( g)
-	%{measure 022%}	c f a c d4. c8
-	%{measure 023%}	bes a bes c d4 g4
-	%{measure 023%}	r4 a1
-	%{measure 025%}	a2. 
-	%{measure 026%}	a2 a4 a
-	%{measure 027%}	a a a8 a a a
-	%{measure 028%}	a1
-	
-}
+sopranonotesall =  
+    \relative c'' {
+        \tempo "Andante comodo."
+        \autoBeamOff
+        \partial 8                 a8 
+        | \barNumberCheck #01      a a a a a4. a8 
+        | \barNumberCheck #02      a d, e f g4. g8
+        | \barNumberCheck #03      g4( a8) e f f e f
+        | \barNumberCheck #04      d d d d e4. e8 
+        | \barNumberCheck #05      a8 a8 a8 a8 a4. a8
+        | \barNumberCheck #06      a a a a a4 a8 a 
+        | \barNumberCheck #07      d d c c bes a g d 
+        | \barNumberCheck #08      f e f g a4 a8 a8
+        | \barNumberCheck #09      c8 c bes a c4. a8
+        | \barNumberCheck #10      c c bes a c4. d8
+        | \barNumberCheck #11      ees ees d c d4. d8 
+        | \barNumberCheck #12      ees ees d c d4. d8 
+        | \barNumberCheck #13      g f e d c4( d8) e
+        | \barNumberCheck #14      f e d c bes4 c8 d
+        | \barNumberCheck #15      e d c bes a a gis a
+        | \barNumberCheck #16      d4. bes8 a4 g8 a
+        | \barNumberCheck #17      a a a a a4. a8
+        | \barNumberCheck #18      a a a a a4. a8
+        | \barNumberCheck #19      bes bes a a g4. a8
+        | \barNumberCheck #20      bes bes a a g4 a8[( g)]
+        | \barNumberCheck #21      c f, a c d4. c8
+        | \barNumberCheck #22      bes a bes c d4 g,4
+        | \barNumberCheck #23      r4 a2.~
+        | \barNumberCheck #24      a4 a2. 
+        | \barNumberCheck #25      a2 a4 a
+        | \barNumberCheck #26      a a a8 a a a
+        | \barNumberCheck #27      a1 \fermata
+        \bar "|."
+    }
+
+
+
+altonotesall = 
+    \relative c' {
+        \tempo "Andante comodo."
+        \autoBeamOff
+        \partial 8                 c8
+        | \barNumberCheck #01      c c c c c4. c8
+        | \barNumberCheck #02      d d c c b4. b8
+        | \barNumberCheck #03      bes4. b8 a a a a
+        | \barNumberCheck #04      a a a a gis4. gis8
+        | \barNumberCheck #05      a e' d d cis4. d8
+        | \barNumberCheck #06      e e e e ees4 ees8 ees
+        | \barNumberCheck #07      d d d d d d d d
+        | \barNumberCheck #08      d[( c]) d[( e]) f4 f8 f
+        | \barNumberCheck #09      g2( fis8) fis g a
+        | \barNumberCheck #10      g4 g a8 a g fis
+        | \barNumberCheck #11      g4 g fis8 fis g a
+        | \barNumberCheck #12      g4 g a8 a g fis
+        | \barNumberCheck #13      g4 g g8 g g g
+        | \barNumberCheck #14      f4 f f f8 f
+        | \barNumberCheck #15      e4 e f f
+        | \barNumberCheck #16      f8 f f f e4 e8 e8
+        | \barNumberCheck #17      f8 f e e d4. e8
+        | \barNumberCheck #18      f8 f e e d4. << f8 \\ d >>
+        | \barNumberCheck #19      << f4 \\ d >> << f \\ d >> << f \\ d >> << f \\ d >>
+        | \barNumberCheck #20      << f \\ d >> << f \\ d >> << f \\ des >> << e \\ des >>
+        | \barNumberCheck #21      << f8 \\ c >> << f \\ f>> f f fis4. fis8
+        | \barNumberCheck #22      fis fis fis fis fis4 g
+        | \barNumberCheck #23      r4 a4 g8 g g a
+        | \barNumberCheck #24      f4. f8 e e d d 
+        | \barNumberCheck #25      e4 a,8 a d d d d
+        | \barNumberCheck #26      dis4. dis8 e e d e
+        | \barNumberCheck #27      f1 \fermata
+        \bar "|."
+    }
 
 
 
 
 
+tenornotesall = 
+    \relative c {
+        \tempo "Andante comodo."
+        \autoBeamOff
+        \partial 8                 f8
+        | \barNumberCheck #01      f f f f f4. f8
+        | \barNumberCheck #02      f f f f f4. f8
+        | \barNumberCheck #03      f4( e8) g f f f f 
+        | \barNumberCheck #04      f f f f e4. e8
+        | \barNumberCheck #05      e a a a a4. a8
+        | \barNumberCheck #06      a a a a a4 g8 f
+        | \barNumberCheck #07      f f fis fis g a bes bes
+        | \barNumberCheck #08      bes4 bes a4 a8 << a \\ a >>
+        | \barNumberCheck #09      << c1 \\ {\autoBeamOff g2( a8) a g fis} >>
+        | \barNumberCheck #10      << {c'2~ c4. d8} \\ {\autoBeamOff g,4 g fis8 fis g a} >>
+        | \barNumberCheck #11      << {ees'2 d} \\ {\autoBeamOff g,4 g a8 a g fis} >>
+        <<
+            { \autoBeamOff
+                | \barNumberCheck #12      ees'4 ees d4. d8
+                | \barNumberCheck #13      g8 f e d c4( d8) e
+                | \barNumberCheck #14      f e d c bes4 c8 d
+            } \\
+            { \autoBeamOff
+                | \barNumberCheck #12      g,4 g fis8 fis g a
+                | \barNumberCheck #13      d[( g,]) bes[( d]) e e d c
+                | \barNumberCheck #14      c[( f,]) a[( c]) d d c bes
+            }
+        >>
+        | \barNumberCheck #15      bes4 d8 d c c c c 
+        | \barNumberCheck #16      bes bes bes d bes4 bes8 a
+        | \barNumberCheck #17      d, d e e f4. e8
+        | \barNumberCheck #18      d d e e f4. f8
+        | \barNumberCheck #19      g g a a bes4. a8
+        | \barNumberCheck #20      g g a a bes4 bes
+        <<
+            { \autoBeamOff
+                | \barNumberCheck #21      a8 c c c ees4. ees8
+                | \barNumberCheck #22      ees ees ees ees d4 d
+            } \\
+            { \autoBeamOff
+                | \barNumberCheck #21      a8 a a a a4. a8
+                | \barNumberCheck #22      c c bes a a4 g4
+            }
+        >>    
+        | \barNumberCheck #23      r4 a2.~ 
+        | \barNumberCheck #24      a4 a2.
+        | \barNumberCheck #25      a2 a4 a
+        | \barNumberCheck #26      a a a8 a bes bes 
+        | \barNumberCheck #27      a1 \fermata
+        \bar "|."
+    }
 
-
-altonotesA = 
-\relative c' 
-{
-	%{measure 001%}	d2 g
-	%{measure 002%}	e e
-	%{measure 003%}	d d 
-	%{measure 004%}	d b 
-	%{measure 005%}	d d 
-	%{measure 006%}	b d 
-	%{measure 007%}	e fis 
-	%{measure 008%}	g d2~ 
-	%{measure 009%}	d2 g2 
-	%{measure 010%}	e e 
-	%{measure 011%}	d d 
-	%{measure 012%}	d c 
-	%{measure 013%}	d1
-	%{measure 014%}	b1
-}
-
-altonotesB = 
-\relative c' 
-{
-	%{measure 015%}	r1 
-	%{measure 016%}	r1
-	%{measure 017%}	r1 
-	%{measure 018%}	r1 
-	%{measure 019%}	r1 
-	%{measure 020%}	r1 
-	%{measure 021%}	e2 e 
-	%{measure 022%}	fis g 
-	%{measure 023%}	a b 
-	%{measure 024%}	a g2~ 
-	%{measure 025%}	g2 fis2 
-	%{measure 026%}	g d 
-	%{measure 027%}	g fis 
-	%{measure 028%}	e d2~ 
-	%{measure 029%}	d2 e2 
-	%{measure 030%}	d b 
-	%{measure 031%}	b b 
-	%{measure 032%}	g g' 
-	%{measure 033%}	e fis 
-	%{measure 034%}	g d2~ 
-	%{measure 035%}	d2 d2 
-	%{measure 036%}	e g 
-	%{measure 037%}	fis e 
-	%{measure 038%}	d g2~ 
-	%{measure 039%}	g2 fis2 
-	%{measure 040%}	g1 
-}
-
-
-
-
-
-tenornotesA = 
-\relative c' 
-{
-	%{measure 001%}	b2 d 
-	%{measure 002%}	c b 
-	%{measure 003%}	a g 
-	%{measure 004%}	fis d 
-	%{measure 005%}	g d 
-	%{measure 006%}	g d 
-	%{measure 007%}	g a 
-	%{measure 008%}	b1 
-	%{measure 009%}	b2 d 
-	%{measure 010%}	c b 
-	%{measure 011%}	a g 
-	%{measure 012%}	fis g 
-	%{measure 013%}	a1
-	%{measure 014%}	g1 
-}
-
-tenornotesB = 
-\relative c' 
-{
-	%{measure 015%}	g2 g 
-	%{measure 016%}	d' d 
-	%{measure 017%}	d d 
-	%{measure 018%}	e e 
-	%{measure 019%}	d1 
-	%{measure 020%}	b1 
-	%{measure 021%}	b2 g 
-	%{measure 022%}	a b 
-	%{measure 023%}	a g 
-	%{measure 024%}	c c 
-	%{measure 025%}	a1 
-	%{measure 026%}	g1
-	%{measure 027%}	r1 
-	%{measure 028%}	r1 
-	%{measure 029%}	r1 
-	%{measure 030%}	r1 
-	%{measure 031%}	g2 g 
-	%{measure 032%}	b b 
-	%{measure 033%}	c a 
-	%{measure 034%}	g1 
-	%{measure 035%}	g2 b 
-	%{measure 036%}	a g 
-	%{measure 037%}	d' e 
-	%{measure 038%}	a, e' 
-	%{measure 039%}	d1
-	%{measure 040%}	g,1
-}
-
-
-
-
-
-bassnotesA = 
-\relative c 
-{
-	%{measure 001%}	g'2 g 
-	%{measure 002%}	a e 
-	%{measure 003%}	fis g 
-	%{measure 004%}	d g, 
-	%{measure 005%}	g g 
-	%{measure 006%}	g b 
-	%{measure 007%}	c a 
-	%{measure 008%}	g1 
-	%{measure 009%}	g'2 g 
-	%{measure 010%}	a e 
-	%{measure 011%}	fis g 
-	%{measure 012%}	d e 
-	%{measure 013%}	d1 
-	%{measure 014%}	g,1 
-}
-
-bassnotesB = 
-\relative c 
-{
-	%{measure 015%}	g'2 e 
-	%{measure 016%}	fis g 
-	%{measure 017%}	g b 
-	%{measure 018%}	a g 
-	%{measure 019%}	fis4( e g fis) 
-	%{measure 020%}	g1 
-	%{measure 021%}	e2 e 
-	%{measure 022%}	d g 
-	%{measure 023%}	fis g 
-	%{measure 024%}	c, c 
-	%{measure 025%}	d1 
-	%{measure 026%}	g,1
-	%{measure 027%}	r1 
-	%{measure 028%}	r1 
-	%{measure 029%}	r1 
-	%{measure 030%}	r1 
-	%{measure 031%}	r1 
-	%{measure 032%}	r1 
-	%{measure 033%}	r1 
-	%{measure 034%}	r1 
-	%{measure 035%}	r1 
-	%{measure 036%}	r1 
-	%{measure 037%}	r1 
-	%{measure 038%}	r1  
-	%{measure 039%}	r1
-	%{measure 040%}	r1
-}
-
-sopranonotesall =
-{
-	\sopranonotesA
-}
-
-
-altonotesall =
-{
-	\altonotesA
-	\altonotesB
-
-	\altonotesA
-	\altonotesA
-	\altonotesB
-
-	\altonotesA
-	\altonotesA
-	\altonotesB
-
-	\altonotesA
-}
-
-
-tenornotesall =
-{
-	\tenornotesA
-	\tenornotesB
-
-	\tenornotesA
-	\tenornotesA
-	\tenornotesB
-
-	\tenornotesA
-	\tenornotesA
-	\tenornotesB
-
-	\tenornotesA
-}
-
-
-bassnotesall =
-{
-	\bassnotesA
-	\bassnotesB
-
-	\bassnotesA
-	\bassnotesA
-	\bassnotesB
-
-	\bassnotesA
-	\bassnotesA
-	\bassnotesB
-
-	\bassnotesA
-}
+bassnotesall = 
+    \relative c {
+        \tempo "Andante comodo."
+        \autoBeamOff
+        \partial 8                 f8
+        | \barNumberCheck #01      f f f f e4. e8
+        | \barNumberCheck #02      d d d d d4. d8
+        | \barNumberCheck #03      des4( c8) c d d c c
+        | \barNumberCheck #04      bes bes bes bes b4. b8
+        | \barNumberCheck #05      cis cis d d e4. d8
+        | \barNumberCheck #06      cis cis cis cis c4 c8 c
+        | \barNumberCheck #07      bes bes bes bes bes bes bes bes
+        | \barNumberCheck #08      c4 c f f8 f
+        | \barNumberCheck #09      ees2( d)
+        | \barNumberCheck #10      ees d4 d
+        | \barNumberCheck #11      c2 c
+        | \barNumberCheck #12      c4 c c c 
+        | \barNumberCheck #13      g g g' g,
+        | \barNumberCheck #14      a a a' a,8 a
+        | \barNumberCheck #15      g4 g a a
+        | \barNumberCheck #16      bes8 bes g g c4 c
+        | \barNumberCheck #17      c2 c4 c
+        | \barNumberCheck #18      c2. c4
+        | \barNumberCheck #19      c2. c4
+        | \barNumberCheck #20      c2 c
+        | \barNumberCheck #21      c2. c4
+        | \barNumberCheck #22      c c bes bes
+        | \barNumberCheck #23      r4 a' g8 g g a
+        | \barNumberCheck #24      f4. f8 e e d d 
+        | \barNumberCheck #25      e4 a,8 a bes bes bes bes 
+        | \barNumberCheck #26      b4. b8 c c c c 
+        | \barNumberCheck #27      << c1 \\ f,>> 
+        \bar "|."
+    }
