@@ -1,4 +1,4 @@
 
 
-elegy.pdf: elegy.ly notesandwords.ly
+elegy.pdf: elegy.ly notesandwords.liy
 	lilypond elegy.ly
