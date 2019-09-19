@@ -1,7 +1,7 @@
 \version "2.18.2"
 #(ly:set-option 'point-and-click #f)
 
-\include "notesandwords.ly"
+\include "notesandwords.liy"
 
 
 
