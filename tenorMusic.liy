@@ -1,0 +1,86 @@
+\version "2.18.2"
+tenorMusic =  
+    \relative {
+        \autoBeamOff
+        \time 4/4  \key f \major 
+        | \barNumberCheck #000     \partial 8    f=8           
+        | \barNumberCheck #001     f f f f f4. f8
+        | \barNumberCheck #002     f f f f f4. f8
+        \originalLineBreak
+
+        | \barNumberCheck #003     f4( e8) g f f f f 
+        | \barNumberCheck #004     f f f f e4. e8
+        | \barNumberCheck #005     e a a a a4. a8
+        \originalLineBreak         
+                                   
+        | \barNumberCheck #006     a a a a a4 g8 f
+        | \barNumberCheck #007     f f fis fis g a bes bes
+        | \barNumberCheck #008     bes4 bes a4 a8 << a \\ a >>
+        \originalLineBreak         
+        \originalPageBreak         
+                                   
+                                   
+        | \barNumberCheck #009     << c1 \\ {\autoBeamOff g2( a8) a g fis} >>
+        | \barNumberCheck #010     << {c'2~ c4. d8} \\ {\autoBeamOff g,4 g fis8 fis g a} >>
+        | \barNumberCheck #011     << {ees'2 d} \\ {\autoBeamOff g,4 g a8 a g fis} >>
+        \originalLineBreak         
+        
+        {\stopStaff s1*3}
+        
+        
+        
+        <<
+            \context Staff = "tenor1" {
+                \startStaff 
+                { \autoBeamOff
+                    | \barNumberCheck #12      ees'4 ees d4. d8
+                    | \barNumberCheck #13      g8 f e d c4( d8) e
+                    | \barNumberCheck #14      f e d c bes4 c8 d
+                }
+                \stopStaff
+            } \\
+            \context Staff = "tenor2" {
+                \startStaff 
+                { \autoBeamOff
+                    | \barNumberCheck #12      g,4 g fis8 fis g a
+                    | \barNumberCheck #13      d[( g,]) bes[( d]) e e d c
+                    | \barNumberCheck #14      c[( f,]) a[( c]) d d c bes
+                }
+                \stopStaff
+            }
+        >>
+        \originalLineBreak         
+                                   
+        | \barNumberCheck #015     bes4 d8 d c c c c 
+        | \barNumberCheck #016     bes bes bes d bes4 bes8 a
+        | \barNumberCheck #017     d, d e e f4. e8
+        \originalLineBreak         
+        \originalPageBreak         
+                                   
+                                   
+        | \barNumberCheck #018     d d e e f4. f8
+        | \barNumberCheck #019     g g a a bes4. a8
+        | \barNumberCheck #020     g g a a bes4 bes
+        \originalLineBreak         
+                                   
+        <<
+            { \autoBeamOff
+                | \barNumberCheck #21      a8 c c c ees4. ees8
+                | \barNumberCheck #22      ees ees ees ees d4 d
+            } \\
+            { \autoBeamOff
+                | \barNumberCheck #21      a8 a a a a4. a8
+                | \barNumberCheck #22      c c bes a a4 g4
+            }
+        >>     
+        | \barNumberCheck #023     r4 a2.~ 
+        \originalLineBreak         
+                                   
+        | \barNumberCheck #024     a4 a2.
+        | \barNumberCheck #025     a2 a4 a
+        | \barNumberCheck #026     a a a8 a bes bes 
+        | \barNumberCheck #027     a1 \fermata
+        \bar "|."
+        \originalLineBreak
+        \originalPageBreak 
+    }

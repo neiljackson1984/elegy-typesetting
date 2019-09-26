@@ -3,8 +3,6 @@
 
 \include "notesandwords.liy"
 
-
-
  
 #(set-global-staff-size 16)
 
@@ -42,8 +40,7 @@ scorecontents =
 			\new Voice = soprano
 			<<
 				\clef treble
-				\timeandkey
-				\sopranonotesall
+				\sopranoMusic
 			>>
 			%\new Voice = hiddenlayoutvoice	\breakMask
 		>>
@@ -59,15 +56,14 @@ scorecontents =
 			\new Voice = alto
 			<<
 				\clef treble
-				\timeandkey
-				\altonotesall
+				\altoMusic
 			>>
 			%\new Voice = hiddenlayoutvoice \breakMask
 		>>
 		%\new Lyrics \lyricsto "alto" \altowordsall
 		
 
-		\new Staff = tenor
+		\new Staff = "tenor-combined"
 		<<
 			\set Staff.instrumentName = "tenor"
 			\set Staff.midiInstrument = #"voice oohs"
@@ -76,12 +72,32 @@ scorecontents =
 			\new Voice = tenor
 			<<
 				\clef "treble_8"
-				\timeandkey
-				\tenornotesall
+				\tenorMusic
 			>>
 			%\new Voice = hiddenlayoutvoice \breakMask
 		>>
 		%\new Lyrics \lyricsto "tenor" \tenorwordsall
+
+        \new Staff = "tenor1"
+		<<
+			\set Staff.instrumentName = "tenor 1"
+			\set Staff.midiInstrument = #"voice oohs"
+      			\set Staff.midiMinimumVolume = #0.7
+      			\set Staff.midiMaximumVolume = #0.7
+			{\stopStaff}
+
+		>>
+
+
+        \new Staff = "tenor2"
+		<<
+			\set Staff.instrumentName = "tenor 2"
+			\set Staff.midiInstrument = #"voice oohs"
+      			\set Staff.midiMinimumVolume = #0.7
+      			\set Staff.midiMaximumVolume = #0.7
+			{\stopStaff}
+
+		>>
 
 
 
@@ -94,8 +110,7 @@ scorecontents =
 			\new Voice = bass
 			<<
 				\clef bass
-				\timeandkey
-				\bassnotesall
+				\bassMusic
 			>>
 			%\new Voice = hiddenlayoutvoice \breakMask
 		>>
@@ -110,30 +125,6 @@ scorecontents =
 {
 	tagline =  "Engraved 2019 in Seattle for The Meridian Ensemble; Yuly Kopkin, Artistic Director"
 }
-
-% \markup{Note:}
-% \markup{\wordwrap{
-% This piece consists of an "A" part (14 measures long) and a "B" part (26 measures long), which are 
-% repeated several times with varying lyrics.  The playing order is ABAABAABA.  In order to relieve the 
-% player from the burden of keeping track of this pattern while playing, I have unfolded the repeats into 
-% one long score that can be played straight through.}}
-
-
-% \markup{ }
-
-% \markup{Translation:}
-% \markup{\wordwrap{
-% Margot, labor at the vine soon.
-% As I passed through the Lorraine, 
-% I chanced upon three capitaines,
-% and they called me country-bred.
-% But I'm not that country-bred.
-% Since the King's son loves me dear,
-% he brought a present to me: 
-% a big spray of marjoram.
-% If it blooms I will be Queen.
-% Should it die, I've lost my time.
-% }}
 
 
 

@@ -1,0 +1,58 @@
+\version "2.18.2"
+
+altoMusic =  
+    \relative {
+        \autoBeamOff
+        \time 4/4  \key f \major 
+        | \barNumberCheck #000     \partial 8      c='8            
+        | \barNumberCheck #001     c c c c c4. c8
+        | \barNumberCheck #002     d d c c b4. b8
+        \originalLineBreak
+
+        | \barNumberCheck #003     bes4. b8 a a a a
+        | \barNumberCheck #004     a a a a gis4. gis8
+        | \barNumberCheck #005     a e' d d cis4. d8
+        \originalLineBreak         
+                                   
+        | \barNumberCheck #006     e e e e ees4 ees8 ees
+        | \barNumberCheck #007     d d d d d d d d
+        | \barNumberCheck #008     d[( c]) d[( e]) f4 f8 f
+        \originalLineBreak         
+        \originalPageBreak         
+                                   
+                                   
+        | \barNumberCheck #009     g2( fis8) fis g a
+        | \barNumberCheck #010     g4 g a8 a g fis
+        | \barNumberCheck #011     g4 g fis8 fis g a
+        \originalLineBreak         
+                                   
+        | \barNumberCheck #012     g4 g a8 a g fis
+        | \barNumberCheck #013     g4 g g8 g g g
+        | \barNumberCheck #014     f4 f f f8 f
+        \originalLineBreak         
+                                   
+        | \barNumberCheck #015     e4 e f f
+        | \barNumberCheck #016     f8 f f f e4 e8 e8
+        | \barNumberCheck #017     f8 f e e d4. e8
+        \originalLineBreak         
+        \originalPageBreak         
+                                   
+                                   
+        | \barNumberCheck #018     f8 f e e d4. << f8 \\ d >>
+        | \barNumberCheck #019     << f4 \\ d >> << f \\ d >> << f \\ d >> << f \\ d >>
+        | \barNumberCheck #020     << f \\ d >> << f \\ d >> << f \\ des >> << e \\ des >>
+        \originalLineBreak         
+                                   
+        | \barNumberCheck #021     << f8 \\ c >> << f \\ f>> f f fis4. fis8
+        | \barNumberCheck #022     fis fis fis fis fis4 g
+        | \barNumberCheck #023     r4 a4 g8 g g a
+        \originalLineBreak         
+                                   
+        | \barNumberCheck #024     f4. f8 e e d d 
+        | \barNumberCheck #025     e4 a,8 a d d d d
+        | \barNumberCheck #026     dis4. dis8 e e d e
+        | \barNumberCheck #027     f1 \fermata
+        \bar "|."
+        \originalLineBreak
+        \originalPageBreak 
+    }
