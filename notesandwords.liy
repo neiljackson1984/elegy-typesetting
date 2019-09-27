@@ -5,16 +5,10 @@
 originalLineBreak = {\break}
 originalPageBreak = {\pageBreak}
 
-\include "sopranoMusic.liy"
-\include "altoMusic.liy"
-\include "tenorMusic.liy"
-\include "bassMusic.liy"
 
 
 wordsall = 
 {
- % \override LyricText.color=#white
- % \override LyricText.font-size=#9
     \lyricmode{
        a a  a  a  a  a  a a a  a  a  a  a  a 
        a a  a  a  a  a  a a a  a  a  a  a  a 
@@ -64,5 +58,9 @@ tenorwordsall =  \wordsall
 basswordsall =  \wordsall
 
 
+\include "sopranoMusic.liy"
+\include "altoMusic.liy"
+\include "tenorMusic.liy"
+\include "bassMusic.liy"
 
 

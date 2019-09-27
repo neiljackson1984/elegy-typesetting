@@ -24,32 +24,39 @@ tenorMusic =
         | \barNumberCheck #010     << {c'2~ c4. d8} \\ {\autoBeamOff g,4 g fis8 fis g a} >>
         | \barNumberCheck #011     << {ees'2 d} \\ {\autoBeamOff g,4 g a8 a g fis} >>
         \originalLineBreak         
-        
-        {\stopStaff s1*3}
-        
-        
-        
+        % \stopStaff
+       
         <<
             \context Staff = "tenor1" {
+                \clef "treble_8"
                 \startStaff 
+                \new Voice = "tenor1" 
                 { \autoBeamOff
-                    | \barNumberCheck #12      ees'4 ees d4. d8
+                    | \barNumberCheck #12      ees'4^\markup{tenor1} ees d4. d8
                     | \barNumberCheck #13      g8 f e d c4( d8) e
                     | \barNumberCheck #14      f e d c bes4 c8 d
                 }
                 \stopStaff
-            } \\
+            } 
+            \\
+            \new Lyrics \lyricsto "tenor1" \tenorwordsall
+            \\
             \context Staff = "tenor2" {
+                \clef "treble_8"
                 \startStaff 
-                { \autoBeamOff
-                    | \barNumberCheck #12      g,4 g fis8 fis g a
+                \new Voice = "tenor2" { \autoBeamOff
+                    | \barNumberCheck #12      g,4^\markup{tenor2} g fis8 fis g a
                     | \barNumberCheck #13      d[( g,]) bes[( d]) e e d c
                     | \barNumberCheck #14      c[( f,]) a[( c]) d d c bes
                 }
                 \stopStaff
             }
+            \\
+            \new Lyrics \lyricsto "tenor2" \tenorwordsall
         >>
-        \originalLineBreak         
+        % \startStaff  
+        \originalLineBreak   
+              
                                    
         | \barNumberCheck #015     bes4 d8 d c c c c 
         | \barNumberCheck #016     bes bes bes d bes4 bes8 a
