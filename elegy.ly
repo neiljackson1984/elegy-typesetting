@@ -27,10 +27,12 @@
 
 
 scorecontents = {
+
+
 	\new ChoirStaff
 	<<
 
-		\new Staff = soprano
+		\new Staff = "soprano"
 		<<
 			\set Staff.instrumentName = "soprano"
 			
@@ -45,7 +47,7 @@ scorecontents = {
 		\new Lyrics \lyricsto "soprano" \sopranowordsall
 
 		
-		\new Staff = alto
+		\new Staff = "alto"
 		<<
 			\set Staff.instrumentName = "alto"
 			\new Voice = alto
@@ -58,7 +60,7 @@ scorecontents = {
 		\new Lyrics \lyricsto "alto" \altowordsall
 		
 
-		\new Staff = "tenor"
+		\new Staff = "tenor" \with{\RemoveEmptyStaves }
 		<<
 			\set Staff.instrumentName = "tenor"
 			\new Voice = tenor
@@ -70,7 +72,7 @@ scorecontents = {
 		>>
 		\new Lyrics \lyricsto "tenor" \tenorwordsall
 
-		\new Staff = bass
+		\new Staff = "bass"
 		<<
 			\set Staff.instrumentName = "bass"
 			\new Voice = bass
@@ -91,20 +93,17 @@ scorecontents = {
     }
 
     \score{
+
         \transpose c c \scorecontents
 
         \layout {
             %indent = 1\in
 
-            \context
-            {
+            \context{
                 \Staff
                 %\remove Instrument_name_engraver
-                \override Staff.midiMinimumVolume = #0.7
-                \override Staff.midiMaximumVolume = #0.7
-                \override Staff.midiInstrument = #"voice oohs"
             }
-            
+
             \context{
                 \Lyrics
                 % \override LyricText.color=#red
@@ -129,12 +128,13 @@ scorecontents = {
             % arranger = "typeset by Neil Jackson"
             % breakbefore = ##f
         }
-        \midi
-        {
-            \context 
-            {
+        \midi{  
+            \context {
                 \Score
                 tempoWholesPerMinute = #(ly:make-moment 60 4)	
+                midiMinimumVolume = #0.7
+                midiMaximumVolume = #0.7
+                midiInstrument = #"voice oohs"
             }
         }
     }	   

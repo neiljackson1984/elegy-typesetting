@@ -1,4 +1,13 @@
 \version "2.18.2"
+
+#(define-markup-command (get-instrument-name layout props) ()
+    "return the current instrument name"
+    (display props)
+    (display (ly:chain-assoc-get 'instrumentName props "unknown" #t))
+)
+    
+
+
 tenorMusic =  
     \relative {
         \autoBeamOff
@@ -26,34 +35,67 @@ tenorMusic =
         \originalLineBreak         
         % \stopStaff
        
-        <<
-            \context Staff = "tenor1" {
-                \clef "treble_8"
-                \startStaff 
-                \new Voice = "tenor1" 
-                { \autoBeamOff
-                    | \barNumberCheck #12      ees'4^\markup{tenor1} ees d4. d8
-                    | \barNumberCheck #13      g8 f e d c4( d8) e
-                    | \barNumberCheck #14      f e d c bes4 c8 d
-                }
-                \stopStaff
-            } 
-            \\
-            \new Lyrics \lyricsto "tenor1" \tenorwordsall
-            \\
-            \context Staff = "tenor2" {
-                \clef "treble_8"
-                \startStaff 
-                \new Voice = "tenor2" { \autoBeamOff
-                    | \barNumberCheck #12      g,4^\markup{tenor2} g fis8 fis g a
-                    | \barNumberCheck #13      d[( g,]) bes[( d]) e e d c
-                    | \barNumberCheck #14      c[( f,]) a[( c]) d d c bes
-                }
-                \stopStaff
-            }
-            \\
-            \new Lyrics \lyricsto "tenor2" \tenorwordsall
-        >>
+       
+       % see http://lilypond.org/doc/v2.18/Documentation/notation/modifying-single-staves
+
+       #(define myInstrumentName "ahoy")
+       \new StaffGroup = "tenorStaffGroup" 
+            \with {alignAboveContext = #"bass" \RemoveEmptyStaves}
+                <<
+                    % \absolute{ a4^\markup{#(ly:context-id )} b4 c'4}
+                    % \\
+                    \new Staff = "tenor1" {
+                        \set Staff.instrumentName = "tenor 1"
+                        \set Staff.shortInstrumentName = "tenor 1"
+                        \clef "treble_8"
+                        % \startStaff 
+                        \new Voice = "tenor1" { 
+                            \autoBeamOff
+                            | \barNumberCheck #12      
+                           % \applyContext
+                                  % $(lambda (x)
+                                        % ;(set! myInstrumentName (ly:context-property x 'instrumentName))
+                                        % ;(display myInstrumentName) (newline) 
+                                        % (ly:context-property x 'instrumentName)
+                                    % )
+                            % \void #(display instrumentName) 
+                             ees'4
+                             % ^\markup { $myInstrumentName }
+                             % ^\markup { \get-instrument-name }
+                            \applyContext
+                                #(lambda (x)
+                                    (newline)(newline)(display "context name is ")(display (ly:context-name x))(newline)(newline)
+                                    (newline)(newline)(display "context is ")(display x)(newline)(newline)
+                                    '()
+                                )
+ 
+                             ees d4. d8
+                            | \barNumberCheck #13      g8 f e d c4( d8) e
+                            | \barNumberCheck #14      f e d c bes4 c8 d
+                        }
+                        % \stopStaff
+                    } 
+                    \\
+                    \new Lyrics \lyricsto "tenor1" \tenorwordsall
+                    \\
+                    \new Staff = "tenor2"  {
+                        \set Staff.instrumentName = "tenor 2"
+                        \set Staff.shortInstrumentName = "tenor 2"
+                        \clef "treble_8"
+                        % \startStaff 
+                        \new Voice = "tenor2" { 
+                            \autoBeamOff
+                            | \barNumberCheck #12      g,4 g fis8 fis g a
+                            | \barNumberCheck #13      d[( g,]) bes[( d]) e e d c
+                            | \barNumberCheck #14      c[( f,]) a[( c]) d d c bes
+                        }
+                        % \stopStaff
+                    }
+                    \\
+                    \new Lyrics \lyricsto "tenor2" \tenorwordsall
+                >>
+
+
         % \startStaff  
         \originalLineBreak   
               
