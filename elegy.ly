@@ -37,52 +37,52 @@ scorecontents = {
 			\set Staff.instrumentName = "soprano"
 			
 
-			\new Voice = soprano
+			\new Voice = "soprano"
 			<<
 				\clef treble
 				\sopranoMusic
 			>>
 			%\new Voice = hiddenlayoutvoice	\breakMask
 		>>
-		\new Lyrics \lyricsto "soprano" \sopranowordsall
+		\new Lyrics \lyricsto "soprano" \numberedSyllableDummyLyrics "s" \default 
 
 		
 		\new Staff = "alto"
 		<<
 			\set Staff.instrumentName = "alto"
-			\new Voice = alto
+			\new Voice = "alto"
 			<<
 				\clef treble
 				\altoMusic
 			>>
 			%\new Voice = hiddenlayoutvoice \breakMask
 		>>
-		\new Lyrics \lyricsto "alto" \altowordsall
+		\new Lyrics \lyricsto "alto" \numberedSyllableDummyLyrics "a" \default 
 		
 
 		\new Staff = "tenor" \with{\RemoveEmptyStaves }
 		<<
 			\set Staff.instrumentName = "tenor"
-			\new Voice = tenor
+			\new Voice = "tenor"
 			<<
 				\clef "treble_8"
 				\tenorMusic
 			>>
 			%\new Voice = hiddenlayoutvoice \breakMask
 		>>
-		\new Lyrics \lyricsto "tenor" \tenorwordsall
+		\new Lyrics \lyricsto "tenor" \numberedSyllableDummyLyrics "t" \default 
 
 		\new Staff = "bass"
 		<<
 			\set Staff.instrumentName = "bass"
-			\new Voice = bass
+			\new Voice = "bass"
 			<<
 				\clef bass
 				\bassMusic
 			>>
 			%\new Voice = hiddenlayoutvoice \breakMask
 		>>
-		\new Lyrics \lyricsto "bass" \basswordsall
+		\new Lyrics \lyricsto "bass" \numberedSyllableDummyLyrics "b" \default 
 	>>
 }
 
@@ -106,9 +106,9 @@ scorecontents = {
 
             \context{
                 \Lyrics
-                % \override LyricText.color=#red
-                 \override LyricText.color=#white
-                 \override LyricText.font-size=#9
+                 \override LyricText.color=#red
+                 % \override LyricText.color=#white
+                 % \override LyricText.font-size=#9
             }
         }
         

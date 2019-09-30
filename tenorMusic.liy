@@ -1,11 +1,76 @@
 \version "2.18.2"
 
-#(define-markup-command (get-instrument-name layout props) ()
-    "return the current instrument name"
-    (display props)
-    (display (ly:chain-assoc-get 'instrumentName props "unknown" #t))
-)
+% #(define-markup-command (get-instrument-name layout props) ()
+    % "return the current instrument name"
+    % (begin 
+        % (display props)
+        % (display (ly:chain-assoc-get 'instrumentName props "unknown" #t))
+        % (ly:chain-assoc-get 'instrumentName props "unknown" #t)
+        % #{ hello #}
+    % )
+% )
+
+
+annotateWithInstrumentName = 
+    #(define-music-function
+        (parser location)
+        ()
+        (newline)(display "parser is ")(display parser)(newline)
+        '()        
+    )
     
+numberedSyllableDummyLyrics = 
+    #(define-scheme-function
+        (parser location prefix syllableCount)
+        ((string? "") (number? 1000))
+        ;(define syllableStrings 
+        ;    (map-in-order
+        ;        (lambda (i)
+        ;            
+        ;        )
+        ;        
+        ;    )
+        ;)
+        (make-sequential-music
+
+            (map-in-order
+                (lambda (i)
+                    (make-music 'LyricEvent 'duration (ly:make-duration 0 0 1) 'text 
+                        (markup #:line (#:simple prefix #:sub (number->string i)))
+                        ;(string-append prefix (number->string i))
+                    )
+                )
+                (iota syllableCount)
+            )
+            
+            ;% (list 
+            ;    % (make-music
+            ;        % 'LyricEvent
+            ;        % 'text
+            ;        % "g"
+            ;        % 'duration
+            ;        % (ly:make-duration 0 0 1)
+            ;    % )
+            ;    % (make-music
+            ;        % 'LyricEvent
+            ;        % 'text
+            ;        % "h"
+            ;        % 'duration
+            ;        % (ly:make-duration 0 0 1)
+            ;    % )
+            ;    % (make-music
+            ;        % 'LyricEvent
+            ;        % 'text
+            ;        % "j"
+            ;        % 'duration
+            ;        % (ly:make-duration 0 0 1)
+            ;    % )
+            ;% )
+        )   
+    )
+    % #(lambda (syllableCount) 
+        % "a b c"
+    % )
 
 
 tenorMusic =  
@@ -38,61 +103,38 @@ tenorMusic =
        
        % see http://lilypond.org/doc/v2.18/Documentation/notation/modifying-single-staves
 
-       #(define myInstrumentName "ahoy")
+
        \new StaffGroup = "tenorStaffGroup" 
-            \with {alignAboveContext = #"bass" \RemoveEmptyStaves}
+            % \with {alignAboveContext = #"bass" \RemoveEmptyStaves \remove "Time_signature_engraver"}
+            \with {alignAboveContext = #"bass" \remove "Time_signature_engraver"}
                 <<
-                    % \absolute{ a4^\markup{#(ly:context-id )} b4 c'4}
-                    % \\
-                    \new Staff = "tenor1" {
+                    \new Staff = "tenor1" \with {\remove "Time_signature_engraver"} {
                         \set Staff.instrumentName = "tenor 1"
                         \set Staff.shortInstrumentName = "tenor 1"
                         \clef "treble_8"
-                        % \startStaff 
+                        \key f \major 
                         \new Voice = "tenor1" { 
                             \autoBeamOff
-                            | \barNumberCheck #12      
-                           % \applyContext
-                                  % $(lambda (x)
-                                        % ;(set! myInstrumentName (ly:context-property x 'instrumentName))
-                                        % ;(display myInstrumentName) (newline) 
-                                        % (ly:context-property x 'instrumentName)
-                                    % )
-                            % \void #(display instrumentName) 
-                             ees'4
-                             % ^\markup { $myInstrumentName }
-                             % ^\markup { \get-instrument-name }
-                            \applyContext
-                                #(lambda (x)
-                                    (newline)(newline)(display "context name is ")(display (ly:context-name x))(newline)(newline)
-                                    (newline)(newline)(display "context is ")(display x)(newline)(newline)
-                                    '()
-                                )
- 
-                             ees d4. d8
+                            | \barNumberCheck #12      ees'4 ees d4. d8
                             | \barNumberCheck #13      g8 f e d c4( d8) e
                             | \barNumberCheck #14      f e d c bes4 c8 d
                         }
-                        % \stopStaff
-                    } 
-                    \\
-                    \new Lyrics \lyricsto "tenor1" \tenorwordsall
-                    \\
-                    \new Staff = "tenor2"  {
+                    }                     
+                    \new Lyrics \lyricsto "tenor1" {\numberedSyllableDummyLyrics "t1" \default   }
+                    
+                    \new Staff = "tenor2"  \with {\remove "Time_signature_engraver"}  {
                         \set Staff.instrumentName = "tenor 2"
                         \set Staff.shortInstrumentName = "tenor 2"
                         \clef "treble_8"
-                        % \startStaff 
+                         \key f \major  
                         \new Voice = "tenor2" { 
                             \autoBeamOff
                             | \barNumberCheck #12      g,4 g fis8 fis g a
                             | \barNumberCheck #13      d[( g,]) bes[( d]) e e d c
                             | \barNumberCheck #14      c[( f,]) a[( c]) d d c bes
                         }
-                        % \stopStaff
                     }
-                    \\
-                    \new Lyrics \lyricsto "tenor2" \tenorwordsall
+                    \new Lyrics \lyricsto "tenor2" {\numberedSyllableDummyLyrics "t2" \default   }
                 >>
 
 
@@ -133,3 +175,8 @@ tenorMusic =
         \originalLineBreak
         \originalPageBreak 
     }
+    
+% \displayMusic \lyricmode{ x y z }
+% \displayMusic {\numberedSyllableDummyLyrics \default }
+
+% \displayScheme  \markup { a \sub b }
