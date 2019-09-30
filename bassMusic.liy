@@ -2,9 +2,8 @@
 
 bassMusic =  
     \relative {
-        \autoBeamOff
         \time 4/4  \key f \major 
-        | \barNumberCheck #000     \partial 8    f=8            
+                                  \partial 8  \resetRelativeOctave f  f=8            
         | \barNumberCheck #001     f f f f e4. e8
         | \barNumberCheck #002     d d d d d4. d8
         \originalLineBreak

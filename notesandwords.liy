@@ -60,5 +60,6 @@ basswordsall =  \wordsall
 \include "altoMusic.liy"
 \include "tenorMusic.liy"
 \include "bassMusic.liy"
+\include "dummyKeepAliveMusic.liy"
 
 

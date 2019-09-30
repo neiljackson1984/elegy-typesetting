@@ -1,30 +1,12 @@
 \version "2.18.2"
-% \include "utility.liy"
-
-% #(define-markup-command (get-instrument-name layout props) ()
-    % "return the current instrument name"
-    % (begin 
-        % (display props)
-        % (display (ly:chain-assoc-get 'instrumentName props "unknown" #t))
-        % (ly:chain-assoc-get 'instrumentName props "unknown" #t)
-        % #{ hello #}
-    % )
-% )
+\include "utility.liy"
 
 
-annotateWithInstrumentName = 
-    #(define-music-function
-        (parser location)
-        ()
-        (newline)(display "parser is ")(display parser)(newline)
-        '()        
-    )
 
 tenorMusic =  
     \relative {
-        \autoBeamOff
         \time 4/4  \key f \major 
-        | \barNumberCheck #000     \partial 8    f=8           
+                                   \partial 8   \resetRelativeOctave f f=8           
         | \barNumberCheck #001     f f f f f4. f8
         | \barNumberCheck #002     f f f f f4. f8
         \originalLineBreak
@@ -36,60 +18,83 @@ tenorMusic =
                                    
         | \barNumberCheck #006     a a a a a4 g8 f
         | \barNumberCheck #007     f f fis fis g a bes bes
-        | \barNumberCheck #008     bes4 bes a4 a8 << a \\ a >>
+        | \barNumberCheck #008     bes4 bes a4 a8  << \context Voice="tenor1" {\voiceOne  a}  \context Voice="tenor2" {\voiceTwo  a} >>  
         \originalLineBreak         
         \originalPageBreak         
                                    
-                                   
-        | \barNumberCheck #009     << c1 \\ {\autoBeamOff g2( a8) a g fis} >>
-        | \barNumberCheck #010     << {c'2~ c4. d8} \\ {\autoBeamOff g,4 g fis8 fis g a} >>
-        | \barNumberCheck #011     << {ees'2 d} \\ {\autoBeamOff g,4 g a8 a g fis} >>
+
+        << 
+            \context Voice="tenor1" {\voiceOne 
+                | \barNumberCheck #009     \resetRelativeOctave c' c='1
+                | \barNumberCheck #010     c2~ c4. d8
+                | \barNumberCheck #011     ees2 d 
+            }  
+            \context Voice="tenor2" {\voiceTwo 
+                | \barNumberCheck #009     \resetRelativeOctave g g=2( a8) a g fis
+                | \barNumberCheck #010     g4 g fis8 fis g a
+                | \barNumberCheck #011     g4 g a8 a g fis
+            } 
+        >> \oneVoice
         \originalLineBreak         
-        % \stopStaff
-       
-       
+
+        << 
+            \context Voice="tenor1" { \change Staff = "tenor1-staff"
+                | \barNumberCheck #012     \resetRelativeOctave ees' ees='4 ees d4. d8
+                | \barNumberCheck #013     g8 f e d c4( d8) e
+                | \barNumberCheck #014     f e d c bes4 c8 d
+            } 
+            \context Lyrics = "lyricsUnderTenor1Staff" { \numberedSyllableDummyLyrics "t1" 57 17  }
+            \context Voice="tenor2" { \change Staff = "tenor2-staff"
+                | \barNumberCheck #012     \resetRelativeOctave g g=4 g fis8 fis g a
+                | \barNumberCheck #013     d[( g,]) bes[( d]) e e d c
+                | \barNumberCheck #014     c[( f,]) a[( c]) d d c bes
+            } 
+        >> 
+        \originalLineBreak  
+
+
        % see http://lilypond.org/doc/v2.18/Documentation/notation/modifying-single-staves
 
 
-       \new StaffGroup = "tenorStaffGroup" 
-            % \with {alignAboveContext = #"bass" \RemoveEmptyStaves \remove "Time_signature_engraver"}
-            \with {alignAboveContext = #"bass" \remove "Time_signature_engraver"}
-                <<
-                    \new Staff = "tenor1" \with {\remove "Time_signature_engraver"} {
-                        \set Staff.instrumentName = "tenor 1"
-                        \set Staff.shortInstrumentName = "tenor 1"
-                        \clef "treble_8"
-                        \key f \major 
-                        \new Voice = "tenor1" { 
-                            \autoBeamOff
-                            | \barNumberCheck #12      ees'4 ees d4. d8
-                            | \barNumberCheck #13      g8 f e d c4( d8) e
-                            | \barNumberCheck #14      f e d c bes4 c8 d
-                        }
-                    }                     
-                    \new Lyrics \lyricsto "tenor1" {\numberedSyllableDummyLyrics "t1" \default   }
+       % % \context StaffGroup = "tenorStaffGroup" 
+            % % \with {alignAboveContext = #"bass-staff" \RemoveEmptyStaves \remove "Time_signature_engraver"}
+            % % \with {alignAboveContext = #"bass-staff" \remove "Time_signature_engraver"}
+                % <<
+                    % \context Staff = "tenor1-staff" \with {\remove "Time_signature_engraver"} {
+                        % \set Staff.instrumentName = "tenor 1"
+                        % \set Staff.shortInstrumentName = "tenor 1"
+                        % \clef "treble_8"
+                        % \key f \major 
+                        % \context Voice = "tenor1" { 
+                            % \autoBeamOff
+                            % | \barNumberCheck #12      \resetRelativeOctave ees' ees='4 ees d4. d8
+                            % | \barNumberCheck #13      g8 f e d c4( d8) e
+                            % | \barNumberCheck #14      f e d c bes4 c8 d
+                        % }
+                    % }                     
+                    % % \new Lyrics \lyricsto "tenor1" {\numberedSyllableDummyLyrics "t1" \default   }
                     
-                    \new Staff = "tenor2"  \with {\remove "Time_signature_engraver"}  {
-                        \set Staff.instrumentName = "tenor 2"
-                        \set Staff.shortInstrumentName = "tenor 2"
-                        \clef "treble_8"
-                         \key f \major  
-                        \new Voice = "tenor2" { 
-                            \autoBeamOff
-                            | \barNumberCheck #12      g,4 g fis8 fis g a
-                            | \barNumberCheck #13      d[( g,]) bes[( d]) e e d c
-                            | \barNumberCheck #14      c[( f,]) a[( c]) d d c bes
-                        }
-                    }
-                    \new Lyrics \lyricsto "tenor2" {\numberedSyllableDummyLyrics "t2" \default   }
-                >>
+                    % \context Staff = "tenor2-staff"  \with {\remove "Time_signature_engraver"}  {
+                        % \set Staff.instrumentName = "tenor 2"
+                        % \set Staff.shortInstrumentName = "tenor 2"
+                        % \clef "treble_8"
+                         % \key f \major  
+                        % \context Voice = "tenor2" { 
+                            % \autoBeamOff
+                            % | \barNumberCheck #12      \resetRelativeOctave g g=4 g fis8 fis g a
+                            % | \barNumberCheck #13      d[( g,]) bes[( d]) e e d c
+                            % | \barNumberCheck #14      c[( f,]) a[( c]) d d c bes
+                        % }
+                    % }
+                    % % \new Lyrics \lyricsto "tenor2" {\numberedSyllableDummyLyrics "t2" \default   }
+                % >>
 
 
         % \startStaff  
         \originalLineBreak   
               
                                    
-        | \barNumberCheck #015     bes4 d8 d c c c c 
+        | \barNumberCheck #015     \change Staff = "tenor-staff" bes4 d8 d c c c c 
         | \barNumberCheck #016     bes bes bes d bes4 bes8 a
         | \barNumberCheck #017     d, d e e f4. e8
         \originalLineBreak         

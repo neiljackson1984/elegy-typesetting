@@ -2,8 +2,8 @@
  
 numberedSyllableDummyLyrics = 
     #(define-scheme-function
-        (parser location prefix syllableCount)
-        ((string? "") (number? 1000))
+        (parser location prefix  initialIndex syllableCount)
+        ((string? "w")  (number? 1) (number? 1000))
         ;(define syllableStrings 
         ;    (map-in-order
         ;        (lambda (i)
@@ -21,7 +21,7 @@ numberedSyllableDummyLyrics =
                         ;(string-append prefix (number->string i))
                     )
                 )
-                (iota syllableCount 1)
+                (iota syllableCount initialIndex)
             )
             
             ;% (list 
@@ -53,3 +53,23 @@ numberedSyllableDummyLyrics =
         % "a b c"
     % )
 
+
+
+% % #(define-markup-command (get-instrument-name layout props) ()
+    % % "return the current instrument name"
+    % % (begin 
+        % % (display props)
+        % % (display (ly:chain-assoc-get 'instrumentName props "unknown" #t))
+        % % (ly:chain-assoc-get 'instrumentName props "unknown" #t)
+        % % #{ hello #}
+    % % )
+% % )
+
+
+% annotateWithInstrumentName = 
+    % #(define-music-function
+        % (parser location)
+        % ()
+        % (newline)(display "parser is ")(display parser)(newline)
+        % '()        
+    % )

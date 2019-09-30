@@ -2,9 +2,8 @@
 
 sopranoMusic =  
     \relative {
-        \autoBeamOff
         \time 4/4  \key f \major 
-        | \barNumberCheck #000     \partial 8                 a='8 
+                                   \partial 8   \resetRelativeOctave a'   a='8 
         | \barNumberCheck #001     a a a a a4. a8 
         | \barNumberCheck #002     a d, e f g4. g8
         \originalLineBreak

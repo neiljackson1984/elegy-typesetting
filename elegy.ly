@@ -4,60 +4,7 @@
 \include "notesandwords.liy"
 
 
-    
-numberedSyllableDummyLyrics = 
-    #(define-scheme-function
-        (parser location prefix syllableCount)
-        ((string? "") (number? 1000))
-        ;(define syllableStrings 
-        ;    (map-in-order
-        ;        (lambda (i)
-        ;            
-        ;        )
-        ;        
-        ;    )
-        ;)
-        (make-sequential-music
-
-            (map-in-order
-                (lambda (i)
-                    (make-music 'LyricEvent 'duration (ly:make-duration 0 0 1) 'text 
-                        (markup #:line (#:simple prefix #:sub (number->string i)))
-                        ;(string-append prefix (number->string i))
-                    )
-                )
-                (iota syllableCount)
-            )
-            
-            ;% (list 
-            ;    % (make-music
-            ;        % 'LyricEvent
-            ;        % 'text
-            ;        % "g"
-            ;        % 'duration
-            ;        % (ly:make-duration 0 0 1)
-            ;    % )
-            ;    % (make-music
-            ;        % 'LyricEvent
-            ;        % 'text
-            ;        % "h"
-            ;        % 'duration
-            ;        % (ly:make-duration 0 0 1)
-            ;    % )
-            ;    % (make-music
-            ;        % 'LyricEvent
-            ;        % 'text
-            ;        % "j"
-            ;        % 'duration
-            ;        % (ly:make-duration 0 0 1)
-            ;    % )
-            ;% )
-        )   
-    )
-    % #(lambda (syllableCount) 
-        % "a b c"
-    % )
-
+ 
 
  
 #(set-global-staff-size 16)
@@ -83,15 +30,13 @@ numberedSyllableDummyLyrics =
 
 
 scorecontents = {
-
-
 	\new ChoirStaff
 	<<
 
-		\new Staff = "soprano"
+		\new Staff = "soprano-staff"
 		<<
 			\set Staff.instrumentName = "soprano"
-			
+			\new Voice = "dummyKeepAliveVoiceForSopranoStaff" { \dummyKeepAliveMusic }
 
 			\new Voice = "soprano"
 			<<
@@ -100,12 +45,13 @@ scorecontents = {
 			>>
 			%\new Voice = hiddenlayoutvoice	\breakMask
 		>>
-		\new Lyrics \lyricsto "soprano" {\numberedSyllableDummyLyrics "s" \default }
+		\new Lyrics = "lyricsUnderSopranoStaff" \lyricsto "soprano" {\numberedSyllableDummyLyrics "s" \default }
 
 		
-		\new Staff = "alto"
+		\new Staff = "alto-staff"
 		<<
 			\set Staff.instrumentName = "alto"
+            \new Voice = "dummyKeepAliveVoiceForAltoStaff" { \dummyKeepAliveMusic }
 			\new Voice = "alto"
 			<<
 				\clef treble
@@ -113,24 +59,46 @@ scorecontents = {
 			>>
 			%\new Voice = hiddenlayoutvoice \breakMask
 		>>
-		\new Lyrics \lyricsto "alto" {\numberedSyllableDummyLyrics "a" \default }
+		\new Lyrics = "lyricsUnderAltoStaff" \lyricsto "alto" {\numberedSyllableDummyLyrics "a" \default }
 		
 
-		\new Staff = "tenor" \with{\RemoveEmptyStaves }
+        \new Lyrics = "lyricsAboveTenorStaff"  {  } 
+		\new Staff = "tenor-staff" \with{\RemoveEmptyStaves }
 		<<
 			\set Staff.instrumentName = "tenor"
-			\new Voice = "tenor"
-			<<
-				\clef "treble_8"
-				\tenorMusic
-			>>
+            \clef "treble_8"
+            \new Voice = "dummyKeepAliveVoiceForTenorStaff" { \dummyKeepAliveMusic }
+			\new Voice = "tenor1" { \tenorMusic }
+            \new Voice = "tenor2" { }
 			%\new Voice = hiddenlayoutvoice \breakMask
 		>>
-		\new Lyrics \lyricsto "tenor" {\numberedSyllableDummyLyrics "t" \default }
+        \new Lyrics = "lyricsUnderTenorStaff" {  } 
 
-		\new Staff = "bass"
+        \new StaffGroup = "tenorStaffGroup" 
+            \with {\RemoveEmptyStaves }
+                <<
+                    \new Staff = "tenor1-staff" \with { } {
+                        \override Staff.VerticalAxisGroup.remove-first = ##t
+                        \set Staff.instrumentName = "tenor 1"
+                        \set Staff.shortInstrumentName = "tenor 1"
+                        \clef "treble_8"
+                        \new Voice = "dummyKeepAliveVoiceForTenor1Staff" { \dummyKeepAliveMusic }
+                    } 
+                    \new Lyrics = "lyricsUnderTenor1Staff" {  }                     
+                    \new Staff = "tenor2-staff"  \with { }  {
+                        \override Staff.VerticalAxisGroup.remove-first = ##t
+                        \set Staff.instrumentName = "tenor 2"
+                        \set Staff.shortInstrumentName = "tenor 2"
+                        \clef "treble_8" 
+                        \new Voice = "dummyKeepAliveVoiceForTenor2Staff" { \dummyKeepAliveMusic }
+                    }
+                    \new Lyrics = "lyricsUnderTenor2Staff" {  } 
+                >>
+
+		\new Staff = "bass-staff"
 		<<
 			\set Staff.instrumentName = "bass"
+            \new Voice = "dummyKeepAliveVoiceForBassStaff" { \dummyKeepAliveMusic }
 			\new Voice = "bass"
 			<<
 				\clef bass
@@ -138,7 +106,10 @@ scorecontents = {
 			>>
 			%\new Voice = hiddenlayoutvoice \breakMask
 		>>
-		\new Lyrics \lyricsto "bass" {\numberedSyllableDummyLyrics "b" \default }
+		\new Lyrics = "lyricsUnderBassStaff" \lyricsto "bass" {\numberedSyllableDummyLyrics "b" \default }
+        
+        \context Lyrics = "lyricsUnderTenorStaff" \lyricsto "tenor1" { \numberedSyllableDummyLyrics "t" 1 56 }  
+        
 	>>
 }
 
@@ -166,6 +137,11 @@ scorecontents = {
                  % \override LyricText.color=#white
                  % \override LyricText.font-size=#9
             }
+            
+            \context{
+                \Voice
+                \autoBeamOff
+            }
         }
         
         \header{
@@ -184,14 +160,14 @@ scorecontents = {
             % arranger = "typeset by Neil Jackson"
             % breakbefore = ##f
         }
-        \midi{  
-            \context {
-                \Score
-                tempoWholesPerMinute = #(ly:make-moment 60 4)	
-                midiMinimumVolume = #0.7
-                midiMaximumVolume = #0.7
-                midiInstrument = #"voice oohs"
-            }
-        }
+        % \midi{  
+            % \context {
+                % \Score
+                % tempoWholesPerMinute = #(ly:make-moment 60 4)	
+                % midiMinimumVolume = #0.7
+                % midiMaximumVolume = #0.7
+                % midiInstrument = #"voice oohs"
+            % }
+        % }
     }	   
 }

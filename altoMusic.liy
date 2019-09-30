@@ -2,9 +2,8 @@
 
 altoMusic =  
     \relative {
-        \autoBeamOff
         \time 4/4  \key f \major 
-        | \barNumberCheck #000     \partial 8      c='8            
+                                   \partial 8      \resetRelativeOctave c' c='8            
         | \barNumberCheck #001     c c c c c4. c8
         | \barNumberCheck #002     d d c c b4. b8
         \originalLineBreak
