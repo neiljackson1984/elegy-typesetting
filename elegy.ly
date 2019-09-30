@@ -1,7 +1,63 @@
 \version "2.18.2"
 #(ly:set-option 'point-and-click #f)
-
+\include "utility.liy"
 \include "notesandwords.liy"
+
+
+    
+numberedSyllableDummyLyrics = 
+    #(define-scheme-function
+        (parser location prefix syllableCount)
+        ((string? "") (number? 1000))
+        ;(define syllableStrings 
+        ;    (map-in-order
+        ;        (lambda (i)
+        ;            
+        ;        )
+        ;        
+        ;    )
+        ;)
+        (make-sequential-music
+
+            (map-in-order
+                (lambda (i)
+                    (make-music 'LyricEvent 'duration (ly:make-duration 0 0 1) 'text 
+                        (markup #:line (#:simple prefix #:sub (number->string i)))
+                        ;(string-append prefix (number->string i))
+                    )
+                )
+                (iota syllableCount)
+            )
+            
+            ;% (list 
+            ;    % (make-music
+            ;        % 'LyricEvent
+            ;        % 'text
+            ;        % "g"
+            ;        % 'duration
+            ;        % (ly:make-duration 0 0 1)
+            ;    % )
+            ;    % (make-music
+            ;        % 'LyricEvent
+            ;        % 'text
+            ;        % "h"
+            ;        % 'duration
+            ;        % (ly:make-duration 0 0 1)
+            ;    % )
+            ;    % (make-music
+            ;        % 'LyricEvent
+            ;        % 'text
+            ;        % "j"
+            ;        % 'duration
+            ;        % (ly:make-duration 0 0 1)
+            ;    % )
+            ;% )
+        )   
+    )
+    % #(lambda (syllableCount) 
+        % "a b c"
+    % )
+
 
  
 #(set-global-staff-size 16)
@@ -44,7 +100,7 @@ scorecontents = {
 			>>
 			%\new Voice = hiddenlayoutvoice	\breakMask
 		>>
-		\new Lyrics \lyricsto "soprano" \numberedSyllableDummyLyrics "s" \default 
+		\new Lyrics \lyricsto "soprano" {\numberedSyllableDummyLyrics "s" \default }
 
 		
 		\new Staff = "alto"
@@ -57,7 +113,7 @@ scorecontents = {
 			>>
 			%\new Voice = hiddenlayoutvoice \breakMask
 		>>
-		\new Lyrics \lyricsto "alto" \numberedSyllableDummyLyrics "a" \default 
+		\new Lyrics \lyricsto "alto" {\numberedSyllableDummyLyrics "a" \default }
 		
 
 		\new Staff = "tenor" \with{\RemoveEmptyStaves }
@@ -70,7 +126,7 @@ scorecontents = {
 			>>
 			%\new Voice = hiddenlayoutvoice \breakMask
 		>>
-		\new Lyrics \lyricsto "tenor" \numberedSyllableDummyLyrics "t" \default 
+		\new Lyrics \lyricsto "tenor" {\numberedSyllableDummyLyrics "t" \default }
 
 		\new Staff = "bass"
 		<<
@@ -82,7 +138,7 @@ scorecontents = {
 			>>
 			%\new Voice = hiddenlayoutvoice \breakMask
 		>>
-		\new Lyrics \lyricsto "bass" \numberedSyllableDummyLyrics "b" \default 
+		\new Lyrics \lyricsto "bass" {\numberedSyllableDummyLyrics "b" \default }
 	>>
 }
 

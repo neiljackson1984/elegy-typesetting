@@ -1,4 +1,5 @@
 \version "2.18.2"
+% \include "utility.liy"
 
 % #(define-markup-command (get-instrument-name layout props) ()
     % "return the current instrument name"
@@ -18,60 +19,6 @@ annotateWithInstrumentName =
         (newline)(display "parser is ")(display parser)(newline)
         '()        
     )
-    
-numberedSyllableDummyLyrics = 
-    #(define-scheme-function
-        (parser location prefix syllableCount)
-        ((string? "") (number? 1000))
-        ;(define syllableStrings 
-        ;    (map-in-order
-        ;        (lambda (i)
-        ;            
-        ;        )
-        ;        
-        ;    )
-        ;)
-        (make-sequential-music
-
-            (map-in-order
-                (lambda (i)
-                    (make-music 'LyricEvent 'duration (ly:make-duration 0 0 1) 'text 
-                        (markup #:line (#:simple prefix #:sub (number->string i)))
-                        ;(string-append prefix (number->string i))
-                    )
-                )
-                (iota syllableCount)
-            )
-            
-            ;% (list 
-            ;    % (make-music
-            ;        % 'LyricEvent
-            ;        % 'text
-            ;        % "g"
-            ;        % 'duration
-            ;        % (ly:make-duration 0 0 1)
-            ;    % )
-            ;    % (make-music
-            ;        % 'LyricEvent
-            ;        % 'text
-            ;        % "h"
-            ;        % 'duration
-            ;        % (ly:make-duration 0 0 1)
-            ;    % )
-            ;    % (make-music
-            ;        % 'LyricEvent
-            ;        % 'text
-            ;        % "j"
-            ;        % 'duration
-            ;        % (ly:make-duration 0 0 1)
-            ;    % )
-            ;% )
-        )   
-    )
-    % #(lambda (syllableCount) 
-        % "a b c"
-    % )
-
 
 tenorMusic =  
     \relative {
