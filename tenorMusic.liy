@@ -43,12 +43,13 @@ tenorMusic =
                 | \barNumberCheck #013     g8 f e d c4( d8) e
                 | \barNumberCheck #014     f e d c bes4 c8 d
             } 
-            \context Lyrics = "lyricsUnderTenor1Staff" { \numberedSyllableDummyLyrics "t1" 57 17  }
+            \context Lyrics = "lyricsUnderTenor1Staff" \with { alignBelowContext = #"tenor1-staff" } \lyricsto "tenor1" { \numberedSyllableDummyLyrics "t1" 57 16  }
             \context Voice="tenor2" { \change Staff = "tenor2-staff"
                 | \barNumberCheck #012     \resetRelativeOctave g g=4 g fis8 fis g a
                 | \barNumberCheck #013     d[( g,]) bes[( d]) e e d c
                 | \barNumberCheck #014     c[( f,]) a[( c]) d d c bes
             } 
+            \context Lyrics = "lyricsUnderTenor2Staff" \with { alignBelowContext = #"tenor2-staff" } \lyricsto "tenor2" { \numberedSyllableDummyLyrics "t2" 1 17  }
         >> 
         \originalLineBreak  
 
@@ -90,11 +91,12 @@ tenorMusic =
                 % >>
 
 
-        % \startStaff  
+        
         \originalLineBreak   
               
-                                   
-        | \barNumberCheck #015     \change Staff = "tenor-staff" bes4 d8 d c c c c 
+        % \change Staff = "tenor-staff"    
+        \unset Staff.shortInstrumentName 
+        | \barNumberCheck #015     bes4 d8 d c c c c 
         | \barNumberCheck #016     bes bes bes d bes4 bes8 a
         | \barNumberCheck #017     d, d e e f4. e8
         \originalLineBreak         
