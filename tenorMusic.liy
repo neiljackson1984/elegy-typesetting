@@ -25,18 +25,22 @@ tenorMusic =
                                    
 
         << 
-            \context Voice="tenor1" {\voiceOne 
+            \context Voice="tenor1" {
+                % \voiceOne 
+                \change Staff = "tenor1-staff"
                 | \barNumberCheck #009     \resetRelativeOctave c' c='1
                 | \barNumberCheck #010     c2~ c4. d8
                 | \barNumberCheck #011     ees2 d 
             }  
-            \context Voice="tenor2" {\voiceTwo 
+            \context Voice="tenor2" {
+                % \voiceTwo 
+                \change Staff = "tenor2-staff"
                 | \barNumberCheck #009     \resetRelativeOctave g g=2( a8) a g fis
                 | \barNumberCheck #010     g4 g fis8 fis g a
                 | \barNumberCheck #011     g4 g a8 a g fis
             } 
-        >> \oneVoice
-        \originalLineBreak         
+        % >> \oneVoice
+        % \originalLineBreak         
 
         << 
             \context Voice="tenor1" { \change Staff = "tenor1-staff"
@@ -45,18 +49,18 @@ tenorMusic =
                 | \barNumberCheck #014     f e d c bes4 c8 d
                 \change Staff = "tenor-staff"
             } 
-            \context Lyrics = "lyricsUnderTenor1Staff" \with { alignBelowContext = #"tenor1-staff" } \lyricsto "tenor1" {
-                % \numberedSyllableDummyLyrics "t1" 57 16  
-            }
+            % \context Lyrics = "lyricsUnderTenor1Staff"  \lyricsto "tenor1" {
+                % % \numberedSyllableDummyLyrics "t1" 57 16  
+            % }
             \context Voice="tenor2" { \change Staff = "tenor2-staff"
                 | \barNumberCheck #012     \resetRelativeOctave g g=4 g fis8 fis g a
                 | \barNumberCheck #013     d[( g,]) bes[( d]) e e d c
                 | \barNumberCheck #014     c[( f,]) a[( c]) d d c bes
                 \change Staff = "tenor-staff"
             } 
-            \context Lyrics = "lyricsUnderTenor2Staff" \with { alignBelowContext = #"tenor2-staff" } \lyricsto "tenor2" {
-                % \numberedSyllableDummyLyrics "t2" 1 17  
-            }
+            % \context Lyrics = "lyricsUnderTenor2Staff" \with { alignBelowContext = #"tenor2-staff" } \lyricsto "tenor2" {
+                % % \numberedSyllableDummyLyrics "t2" 1 17  
+            % }
         >> 
         \originalLineBreak  
 

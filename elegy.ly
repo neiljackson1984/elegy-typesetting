@@ -90,7 +90,7 @@ scorecontents = {
                         \clef "treble_8"
                         \new Voice = "dummyKeepAliveVoiceForTenor1Staff" { \dummyKeepAliveMusic }
                     } 
-                    \new Lyrics = "lyricsUnderTenor1Staff" {  }                     
+                    \new Lyrics = "lyricsUnderTenor1Staff" \with { alignBelowContext = #"tenor1-staff" } { \dummyKeepAliveMusic  }                     
                     \new Staff = "tenor2-staff"  \with { }  {
                         \override Staff.VerticalAxisGroup.remove-first = ##t
                         \set Staff.instrumentName = "tenor 2"
@@ -98,7 +98,7 @@ scorecontents = {
                         \clef "treble_8" 
                         \new Voice = "dummyKeepAliveVoiceForTenor2Staff" { \dummyKeepAliveMusic }
                     }
-                    \new Lyrics = "lyricsUnderTenor2Staff" {  } 
+                    \new Lyrics = "lyricsUnderTenor2Staff"  \with { alignBelowContext = #"tenor2-staff" } { \dummyKeepAliveMusic  } 
                 >>
 
 		\new Staff = "bass-staff"
@@ -122,7 +122,7 @@ scorecontents = {
                 % \set associatedVoice = "tenor1"
                 \numberedSyllableDummyLyrics "t1" 1 51
             }
-            \context Lyrics = "lyricsAboveTenorStaff" { 
+            \context Lyrics = "lyricsUnderTenor1Staff" { 
                 % \set associatedVoice = "tenor1"
                 \numberedSyllableDummyLyrics "t1" 52 5
             }
@@ -151,7 +151,12 @@ scorecontents = {
         {
             \context Lyrics = "lyricsUnderTenorStaff" { 
                 % \set associatedVoice = "tenor2"
-                \numberedSyllableDummyLyrics "t2" 1 17
+                \numberedSyllableDummyLyrics "t2" 1 1
+            }
+            \context Lyrics = "lyricsUnderTenor2Staff" {
+                % \set associatedVoice = ##f         
+                \numberedSyllableDummyLyrics "t2" 2 16
+                % \numberedSyllableDummyLyrics "t2" 18 18
             }
             \context Lyrics = "lyricsUnderTenor2Staff" {
                 % \set associatedVoice = "tenor2"            
@@ -198,7 +203,7 @@ scorecontents = {
                 \Lyrics
                  \override LyricText.color=#red
                  % \override LyricText.color=#white
-                 \override LyricText.font-size=#0
+                 \override LyricText.font-size=#-2
             }
             
             \context{
