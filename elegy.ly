@@ -72,7 +72,9 @@ scorecontents = {
             \new Voice = "tenor2" { }
 			%\new Voice = hiddenlayoutvoice \breakMask
 		>>
-        \new Lyrics = "lyricsUnderTenorStaff" {  } 
+        \new Lyrics = "lyricsUnderTenorStaff" { 
+             \dummyKeepAliveMusic
+        } 
 
         \new StaffGroup = "tenorStaffGroup" 
             \with {\RemoveEmptyStaves }
@@ -108,7 +110,32 @@ scorecontents = {
 		>>
 		\new Lyrics = "lyricsUnderBassStaff" \lyricsto "bass" {\numberedSyllableDummyLyrics "b" \default }
         
-        \context Lyrics = "lyricsUnderTenorStaff" \lyricsto "tenor1" { \numberedSyllableDummyLyrics "t" 1 56 }  
+        \new Lyrics \lyricsto "tenor1"
+        {
+            \context Lyrics = "lyricsUnderTenorStaff" { 
+                \set associatedVoice = "tenor1"
+                \numberedSyllableDummyLyrics "t1" 1 56
+            }
+            \context Lyrics = "lyricsUnderTenor1Staff"  {
+                \set associatedVoice = "tenor1"
+                \numberedSyllableDummyLyrics "t1" 57 17
+            }
+            \context Lyrics = "lyricsUnderTenorStaff"  { 
+                \set associatedVoice = "tenor1"
+                \numberedSyllableDummyLyrics "t1" 74 50
+            }   
+            % \context Lyrics = "lyricsUnderTenorStaff"  { 
+                % \lyricmode{ a8 }
+                % \numberedSyllableDummyLyrics "t" 1 11
+            % }
+            % \context Lyrics = "lyricsUnderTenor1Staff"  {
+                % % \numberedSyllableDummyLyrics "t1" 12 3
+                % \lyricmode{"t12"1} s1 \lyricmode{"t14"1}
+            % }
+            % \context Lyrics = "lyricsUnderTenorStaff"  { 
+                % \numberedSyllableDummyLyrics "t" 15 13
+            % }          
+        }  
         
 	>>
 }
