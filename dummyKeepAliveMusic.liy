@@ -2,7 +2,5 @@
 
 dummyKeepAliveMusic =  
     {
-        \time 4/4 
-        \partial 8      s8 
-        s1*27
+        #(skip-of-length sopranoMusic)
     }
