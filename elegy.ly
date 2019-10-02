@@ -147,36 +147,35 @@ scorecontents = {
             % }          
         }  
         
-        % \new Lyrics \lyricsto "tenor2"
-        % {
-            % \context Lyrics = "lyricsUnderTenorStaff" { 
-                % % \set associatedVoice = "tenor2"
-                % \numberedSyllableDummyLyrics "t2" 1 1
-            % }
-            % \context Lyrics = "lyricsUnderTenor2Staff" {
-                % % \set associatedVoice = ##f         
-                % \numberedSyllableDummyLyrics "t2" 2 34
-                % % \numberedSyllableDummyLyrics "t2" 18 18
-            % }
-            % % \context Lyrics = "lyricsUnderTenor2Staff" {
-                % % % \set associatedVoice = "tenor2"            
-                % % \numberedSyllableDummyLyrics "t2" 18 18
-            % % }
-            % \context Lyrics = "lyricsUnderTenorStaff"  {
-                 % % \set associatedVoice = "tenor2" 
-                 % % curiously, UNcommenting the above line causes Lilypond to issue a whole bunch of the warnings "warning: Lyric syllable does not have note.  Use \lyricsto or associatedVoice."
-                 % % Evidently, there is something a bit mysterious about nested Lyrics contexts. (the strangeness might also be related to the syllable-to-rhythm matching mechanism)
-                 % % The strangeness might ahve something to do with the keepalive music that is running simultaneously in the lyricsUnderTenorStaff lyrics context.
-                % \numberedSyllableDummyLyrics "t2" 36 17
-            % }
-        % }
-
         \new Lyrics \lyricsto "tenor2"
         {
-            \context Lyrics = "diagnosticLyrics" \lyricsto "tenor2" {
-                \numberedSyllableDummyLyrics "t5" 1 100
+            \context Lyrics = "lyricsUnderTenorStaff" { 
+                \numberedSyllableDummyLyrics "t2" 1 1
+            }
+            % \context Lyrics = "lyricsUnderTenor2Staff" {      
+                % \numberedSyllableDummyLyrics "t2" 2 34
+            % }
+            \context Lyrics = "lyricsUnderTenor2Staff" {      
+                \numberedSyllableDummyLyrics "t2" 2 16
+            }
+            \context Lyrics = "lyricsUnderTenor2Staff" {      
+                \numberedSyllableDummyLyrics "t2" 18 18
+            }
+            \context Lyrics = "lyricsUnderTenorStaff"  {
+                 % \set associatedVoice = "tenor2" 
+                 % curiously, UNcommenting the above line causes Lilypond to issue a whole bunch of the warnings "warning: Lyric syllable does not have note.  Use \lyricsto or associatedVoice."
+                 % Evidently, there is something a bit mysterious about nested Lyrics contexts. (the strangeness might also be related to the syllable-to-rhythm matching mechanism)
+                 % The strangeness might ahve something to do with the keepalive music that is running simultaneously in the lyricsUnderTenorStaff lyrics context.
+                \numberedSyllableDummyLyrics "t2" 36 17
             }
         }
+
+        % \new Lyrics \lyricsto "tenor2"
+        % {
+            % \context Lyrics = "diagnosticLyrics" \lyricsto "tenor2" {
+                % \numberedSyllableDummyLyrics "t5" 1 100
+            % }
+        % }
         
 	>>
 }

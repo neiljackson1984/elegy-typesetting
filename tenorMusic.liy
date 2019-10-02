@@ -6,24 +6,21 @@
 tenorMusic =  
     \relative {
         \time 4/4  \key f \major 
-                                   \partial 8  \context Voice="tenor1" {  \resetRelativeOctave f f=8 }          
-        | \barNumberCheck #001      \context Voice="tenor1" {f f f f f4. f8}
+                                   \partial 8  \resetRelativeOctave f f=8          
+        | \barNumberCheck #001      f f f f f4. f8
         % | \barNumberCheck #001     << \context Voice="tenor1" { f f f f f4. f8 }  \context Voice="tenor2" { f f f f f4. f8 } >> //produces desired results, but throws the warning "warning: ignoring too many clashing note columns"
-        | \barNumberCheck #002      \context Voice="tenor1" {f f f f f4. f8}
+        | \barNumberCheck #002      f f f f f4. f8
         \originalLineBreak
 
-         \context Voice="tenor1" {
-            | \barNumberCheck #003     f4( e8) g f f f f 
-            | \barNumberCheck #004     f f f f e4. e8
-            | \barNumberCheck #005     e a a a a4. a8
-        }
+        | \barNumberCheck #003     f4( e8) g f f f f 
+        | \barNumberCheck #004     f f f f e4. e8
+        | \barNumberCheck #005     e a a a a4. a8
         \originalLineBreak         
         
-        \context Voice="tenor1" {        
-            | \barNumberCheck #006     a a a a a4 g8 f
-            | \barNumberCheck #007     f f fis fis g a bes bes
-        }
-        | \barNumberCheck #008      \context Voice="tenor1" {bes4 bes a4 a8}  << \context Voice="tenor1" {\voiceOne  a}  \context Voice="tenor2" {\voiceTwo  a} >>  \oneVoice
+      
+        | \barNumberCheck #006     a a a a a4 g8 f
+        | \barNumberCheck #007     f f fis fis g a bes bes
+        | \barNumberCheck #008      bes4 bes a4 a8  << \context Voice="tenor1" {\voiceOne  a}  \context Voice="tenor2" {\voiceTwo  a} >>  \oneVoice
         \originalLineBreak         
         \originalPageBreak         
                                    
@@ -31,43 +28,39 @@ tenorMusic =
         << 
             \context Voice="tenor1" {
                 % \voiceOne 
-                 % \change Staff = "tenor1-staff"
+                \change Staff = "tenor1-staff"
                 | \barNumberCheck #009     \resetRelativeOctave c' c='1
                 | \barNumberCheck #010     c2~ c4. d8
                 | \barNumberCheck #011     ees2 d 
+                \change Staff = "tenor-staff"
             }  
             \context Voice="tenor2" {
                 % \voiceTwo 
-                 % \change Staff = "tenor2-staff"
+                 \change Staff = "tenor2-staff"
                  % uncommenting the above line seems to cause the "tenor2" Voice context to die at measure 12
                 | \barNumberCheck #009     \resetRelativeOctave g g=2( a8) a g fis
                 | \barNumberCheck #010     g4 g fis8 fis g a
                 | \barNumberCheck #011     g4 g a8 a g fis
+                \change Staff = "tenor-staff" %changing back to tenor-staff seems to be necessary in order to keep the tenor2 voice alive, even if we will change back to tenor2-staff immedieately when we next enter the tenor2 context.
             } 
-        >> \oneVoice
+        >> 
         % \originalLineBreak         
 
         << 
-
-            % \context Lyrics = "lyricsUnderTenor1Staff"  \lyricsto "tenor1" {
-                % % \numberedSyllableDummyLyrics "t1" 57 16  
-            % }
-            \context Voice="tenor2" { %\change Staff = "tenor2-staff"
+            \context Voice="tenor1" { 
+                \change Staff = "tenor1-staff"
+                | \barNumberCheck #012     \resetRelativeOctave ees' ees='4 ees d4. d8
+                | \barNumberCheck #013     g8 f e d c4( d8) e
+                | \barNumberCheck #014     f e d c bes4 c8 d
+                \change Staff = "tenor-staff"
+            }  
+            \context Voice="tenor2" { 
+                \change Staff = "tenor2-staff"
                 | \barNumberCheck #012     \resetRelativeOctave g g=4 g fis8 fis g a
                 | \barNumberCheck #013     d[( g,]) bes[( d]) e e d c
                 | \barNumberCheck #014     c[( f,]) a[( c]) d d c bes
                 \change Staff = "tenor-staff"
             } 
-            
-            \context Voice="tenor1" { %\change Staff = "tenor1-staff"
-                | \barNumberCheck #012     \resetRelativeOctave ees' ees='4 ees d4. d8
-                | \barNumberCheck #013     g8 f e d c4( d8) e
-                | \barNumberCheck #014     f e d c bes4 c8 d
-                \change Staff = "tenor-staff"
-            } 
-            % \context Lyrics = "lyricsUnderTenor2Staff" \with { alignBelowContext = #"tenor2-staff" } \lyricsto "tenor2" {
-                % % \numberedSyllableDummyLyrics "t2" 1 17  
-            % }
         >> 
         \originalLineBreak  
 
@@ -108,10 +101,7 @@ tenorMusic =
                     % % \new Lyrics \lyricsto "tenor2" {\numberedSyllableDummyLyrics "t2" \default   }
                 % >>
 
-
-        
         \originalLineBreak   
-              
         \change Staff = "tenor-staff"    
         \unset Staff.shortInstrumentName 
         | \barNumberCheck #015     bes4 d8 d c c c c 
