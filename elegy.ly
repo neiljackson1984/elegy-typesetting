@@ -122,7 +122,7 @@ scorecontents = {
             }
             \context Lyrics = "lyricsUnderTenorStaff"  { 
                 \set associatedVoice = "tenor1"
-                \numberedSyllableDummyLyrics "t1" 74 50
+                \numberedSyllableDummyLyrics "t1" 74 62
             }   
             % \context Lyrics = "lyricsUnderTenorStaff"  { 
                 % \lyricmode{ a8 }

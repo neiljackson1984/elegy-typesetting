@@ -18,7 +18,7 @@ tenorMusic =
                                    
         | \barNumberCheck #006     a a a a a4 g8 f
         | \barNumberCheck #007     f f fis fis g a bes bes
-        | \barNumberCheck #008     bes4 bes a4 a8  << \context Voice="tenor1" {\voiceOne  a}  \context Voice="tenor2" {\voiceTwo  a} >>  
+        | \barNumberCheck #008     bes4 bes a4 a8  << \context Voice="tenor1" {\voiceOne  a}  \context Voice="tenor2" {\voiceTwo  a} >>  \oneVoice
         \originalLineBreak         
         \originalPageBreak         
                                    
@@ -111,17 +111,20 @@ tenorMusic =
         | \barNumberCheck #019     g g a a bes4. a8
         | \barNumberCheck #020     g g a a bes4 bes
         \originalLineBreak         
-                                   
+       
+       
         <<
-            { \autoBeamOff
+            \context Voice="tenor1" { 
+                \voiceOne
                 | \barNumberCheck #21      a8 c c c ees4. ees8
                 | \barNumberCheck #22      ees ees ees ees d4 d
-            } \\
-            { \autoBeamOff
+            }
+            \context Voice="tenor2" { 
+                \voiceTwo 
                 | \barNumberCheck #21      a8 a a a a4. a8
                 | \barNumberCheck #22      c c bes a a4 g4
             }
-        >>     
+        >>  \oneVoice   
         | \barNumberCheck #023     r4 a2.~ 
         \originalLineBreak         
                                    
