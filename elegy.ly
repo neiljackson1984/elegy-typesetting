@@ -72,10 +72,7 @@ scorecontents = {
             \clef "treble_8"
             \new Voice = "dummyKeepAliveVoiceForTenorStaff" { \dummyKeepAliveMusic }
 			\new Voice = "tenor1" { \tenorMusic }
-            \new Voice = "tenor2" {  
-                % \relative c'' {c8 c1 c c c c c c c c c c c c c c c c c c c c c c c c c c }   
-                \dummyKeepAliveMusic
-            }
+            \new Voice = "tenor2" {   \dummyKeepAliveMusic   }
 			%\new Voice = hiddenlayoutvoice \breakMask
 		>>
         \new Lyrics = "lyricsUnderTenorStaff" { 
@@ -161,7 +158,10 @@ scorecontents = {
                 \numberedSyllableDummyLyrics "t2" 18 18
             }
             \context Lyrics = "lyricsUnderTenorStaff"  {
-                % \set associatedVoice = ##f
+                 % \set associatedVoice = "tenor2" 
+                 % curiously, UNcommenting the above line causes Lilypond to issue a whole bunch of the warnings "warning: Lyric syllable does not have note.  Use \lyricsto or associatedVoice."
+                 % Evidently, there is something a bit mysterious about nested Lyrics contexts. (the strangeness might also be related to the syllable-to-rhythm matching mechanism)
+                 % The strangeness might ahve something to do with the keepalive music that is running simultaneously in the lyricsUnderTenorStaff lyrics context.
                 \numberedSyllableDummyLyrics "t2" 36 17
             }
         }
