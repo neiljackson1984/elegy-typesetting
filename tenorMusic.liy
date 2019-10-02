@@ -8,6 +8,7 @@ tenorMusic =
         \time 4/4  \key f \major 
                                    \partial 8   \resetRelativeOctave f f=8           
         | \barNumberCheck #001     f f f f f4. f8
+        % | \barNumberCheck #001     << \context Voice="tenor1" { f f f f f4. f8 }  \context Voice="tenor2" { f f f f f4. f8 } >> //produces desired results, but throws the warning "warning: ignoring too many clashing note columns"
         | \barNumberCheck #002     f f f f f4. f8
         \originalLineBreak
 
@@ -42,6 +43,7 @@ tenorMusic =
                 | \barNumberCheck #012     \resetRelativeOctave ees' ees='4 ees d4. d8
                 | \barNumberCheck #013     g8 f e d c4( d8) e
                 | \barNumberCheck #014     f e d c bes4 c8 d
+                \change Staff = "tenor-staff"
             } 
             \context Lyrics = "lyricsUnderTenor1Staff" \with { alignBelowContext = #"tenor1-staff" } \lyricsto "tenor1" {
                 % \numberedSyllableDummyLyrics "t1" 57 16  
@@ -50,6 +52,7 @@ tenorMusic =
                 | \barNumberCheck #012     \resetRelativeOctave g g=4 g fis8 fis g a
                 | \barNumberCheck #013     d[( g,]) bes[( d]) e e d c
                 | \barNumberCheck #014     c[( f,]) a[( c]) d d c bes
+                \change Staff = "tenor-staff"
             } 
             \context Lyrics = "lyricsUnderTenor2Staff" \with { alignBelowContext = #"tenor2-staff" } \lyricsto "tenor2" {
                 % \numberedSyllableDummyLyrics "t2" 1 17  

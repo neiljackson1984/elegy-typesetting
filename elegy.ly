@@ -62,14 +62,20 @@ scorecontents = {
 		\new Lyrics = "lyricsUnderAltoStaff" \lyricsto "alto" {\numberedSyllableDummyLyrics "a" \default }
 		
 
-        \new Lyrics = "lyricsAboveTenorStaff"  {  } 
+        \new Lyrics = "lyricsAboveTenorStaff" \with {
+          % lyrics above a staff should have this override
+          \override VerticalAxisGroup.staff-affinity = #DOWN
+        } { \dummyKeepAliveMusic } 
 		\new Staff = "tenor-staff" \with{\RemoveEmptyStaves }
 		<<
 			\set Staff.instrumentName = "tenor"
             \clef "treble_8"
             \new Voice = "dummyKeepAliveVoiceForTenorStaff" { \dummyKeepAliveMusic }
 			\new Voice = "tenor1" { \tenorMusic }
-            \new Voice = "tenor2" { }
+            \new Voice = "tenor2" {  
+                % \relative c'' {c8 c1 c c c c c c c c c c c c c c c c c c c c c c c c c c }   
+                \dummyKeepAliveMusic
+            }
 			%\new Voice = hiddenlayoutvoice \breakMask
 		>>
         \new Lyrics = "lyricsUnderTenorStaff" { 
@@ -79,6 +85,7 @@ scorecontents = {
         \new StaffGroup = "tenorStaffGroup" 
             \with {\RemoveEmptyStaves }
                 <<
+                    \new Lyrics = "lyricsAboveTenor1Staff" {  } 
                     \new Staff = "tenor1-staff" \with { } {
                         \override Staff.VerticalAxisGroup.remove-first = ##t
                         \set Staff.instrumentName = "tenor 1"
@@ -110,18 +117,24 @@ scorecontents = {
 		>>
 		\new Lyrics = "lyricsUnderBassStaff" \lyricsto "bass" {\numberedSyllableDummyLyrics "b" \default }
         
+		\new Lyrics = "diagnosticLyrics" { \dummyKeepAliveMusic }
+        
         \new Lyrics \lyricsto "tenor1"
         {
             \context Lyrics = "lyricsUnderTenorStaff" { 
-                \set associatedVoice = "tenor1"
-                \numberedSyllableDummyLyrics "t1" 1 56
+                % \set associatedVoice = "tenor1"
+                \numberedSyllableDummyLyrics "t1" 1 51
+            }
+            \context Lyrics = "lyricsAboveTenorStaff" { 
+                % \set associatedVoice = "tenor1"
+                \numberedSyllableDummyLyrics "t1" 52 5
             }
             \context Lyrics = "lyricsUnderTenor1Staff"  {
-                \set associatedVoice = "tenor1"
+                % \set associatedVoice = "tenor1"
                 \numberedSyllableDummyLyrics "t1" 57 17
             }
             \context Lyrics = "lyricsUnderTenorStaff"  { 
-                \set associatedVoice = "tenor1"
+                % \set associatedVoice = "tenor1"
                 \numberedSyllableDummyLyrics "t1" 74 62
             }   
             % \context Lyrics = "lyricsUnderTenorStaff"  { 
@@ -136,6 +149,29 @@ scorecontents = {
                 % \numberedSyllableDummyLyrics "t" 15 13
             % }          
         }  
+        
+        \new Lyrics \lyricsto "tenor2"
+        {
+            \context Lyrics = "lyricsUnderTenorStaff" { 
+                % \set associatedVoice = "tenor2"
+                \numberedSyllableDummyLyrics "t2" 1 17
+            }
+            \context Lyrics = "lyricsUnderTenor2Staff" {
+                % \set associatedVoice = "tenor2"            
+                \numberedSyllableDummyLyrics "t2" 18 18
+            }
+            \context Lyrics = "lyricsUnderTenorStaff"  {
+                % \set associatedVoice = ##f
+                \numberedSyllableDummyLyrics "t2" 36 17
+            }
+        }
+
+        \new Lyrics \lyricsto "tenor2"
+        {
+            \context Lyrics = "diagnosticLyrics"  {
+                \numberedSyllableDummyLyrics "t5" 1 100
+            }
+        }
         
 	>>
 }
@@ -162,7 +198,7 @@ scorecontents = {
                 \Lyrics
                  \override LyricText.color=#red
                  % \override LyricText.color=#white
-                 % \override LyricText.font-size=#9
+                 \override LyricText.font-size=#0
             }
             
             \context{
