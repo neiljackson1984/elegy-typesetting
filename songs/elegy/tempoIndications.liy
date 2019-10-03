@@ -1,0 +1,45 @@
+\version "2.18.2"
+
+tempoIndications = {
+                               \partial 8  \tempo "Andante comodo." s8
+        | \barNumberCheck #001     s1
+        | \barNumberCheck #002     s1
+
+
+        | \barNumberCheck #003     s1
+        | \barNumberCheck #004     s1
+        | \barNumberCheck #005     s1
+        
+        | \barNumberCheck #006     s1
+        | \barNumberCheck #007     s1
+        | \barNumberCheck #008     s1
+        
+
+        | \barNumberCheck #009     \tempo "Poco più mosso." s1
+        | \barNumberCheck #010     s1
+        % | \barNumberCheck #011   \once \override TextSpanner.bound-details.left.text = "poco a poco stringendo" s1\startTextSpan
+        | \barNumberCheck #011     \tempo \markup { \normal-text \italic "poco a poco stringendo" } s1
+        
+        | \barNumberCheck #012     s1
+        | \barNumberCheck #013     s1
+        | \barNumberCheck #014     s1
+        
+        | \barNumberCheck #015     s1
+        | \barNumberCheck #016     s1
+        | \barNumberCheck #017     \tempo "Più allegro." s1
+
+        
+        | \barNumberCheck #018     s1
+        | \barNumberCheck #019     s1
+        | \barNumberCheck #020     s1
+
+        | \barNumberCheck #021     s1
+        | \barNumberCheck #022     s2 \tempo \markup { \normal-text \italic "rit." } s2
+        | \barNumberCheck #023     \tempo "Tempo I." s1
+        
+        | \barNumberCheck #024     s1
+        % | \barNumberCheck #025     s2 \tempo \markup { \normal-text \italic "rit." } s2
+        | \barNumberCheck #025     s2 \once \override TextSpanner.bound-details.left.text = "rit." s2 \startTextSpan
+        | \barNumberCheck #026     s2 s4 s8  s8\stopTextSpan
+        | \barNumberCheck #027     s1
+}

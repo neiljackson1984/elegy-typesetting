@@ -1,12 +1,10 @@
+%  when this file is included, we expect to have a variable named songPath declared and set to the path of the folder containing the song-specific files.
+
 \version "2.18.2"
 #(ly:set-option 'point-and-click #f)
 \include "utility.liy"
-\include "notesandwords.liy"
 
 
- 
-
- 
 #(set-global-staff-size 15.5)
 #(set-default-paper-size "letter")
 
@@ -57,11 +55,46 @@
 	print-first-page-number = ##t
 	% #(set-paper-size "letter")
 	% ragged-bottom = ##t
-	print-all-headers = ##t
+	% print-all-headers = ##t
 	% system-count = #4
 
 	% scoreTitleMarkup = #bookTitleMarkup 
 }
+
+
+% I use the originalLineBreak variable to represent a line break in the original score.  This
+% is useful when proofreading, but I might want to change where the line breaks occur later -- hence the use of a variable.
+originalLineBreak = {\break}
+originalPageBreak = {\pageBreak}
+
+
+% \include #(string-append songPath "/" "sopranoMusic.liy")
+% \include #(string-append songPath "/" "altoMusic.liy")
+% \include #(string-append songPath "/" "tenorMusic.liy")
+% \include #(string-append songPath "/" "bassMusic.liy")
+% \include #(string-append songPath "/" "tempoIndications.liy")
+
+\include #(string-append "sopranoMusic.liy")
+\include #(string-append "altoMusic.liy")
+\include #(string-append "tenorMusic.liy")
+\include #(string-append "bassMusic.liy")
+\include #(string-append "tempoIndications.liy")
+
+dummyKeepAliveMusic =  
+    {
+        #(skip-of-length 
+            #{ <<
+                \sopranoMusic 
+                \altoMusic
+                \tenorMusic
+                \bassMusic
+                \tempoIndications
+            >> #}
+        )
+        % in most cases, the above-listed parts will all be exactly the same length.  However, I want to handle the case (most likely to occur accidentally than by any other means)
+        % where the parts are different lengths.  The above statement will set dummyKeepAliveMusic to be a skip whose length is the longest of all the lengths of the several parts.
+    }
+
 
 
 scorecontents = {
@@ -169,13 +202,17 @@ scorecontents = {
 	>>
 }
 
+\header{
+    tagline =  "Engraved 2019 in Seattle for The Meridian Ensemble; Yuly Kopkin, Artistic Director"
+}
+        
+
 
 \book{
-    \header{
-        tagline =  "Engraved 2019 in Seattle for The Meridian Ensemble; Yuly Kopkin, Artistic Director"
-    }
+
 
     \score{
+        
 
         \transpose c c \scorecontents
 
@@ -206,23 +243,24 @@ scorecontents = {
                 \override DynamicLineSpanner.direction = #UP
             }
         }
+
         
-        \header{
-            title = \markup{ \caps {Elegy} } 
-            composer = "Vasily Sergeyevich Kalinnikov (1866 – 1901)"
-            poet = \markup {
-              \column {
-                \line {
-                  "words by CROBA, A PIRANHA"
-                }
-                \line {
-                    % phonetization for English speakers by Yuly Kopkin
-                }
-              }
-           }
-            % arranger = "typeset by Neil Jackson"
-            % breakbefore = ##f
-        }
+        % \header{
+            % title = \markup{ \caps {Elegy} } 
+            % composer = "Vasily Sergeyevich Kalinnikov (1866 – 1901)"
+            % poet = \markup {
+              % \column {
+                % \line {
+                  % "words by CROBA, A PIRANHA"
+                % }
+                % \line {
+                    % % phonetization for English speakers by Yuly Kopkin
+                % }
+              % }
+           % }
+            % % arranger = "typeset by Neil Jackson"
+            % % breakbefore = ##f
+        % }
         % \midi{  
             % \context {
                 % \Score
