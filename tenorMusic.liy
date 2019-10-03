@@ -50,14 +50,14 @@ tenorMusic =
             \context Voice="tenor1" { 
                 \change Staff = "tenor1-staff"
                 | \barNumberCheck #012     \resetRelativeOctave ees' ees='4 ees d4. d8
-                | \barNumberCheck #013     g8 f e d c4( d8) e
+                | \barNumberCheck #013     g8\f f e d c4( d8) e
                 | \barNumberCheck #014     f e d c bes4 c8 d
                 \change Staff = "tenor-staff"
             }  
             \context Voice="tenor2" { 
                 \change Staff = "tenor2-staff"
                 | \barNumberCheck #012     \resetRelativeOctave g g=4 g fis8 fis g a
-                | \barNumberCheck #013     d[( g,]) bes[( d]) e e d c
+                | \barNumberCheck #013     d[(\f g,]) bes[( d]) e e d c
                 | \barNumberCheck #014     c[( f,]) a[( c]) d d c bes
                 \change Staff = "tenor-staff"
             } 
@@ -104,8 +104,8 @@ tenorMusic =
         \originalLineBreak   
         \change Staff = "tenor-staff"    
         \unset Staff.shortInstrumentName 
-        | \barNumberCheck #015     bes4 d8 d c c c c 
-        | \barNumberCheck #016     bes bes bes d bes4 bes8 a
+        | \barNumberCheck #015     bes4\> d8 d\! c c c\< c\! 
+        | \barNumberCheck #016     bes bes bes d\> bes4 bes8\! a
         | \barNumberCheck #017     d, d e e f4. e8
         \originalLineBreak         
         \originalPageBreak         
@@ -117,18 +117,20 @@ tenorMusic =
         \originalLineBreak         
        
        
-        <<
-            \context Voice="tenor1" { 
-                \voiceOne
-                | \barNumberCheck #21      a8 c c c ees4. ees8
-                | \barNumberCheck #22      ees ees ees ees d4 d
-            }
-            \context Voice="tenor2" { 
-                \voiceTwo 
-                | \barNumberCheck #21      a8 a a a a4. a8
-                | \barNumberCheck #22      c c bes a a4 g4
-            }
-        >>  \oneVoice   
+        % <<
+            % \context Voice="tenor1" { 
+                % \voiceOne
+                % | \barNumberCheck #21      a8 c c c ees4. ees8
+                % | \barNumberCheck #22      ees ees ees ees d4 d
+            % }
+            % \context Voice="tenor2" { 
+                % \voiceTwo 
+                % | \barNumberCheck #21      a8 a a a a4. a8
+                % | \barNumberCheck #22      c c bes a a4 g4
+            % }
+        % >>  \oneVoice  
+        | \barNumberCheck #021      << \context Voice="tenor1" { \voiceOne a8 } \context Voice="tenor2" { \voiceTwo a8 } >>  \oneVoice << {\resetRelativeOctave c' c='8 c c ees4. ees8} {\resetRelativeOctave a a=8 a a a4. a8} >>             
+        | \barNumberCheck #022      << {\resetRelativeOctave ees' ees='8 ees ees ees d4 d} {\resetRelativeOctave c' c='8 c bes a a4 g4} >>        
         | \barNumberCheck #023     r4 a2.~ 
         \originalLineBreak         
                                    
@@ -145,3 +147,44 @@ tenorMusic =
 % \displayMusic {\numberedSyllableDummyLyrics \default }
 
 % \displayScheme  \markup { a \sub b }
+
+tenorOneLyrics = {
+    \context Lyrics = "lyricsUnderTenorStaff" { 
+        % \set associatedVoice = "tenor1"
+        \numberedSyllableDummyLyrics "t" 1 51
+    }
+    \context Lyrics = "lyricsUnderTenor1Staff" { 
+        % \set associatedVoice = "tenor1"
+        \numberedSyllableDummyLyrics "t" 52 5
+    }
+    \context Lyrics = "lyricsUnderTenor1Staff"  {
+        % \set associatedVoice = "tenor1"
+        \numberedSyllableDummyLyrics "t" 57 17
+    }
+    \context Lyrics = "lyricsUnderTenorStaff"  { 
+        % \set associatedVoice = "tenor1"
+        \numberedSyllableDummyLyrics "t" 74 62
+    }          
+}
+        
+tenorTwoLyrics =  {
+    % Lilypond's internal model is that the tenor 2 voice is silent 
+    % except during divisi parts.  Hence, the tenor 2 lyrics are the lyrics 
+    % for only those notes where the tenor 2 is different from tenor 1.
+    % in actuality, the humans assigned to the tenor 2 part will 
+    % autoamtically sing the tenor 1 voice whenever the tenor 2 voice  is silent. 
+    
+    \context Lyrics = "lyricsUnderTenorStaff" { 
+        \numberedSyllableDummyLyrics "t2" 1 1
+    }
+    \context Lyrics = "lyricsUnderTenor2Staff" {      
+        \numberedSyllableDummyLyrics "τ" 2 34
+    }
+    \context Lyrics = "lyricsUnderTenorStaff"  {
+         % \set associatedVoice = "tenor2" 
+         % curiously, UNcommenting the above line causes Lilypond to issue a whole bunch of the warnings "warning: Lyric syllable does not have note.  Use \lyricsto or associatedVoice."
+         % Evidently, there is something a bit mysterious about nested Lyrics contexts. (the strangeness might also be related to the syllable-to-rhythm matching mechanism)
+         % The strangeness might ahve something to do with the keepalive music that is running simultaneously in the lyricsUnderTenorStaff lyrics context.
+        \numberedSyllableDummyLyrics "t2" 36 17
+    }
+}

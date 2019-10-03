@@ -17,8 +17,19 @@ numberedSyllableDummyLyrics =
             (map-in-order
                 (lambda (i)
                     (make-music 'LyricEvent 'duration (ly:make-duration 0 0 1) 'text 
-                        (markup #:line (#:simple prefix #:sub (number->string i)))
+                        ; (markup #:line (#:simple prefix #:sub (number->string i)))
+                        ; (markup #:line (#:simple (#:tiny prefix number->string i)))
                         ;(string-append prefix (number->string i))
+                        #{  
+                            \markup {
+                                \column {
+                                    \line{ \abs-fontsize #5 #(string-append prefix (number->string i)) }
+                                    \vspace #-0.3
+                                    \line {\abs-fontsize #10  \with-color #white A } 
+                                    % \vspace #-0.6
+                                }
+                            } 
+                        #}
                     )
                 )
                 (iota syllableCount initialIndex)

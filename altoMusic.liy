@@ -1,20 +1,21 @@
 \version "2.18.2"
 
+
 altoMusic =  
     \relative {
         \time 4/4  \key f \major 
-                                   \partial 8      \resetRelativeOctave c' c='8            
+                                   \partial 8      \resetRelativeOctave c' c='8\p          
         | \barNumberCheck #001     c c c c c4. c8
         | \barNumberCheck #002     d d c c b4. b8
         \originalLineBreak
 
         | \barNumberCheck #003     bes4. b8 a a a a
         | \barNumberCheck #004     a a a a gis4. gis8
-        | \barNumberCheck #005     a e' d d cis4. d8
+        | \barNumberCheck #005     a\< e' d d\! cis4. d8
         \originalLineBreak         
                                    
         | \barNumberCheck #006     e e e e ees4 ees8 ees
-        | \barNumberCheck #007     d d d d d d d d
+        | \barNumberCheck #007     d d d d\> d d d d\!
         | \barNumberCheck #008     d[( c]) d[( e]) f4 f8 f
         \originalLineBreak         
         \originalPageBreak         
@@ -22,36 +23,66 @@ altoMusic =
                                    
         | \barNumberCheck #009     g2( fis8) fis g a
         | \barNumberCheck #010     g4 g a8 a g fis
-        | \barNumberCheck #011     g4 g fis8 fis g a
+        | \barNumberCheck #011     g4\< g fis8 fis g a
         \originalLineBreak         
                                    
-        | \barNumberCheck #012     g4 g a8 a g fis
-        | \barNumberCheck #013     g4 g g8 g g g
+        | \barNumberCheck #012     g4 g a8\! a g fis
+        | \barNumberCheck #013     g4\f g g8 g g g
         | \barNumberCheck #014     f4 f f f8 f
         \originalLineBreak         
                                    
-        | \barNumberCheck #015     e4 e f f
-        | \barNumberCheck #016     f8 f f f e4 e8 e8
-        | \barNumberCheck #017     f8 f e e d4. e8
+        | \barNumberCheck #015     e4\> e\! f f\<
+        | \barNumberCheck #016     f8\! f f f\> e4 e8\! e8
+        | \barNumberCheck #017     f8\mp f e e d4. e8
         \originalLineBreak         
         \originalPageBreak         
                                    
                                    
-        | \barNumberCheck #018     f8 f e e d4. << f8 \\ d >>
-        | \barNumberCheck #019     << f4 \\ d >> << f \\ d >> << f \\ d >> << f \\ d >>
-        | \barNumberCheck #020     << f \\ d >> << f \\ d >> << f \\ des >> << e \\ des >>
+        % | \barNumberCheck #018     f8 f e e d4. << { \voiceOne f8 } \context Voice="alto2" { \voiceTwo d8 } >> \oneVoice
+        % I have decided to do the polyphony as chords rather than separate named voices, in order to make the staffs more compact:
+        | \barNumberCheck #018     f8 f e e d4. << {  f8 }  {  d8 } >> 
+        % <<
+            % {   
+                % \voiceOne
+                % | \barNumberCheck #019     f4 f f f
+                % | \barNumberCheck #020     f f f e 
+            % }
+            % \context Voice="alto2" {
+                % \voiceTwo
+                % | \barNumberCheck #019     d d d d 
+                % | \barNumberCheck #020     d d des des
+            % }
+        % >> \oneVoice
+        <<
+            {   
+                | \barNumberCheck #019     f4 f f f
+                | \barNumberCheck #020     f f f e 
+            }
+            {
+                | \barNumberCheck #019     d d d d 
+                | \barNumberCheck #020     d d des des
+            }
+        >> 
+        
         \originalLineBreak         
                                    
-        | \barNumberCheck #021     << f8 \\ c >> << f \\ f>> f f fis4. fis8
-        | \barNumberCheck #022     fis fis fis fis fis4 g
-        | \barNumberCheck #023     r4 a4 g8 g g a
+        % | \barNumberCheck #021     << { \voiceOne f8\< f } \context Voice="alto2" { \voiceTwo c8 f } >> \oneVoice f8 f\! fis4. fis8 
+        | \barNumberCheck #021     << {  f8\<  }  {  c8  } >>  << { \voiceOne f8 } \context Voice="alto2" { \voiceTwo f8 } >> \oneVoice  f8 f\! fis4. fis8 
+        | \barNumberCheck #022     fis fis fis fis fis4\> g\!^-
+        | \barNumberCheck #023     r4\p a4 g8 g g a
         \originalLineBreak         
                                    
         | \barNumberCheck #024     f4. f8 e e d d 
-        | \barNumberCheck #025     e4 a,8 a d d d d
-        | \barNumberCheck #026     dis4. dis8 e e d e
+        | \barNumberCheck #025     e4 a,8 a d\< d d d
+        | \barNumberCheck #026     dis4. dis8\> e e d e\!\pp
         | \barNumberCheck #027     f1 \fermata
         \bar "|."
         \originalLineBreak
         \originalPageBreak 
     }
+    
+altoOneLyrics = {
+    \context Lyrics = "lyricsUnderAltoStaff" { 
+        \numberedSyllableDummyLyrics "a" 1 152
+    }
+}

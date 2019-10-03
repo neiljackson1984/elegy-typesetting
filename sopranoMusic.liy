@@ -1,9 +1,12 @@
 \version "2.18.2"
 
+% pocoCrescendo = #(make-dynamic-script #{ \markup { \normal-text  \italic "poco cresc." } #} )
+% I don't like the above definition of pocoCrescendo because it results in text that is centered above the note, rather than left aligned to the note.
+
 sopranoMusic =  
     \relative {
         \time 4/4  \key f \major 
-                                   \partial 8   \resetRelativeOctave a'   a='8 
+                                   \partial 8   \resetRelativeOctave a'   a='8
         | \barNumberCheck #001     a a a a a4. a8 
         | \barNumberCheck #002     a d, e f g4. g8
         \originalLineBreak
@@ -14,7 +17,7 @@ sopranoMusic =
         \originalLineBreak    
         
         | \barNumberCheck #006     a a a a a4 a8 a 
-        | \barNumberCheck #007     d d c c bes a g d 
+        | \barNumberCheck #007     d d c c bes a g d
         | \barNumberCheck #008     f e f g a4 a8 a8
         \originalLineBreak
         \originalPageBreak
@@ -26,32 +29,40 @@ sopranoMusic =
         \originalLineBreak
         
         | \barNumberCheck #012     ees ees d c d4. d8 
-        | \barNumberCheck #013     g f e d c4( d8) e
+        | \barNumberCheck #013     g\f f e d c4( d8) e
         | \barNumberCheck #014     f e d c bes4 c8 d
         \originalLineBreak 
         
-        | \barNumberCheck #015     e d c bes a a gis a
-        | \barNumberCheck #016     d4. bes8 a4 g8 a        
+        | \barNumberCheck #015     e d c bes a a gis\< a\!
+        | \barNumberCheck #016     d4. bes8\> a4 g8\! a        
         | \barNumberCheck #017     a a a a a4. a8
         \originalLineBreak
         \originalPageBreak
         
         
         | \barNumberCheck #018     a a a a a4. a8
-        | \barNumberCheck #019     bes bes a a g4. a8
+        % | \barNumberCheck #019     \once \set crescendoText = \markup { \italic "poco cresc." } bes\cresc bes a a g4. a8
+        | \barNumberCheck #019     \once {\set crescendoText = \markup { \italic "poco cresc." } \set crescendoSpanner = #'text } bes\<  bes a a g4. a8
+        % | \barNumberCheck #019     bes\pocoCrescendo  bes a a g4.\f a8
         | \barNumberCheck #020     bes bes a a g4 a8[( g)]
         \originalLineBreak
         
         | \barNumberCheck #021     c f, a c d4. c8
-        | \barNumberCheck #022     bes a bes c d4 g,4
+        | \barNumberCheck #022     bes a bes c d4 g,4^-
         | \barNumberCheck #023     r4 a2.~
         \originalLineBreak
         
         | \barNumberCheck #024     a4 a2. 
         | \barNumberCheck #025     a2 a4 a
         | \barNumberCheck #026     a a a8 a a a
-        | \barNumberCheck #027     a1 \fermata        
+        | \barNumberCheck #027     a1\! \fermata        
         \bar "|."
         \originalLineBreak
         \originalPageBreak 
     }
+    
+sopranoOneLyrics = {
+    \context Lyrics = "lyricsUnderSopranoStaff" { 
+        \numberedSyllableDummyLyrics "s" 1 151
+    }
+}
