@@ -1,0 +1,297 @@
+\version "2.18.2"
+
+tempoIndications =  
+    \relative {
+        \tempo "Allegro"
+        \time 6/8  
+        | \barNumberCheck #001     s2.
+        | \barNumberCheck #002     s2.
+        | \barNumberCheck #003     s2.
+        | \barNumberCheck #004     s2.
+        
+        
+        | \barNumberCheck #005     s2.
+        | \barNumberCheck #006     s2.
+        | \barNumberCheck #007     s2.
+        | \barNumberCheck #008     s2.
+        
+        
+        | \barNumberCheck #009     s2.
+        | \barNumberCheck #010     s2.
+        | \barNumberCheck #011     s2.
+        | \barNumberCheck #012     s2.
+        
+        
+        
+        | \barNumberCheck #013     s2.
+        | \barNumberCheck #014     s2.
+        | \barNumberCheck #015     s2.
+        | \barNumberCheck #016     s2.
+        
+        
+        | \barNumberCheck #017     s2.
+        | \barNumberCheck #018     s2.
+        | \barNumberCheck #019     s2.
+        | \barNumberCheck #020     s2.
+        
+        
+        | \barNumberCheck #021     s2.
+        | \barNumberCheck #022     s2.
+        | \barNumberCheck #023     s2.
+        | \barNumberCheck #024     s2.
+        
+        
+        
+        
+        | \barNumberCheck #025     s2.
+        | \barNumberCheck #026     s2.
+        | \barNumberCheck #027     s2.
+        | \barNumberCheck #028     s2.
+        
+        
+        | \barNumberCheck #029     s2.
+        | \barNumberCheck #030     s2.
+        | \barNumberCheck #031     s2.
+        | \barNumberCheck #032     s2.
+        
+        
+        | \barNumberCheck #033     s2.
+        | \barNumberCheck #034     s2.
+        | \barNumberCheck #035     s2.
+        
+        
+        
+        
+        | \barNumberCheck #036     s2.
+        | \barNumberCheck #037     s2.
+        | \barNumberCheck #038     s2.
+        
+        
+        | \barNumberCheck #039     s2.
+        | \barNumberCheck #040     s2.
+        | \barNumberCheck #041     s2.
+        | \barNumberCheck #042     s2.
+        
+        
+        | \barNumberCheck #043     s2.
+        | \barNumberCheck #044     s2.
+        | \barNumberCheck #045     s2.
+        | \barNumberCheck #046     s2.
+        
+        
+        
+        
+        | \barNumberCheck #047     s2.
+        | \barNumberCheck #048     s2.
+        | \barNumberCheck #049     s2.
+        | \barNumberCheck #050     s2.
+        
+        
+        | \barNumberCheck #051     s2.
+        | \barNumberCheck #052     s2.
+        | \barNumberCheck #053     s2.
+        | \barNumberCheck #054     s2.
+        | \barNumberCheck #055     s2.
+        | \barNumberCheck #056     s2.
+        
+        
+        | \barNumberCheck #057     s2.
+        | \barNumberCheck #058     s2.
+        | \barNumberCheck #059     s2.
+        | \barNumberCheck #060     s2.
+        | \barNumberCheck #061     s2.
+        
+        
+        
+        
+        | \barNumberCheck #062     s2.
+        | \barNumberCheck #063     s2.
+        | \barNumberCheck #064     s2.
+        | \barNumberCheck #065     s2.
+        
+        
+        | \barNumberCheck #066     s2.
+        | \barNumberCheck #067     s2.
+        | \barNumberCheck #068     s2.
+        | \barNumberCheck #069     s2.
+        | \barNumberCheck #070     s2.
+        
+        
+        | \barNumberCheck #071     s2.
+        | \barNumberCheck #072     s2.
+        | \barNumberCheck #073     s2.
+        | \barNumberCheck #074     s2.
+        | \barNumberCheck #075     
+            \time 4/4     
+            \set Score.measurePosition=#(ly:make-moment 2 4)  
+            s2
+        | \barNumberCheck #076     s1
+        
+        
+        
+        | \barNumberCheck #077     s1
+        | \barNumberCheck #078     s1
+        | \barNumberCheck #079     s1
+        | \barNumberCheck #080     s1
+        
+        
+        | \barNumberCheck #081     s1
+        | \barNumberCheck #082     s1
+        | \barNumberCheck #083     s1
+        
+        
+        | \barNumberCheck #084     s1
+        | \barNumberCheck #085     s1
+        | \barNumberCheck #086     s1
+        | \barNumberCheck #087     s1
+        
+        
+        
+        | \barNumberCheck #088     \time 6/8 s2.
+        | \barNumberCheck #089     s2.
+        | \barNumberCheck #090     s2.
+        | \barNumberCheck #091     s2.
+        
+        
+        | \barNumberCheck #092     s2.
+        | \barNumberCheck #093     s2.
+        | \barNumberCheck #094     s2.
+        | \barNumberCheck #095     s2.
+        
+        
+        | \barNumberCheck #096     s2.
+        | \barNumberCheck #097     s2.
+        | \barNumberCheck #098     s2.
+        | \barNumberCheck #099     s2.
+        
+        
+        
+        
+        | \barNumberCheck #100     s2.
+        | \barNumberCheck #101     s2.
+        | \barNumberCheck #102     s2.
+        | \barNumberCheck #103     s2.
+        
+        
+        | \barNumberCheck #104     s2.
+        | \barNumberCheck #105     s2.
+        | \barNumberCheck #106     s2.
+        | \barNumberCheck #107     s2.
+
+        
+        | \barNumberCheck #108     s2.
+        | \barNumberCheck #109     s2.
+        | \barNumberCheck #110     s2.
+        | \barNumberCheck #111     s2.
+        
+        
+        
+        
+        | \barNumberCheck #112    s2.
+        | \barNumberCheck #113    s2.
+        | \barNumberCheck #114    s2.
+        | \barNumberCheck #115    s2.
+        
+        
+        | \barNumberCheck #116     s2.
+        | \barNumberCheck #117     s2.
+        | \barNumberCheck #118     s2.
+        
+        
+        | \barNumberCheck #119     s2.
+        | \barNumberCheck #120     s2.
+        | \barNumberCheck #121     s2.
+        | \barNumberCheck #122     s2.
+        
+        
+        
+        
+        | \barNumberCheck #123     s2.
+        | \barNumberCheck #124     s2.
+        | \barNumberCheck #125     s2.
+        | \barNumberCheck #126     s2.
+        
+        
+        | \barNumberCheck #127     s2.
+        | \barNumberCheck #128     s2.
+        | \barNumberCheck #129     s2.
+        | \barNumberCheck #130     s2.
+        
+        
+        | \barNumberCheck #131     s2.
+        | \barNumberCheck #132     s2.
+        | \barNumberCheck #133     s2.
+        | \barNumberCheck #134     s2.
+        | \barNumberCheck #135     s2.
+        
+        
+        
+        
+        | \barNumberCheck #136     s2.
+        | \barNumberCheck #137     s2.
+        | \barNumberCheck #138     s2.
+        | \barNumberCheck #139     s2.
+        | \barNumberCheck #140     s2.
+        
+        
+        | \barNumberCheck #141     s2.
+        | \barNumberCheck #142     s2.
+        | \barNumberCheck #143     s2.
+        | \barNumberCheck #144     s2.
+        
+        
+        | \barNumberCheck #145     s2.
+        | \barNumberCheck #146     s2.
+        | \barNumberCheck #147     s2.
+        | \barNumberCheck #148     s2.
+        | \barNumberCheck #149     s2.
+        
+        
+
+
+        | \barNumberCheck #150     s2.
+        | \barNumberCheck #151     s2.
+        | \barNumberCheck #152     s2.
+        | \barNumberCheck #153     s2.
+        | \barNumberCheck #154     s2.
+        | \barNumberCheck #155     s2.
+        | \barNumberCheck #156     s2.
+        
+        
+        | \barNumberCheck #157     \time 3/4 \set Score.measurePosition=#(ly:make-moment 2 4) s8. s16 
+        | \barNumberCheck #158     s2.
+        | \barNumberCheck #159     s2.
+        | \barNumberCheck #160     s2.
+        
+        
+        | \barNumberCheck #161     s2.
+        | \barNumberCheck #162     s2.
+        | \barNumberCheck #163     s2.
+        | \barNumberCheck #164     s2.
+        
+        
+        
+        
+        | \barNumberCheck #165     s2.
+        | \barNumberCheck #166     s2.
+        | \barNumberCheck #167     s2.
+        | \barNumberCheck #168     s2.
+        
+         
+        | \barNumberCheck #169     s2.
+        | \barNumberCheck #170     s2.
+        | \barNumberCheck #171     s2.
+        | \barNumberCheck #172     s2.
+        | \barNumberCheck #173     s2.
+        
+        
+        | \barNumberCheck #174     s2.
+        | \barNumberCheck #175     s2.
+        | \barNumberCheck #176     s2.
+        | \barNumberCheck #177     s2.
+        | \barNumberCheck #178     s2.
+        | \barNumberCheck #179     s2.
+        | \barNumberCheck #180     s2.
+        
+         
+    }

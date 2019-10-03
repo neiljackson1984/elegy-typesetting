@@ -12,8 +12,10 @@ targets=$(foreach source,${sources},${buildFolder}/$(notdir $(realpath $(dir ${s
 
 default: $(targets)
 
-${buildFolder}/%.pdf: ${pathOfThisMakefile}/songs/%/main.ly ./*.liy songs/%/*.liy ${buildFolder}
-	lilypond  --output="$(basename $@)" --include="$(realpath $(dir $<))" "$<"
+# ${buildFolder}/%.pdf: ${pathOfThisMakefile}/songs/%/main.ly ${pathOfThisMakefile}/songs/%/*.liy  ${includes} ${buildFolder}
+${buildFolder}/%.pdf: ${pathOfThisMakefile}/songs/%/main.ly ${pathOfThisMakefile}/songs/%/*.liy  ${includes}
+	mkdir --parents "${buildFolder}"
+	lilypond  --output="$(basename $@)" --include="$(realpath $(dir $<))" --include="$(realpath ${pathOfThisMakefile})" "$<"
 
 ${buildFolder}:
 	mkdir --parents "${buildFolder}"
