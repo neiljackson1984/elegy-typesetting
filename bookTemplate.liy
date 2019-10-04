@@ -6,8 +6,24 @@
 #(set-global-staff-size 15.5)
 #(set-default-paper-size "letter")
 
-\paper
-{
+%handle variables defined on the command line by m,eans of the "-e '(define-public foo 42)'" command line syntax.
+#(use-modules (guile-user))
+#(if (not (defined? 'makeMidi)) 
+    (begin
+        (newline)(display "makeMidi was not defined, so we are setting it to default value.")(newline)
+        (define makeMidi #f)
+    )
+)
+#(if (not (defined? 'makeLayout)) 
+    (begin
+        (newline)(display "makeLayout was not defined, so we are setting it to default value.")(newline)
+        (define makeLayout #f)
+    )
+)
+
+
+
+\paper {
 	% line-width = 6.5\in
     top-margin = 0.4\in
     left-margin = 1\in
@@ -198,56 +214,60 @@ scorecontents = {
 \header{
     tagline =  "Engraved 2019 in Seattle for The Meridian Ensemble; Yuly Kopkin, Artistic Director"
 }
-        
 
+layoutBlock = \layout {
+                    %indent = 1\in
+                    
+                    \context{
+                        \Staff
+                        %\remove Instrument_name_engraver
+                        \override DynamicTextSpanner.dash-period = #0 %removes the dashed lines representing "cresc." crescendos, and similar decrescendoes and diminuendos.
+                        \accidentalStyle modern-voice-cautionary
+                    }
 
-\book{
-
-
-    \score{
-        
-
-        \transpose c c \scorecontents
-
-        \layout {
-            %indent = 1\in
-
-            \context{
-                \Staff
-                %\remove Instrument_name_engraver
-                \override DynamicTextSpanner.dash-period = #0 %removes the dashed lines representing "cresc." crescendos, and similar decrescendoes and diminuendos.
-                \accidentalStyle modern-voice-cautionary
-            }
-
-            \context{
-                \Lyrics
-                 \override LyricText.color=#red
-                 % \override LyricText.color=#white
-                 \override LyricText.font-size=#-2
-            }
-            
-            \context{
-                \Voice
-                \autoBeamOff
-            }
-            
-            \context{
+                    \context{
+                        \Lyrics
+                         \override LyricText.color=#red
+                         % \override LyricText.color=#white
+                         \override LyricText.font-size=#-2
+                    }
+                    
+                    \context{
+                        \Voice
+                        \autoBeamOff
+                    }
+                    
+                    \context{
+                        \Score
+                        \numericTimeSignature
+                        \override DynamicText.direction = #UP
+                        \override DynamicLineSpanner.direction = #UP
+                    }
+                }
+                
+midiBlock =          \midi{  
+            \context {
                 \Score
-                \numericTimeSignature
-                \override DynamicText.direction = #UP
-                \override DynamicLineSpanner.direction = #UP
+                tempoWholesPerMinute = #(ly:make-moment 60 4)	
+                midiMinimumVolume = #0.7
+                midiMaximumVolume = #0.7
+                midiInstrument = #"voice oohs"
             }
         }
 
+scoreBlockForLayout =             \score{
+        \transpose c c \scorecontents
+        \layoutBlock
+    }
 
-        % \midi{  
-            % \context {
-                % \Score
-                % tempoWholesPerMinute = #(ly:make-moment 60 4)	
-                % midiMinimumVolume = #0.7
-                % midiMaximumVolume = #0.7
-                % midiInstrument = #"voice oohs"
-            % }
-        % }
-    }	   
+scoreBlockForMidi =             \score{
+        \transpose c c \scorecontents
+        \midiBlock
+    }   
+    
+
+\book{
+    \scoreBlockForLayout
 }
+
+% \myNook
