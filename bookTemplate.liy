@@ -20,8 +20,22 @@
         (define makeLayout #f)
     )
 )
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  The variables makeMidi and makeLayout control whether to include a \midi output definition and a \layout output definition in 
+%  the score.  Roughly speaking, this controls whether we make a midi file and whether we make a pdf file.  Strictly speaking, this controls
+%  whether we include a \midi block and whether we include a \layout block in the \score block.
+%  It doesn't seem to be possible ever to simultaneously not make a midi file AND not make a pdf.
+%  whereas making a midi file is independently controllable by the choice of whether to include the \midi output definition in the score block,
+%  making a pdf file depends on the combination of the midi choice and the layout choice. 
+%     _____________________________________________________________________________________________________________________________________
+%     || include a \midi output defintion   |   include a \layout output definition  ||  midi file is created  |  pdf file is created    ||
+%     ||====================================|========================================||========================|=========================||
+%     || no                                 |   no                                   ||  no                    | yes                     ||
+%     || no                                 |   yes                                  ||  no                    | yes                     ||
+%     || yes                                |   no                                   ||  yes                   | no                      ||
+%     || yes                                |   yes                                  ||  yes                   | yes                     ||
+%     -------------------------------------------------------------------------------------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \paper {
 	% line-width = 6.5\in
@@ -89,17 +103,17 @@ originalPageBreak = {\pageBreak}
 \include #(string-append "bassMusic.liy")
 \include #(string-append "tempoIndications.liy")
 
+allMusic =  <<
+        \sopranoMusic 
+        \altoMusic
+        \tenorMusic
+        \bassMusic
+        \tempoIndications
+    >>
+
 dummyKeepAliveMusic =  
     {
-        #(skip-of-length 
-            #{ <<
-                \sopranoMusic 
-                \altoMusic
-                \tenorMusic
-                \bassMusic
-                \tempoIndications
-            >> #}
-        )
+        #(skip-of-length allMusic)
         % in most cases, the above-listed parts will all be exactly the same length.  However, I want to handle the case (most likely to occur accidentally than by any other means)
         % where the parts are different lengths.  The above statement will set dummyKeepAliveMusic to be a skip whose length is the longest of all the lengths of the several parts.
     }
@@ -211,11 +225,8 @@ scorecontents = {
 	>>
 }
 
-\header{
-    tagline =  "Engraved 2019 in Seattle for The Meridian Ensemble; Yuly Kopkin, Artistic Director"
-}
 
-layoutBlock = \layout {
+layoutSettings = \layout {
                     %indent = 1\in
                     
                     \context{
@@ -242,10 +253,11 @@ layoutBlock = \layout {
                         \numericTimeSignature
                         \override DynamicText.direction = #UP
                         \override DynamicLineSpanner.direction = #UP
+                         % skipTypesetting = ##t
                     }
                 }
                 
-midiBlock =          \midi{  
+midiBlock = \midi{  
             \context {
                 \Score
                 tempoWholesPerMinute = #(ly:make-moment 60 4)	
@@ -254,20 +266,59 @@ midiBlock =          \midi{
                 midiInstrument = #"voice oohs"
             }
         }
-
-scoreBlockForLayout =             \score{
-        \transpose c c \scorecontents
-        \layoutBlock
+        
+myScore = \score{
+        
+        \scorecontents
+        % \layout {\layoutSettings}
     }
 
-scoreBlockForMidi =             \score{
-        \transpose c c \scorecontents
-        \midiBlock
-    }   
-    
+#(if makeLayout
+    (ly:score-add-output-def! myScore layoutSettings)
+)
 
-\book{
-    \scoreBlockForLayout
+#(if makeMidi
+    (ly:score-add-output-def! myScore midiBlock)
+)
+
+% \void #(begin
+    % ;(display "layoutSettings: ") 
+    % ;(display layoutSettings)
+    % ;(newline)  
+    % ;(newline)
+    % ;(display "myScore: ")
+    % ;(display myScore)
+    % ;(newline) 
+    % ;(display "midiBlock: ")
+    % ;(display midiBlock) 
+    % ;(newline)
+    % ;(display "ly:command-line-code: ")
+    % ;(display (ly:command-line-code)) 
+    % (newline)(newline)
+    % (display "ly:all-options: ")(display (ly:all-options))(newline)(newline)
+% )
+
+\header{
+    tagline =  "Engraved 2019 in Seattle for The Meridian Ensemble; Yuly Kopkin, Artistic Director"
 }
 
-% \myNook
+
+myBook = \book{
+    
+    \myScore
+    % \score {
+        % \sopranoMusic
+        % \midi { 
+           
+        % }
+    % }
+}
+
+$myBook
+
+
+\book{ \bookOutputSuffix ""         \score { \allMusic      \midi { } } }
+\book{ \bookOutputSuffix "soprano"  \score { \sopranoMusic  \midi { } } }
+\book{ \bookOutputSuffix "alto"     \score { \altoMusic     \midi { } } }
+\book{ \bookOutputSuffix "tenor"    \score { \tenorMusic    \midi { } } }
+\book{ \bookOutputSuffix "bass"     \score { \bassMusic     \midi { } } }

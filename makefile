@@ -16,12 +16,14 @@ midiTargets=$(foreach source,${sources},${buildFolder}/$(notdir $(call unslashed
 	# @echo sources: $(sources)
 	# @echo pdfTargets: $(pdfTargets)
 	# @echo midiTargets: $(midiTargets)
+	# @echo firstword of pdfTargets: $(firstword $(pdfTargets))
 
-default: $(pdfTargets)
+# default: $(pdfTargets)
+default: $(firstword $(pdfTargets))
 
 ${buildFolder}/%.pdf: ${pathOfThisMakefile}/songs/%/main.ly ${pathOfThisMakefile}/songs/%/*.liy  ${includes} | ${buildFolder}
 	@echo "====== BUILDING $@ from $< ======= "
-	lilypond  --output="$(call getFullyQualifiedWindowsStylePath,$(basename $@))" --include="$(call getFullyQualifiedWindowsStylePath,$(dir $<))" --include="$(call getFullyQualifiedWindowsStylePath,${pathOfThisMakefile})" --evaluate='(define-public makeLayout #t)' "$(call getFullyQualifiedWindowsStylePath,$<)"
+	lilypond  --output="$(call getFullyQualifiedWindowsStylePath,$(basename $@))" --include="$(call getFullyQualifiedWindowsStylePath,$(dir $<))" --include="$(call getFullyQualifiedWindowsStylePath,${pathOfThisMakefile})" --evaluate='(begin (define-public makeLayout #t)  (define-public makeMidi #t) )' "$(call getFullyQualifiedWindowsStylePath,$<)"
 	
 ${buildFolder}/%.mid: ${pathOfThisMakefile}/songs/%/main.ly ${pathOfThisMakefile}/songs/%/*.liy  ${includes} | ${buildFolder}
 	@echo "====== BUILDING $@ ======= "
