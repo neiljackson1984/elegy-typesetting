@@ -3,7 +3,7 @@
 bassMusic =  
     \relative {
         \time 6/8  \key d \major 
-        | \barNumberCheck #001     ais,8[( b]) cis d4 cis8
+        | \barNumberCheck #001     ais,8[(\mezzoPianoConMolto b]) cis d4 cis8
         | \barNumberCheck #002     ais8[( b]) cis d4 cis8
         | \barNumberCheck #003     b2.
         | \barNumberCheck #004     b2.
@@ -120,7 +120,7 @@ bassMusic =
         | \barNumberCheck #072     R2.
         | \barNumberCheck #073     r4. fis,4.~
         | \barNumberCheck #074     fis2.\fermata
-        | \barNumberCheck #075     
+        % | \barNumberCheck #075     
             \time 4/4     
             \set Score.measurePosition=#(ly:make-moment 2 4)  
             d'4. d8

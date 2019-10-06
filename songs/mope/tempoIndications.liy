@@ -121,7 +121,7 @@ tempoIndications =
         | \barNumberCheck #072     s2.
         | \barNumberCheck #073     s2.
         | \barNumberCheck #074     s2.
-        | \barNumberCheck #075     
+        % | \barNumberCheck #075     
             \time 4/4     
             \set Score.measurePosition=#(ly:make-moment 2 4)  
             s2

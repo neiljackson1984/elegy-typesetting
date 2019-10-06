@@ -84,3 +84,33 @@ numberedSyllableDummyLyrics =
         % (newline)(display "parser is ")(display parser)(newline)
         % '()        
     % )
+    
+    
+    
+pianoConMolto = 
+    #@(list
+        #{ 
+            \tweak DynamicText.self-alignment-X #LEFT 
+            #(make-dynamic-script
+                (markup 
+                    #:dynamic "p"
+                    #:normal-text #:italic "con molto"
+                )
+            )
+            % \omit \p %dynamics for midi, but not displayed %%does not work
+        #}
+    )
+    
+mezzoPianoConMolto = 
+    #@(list
+        #{ 
+            \tweak DynamicText.self-alignment-X #LEFT 
+            #(make-dynamic-script
+                (markup 
+                    #:dynamic "mp"
+                    #:normal-text #:italic "con molto"
+                )
+            )
+            % \omit \mp %dynamics for midi, but not displayed %%does not work
+        #}
+    )

@@ -5,8 +5,8 @@ tenorMusic =
         \time 6/8  \key d \major 
         | \barNumberCheck #001     R2.
         | \barNumberCheck #002     R2.
-        | \barNumberCheck #003     b=,8[(-\markup { \dynamic p \italic { con molto  } } d8]) fis g4 fis8
-        | \barNumberCheck #004     b=,8[(\cresc d8]) fis g4.~
+        | \barNumberCheck #003     \resetRelativeOctave b, b=,8[(\pianoConMolto d8]) fis g4 fis8
+        | \barNumberCheck #004     \resetRelativeOctave b, b=,8[(\cresc d8]) fis g4.~
         \originalLineBreak
         
         | \barNumberCheck #005     g2.~
@@ -30,7 +30,7 @@ tenorMusic =
         
         | \barNumberCheck #017     R2.
         | \barNumberCheck #018     R2.
-        | \barNumberCheck #019     b=,8([\p d)] fis g4 fis8
+        | \barNumberCheck #019     \resetRelativeOctave b, b=,8([\p d)] fis g4 fis8
         | \barNumberCheck #020     b,([\cresc d)] fis g4.~
         \originalLineBreak
         
@@ -56,7 +56,7 @@ tenorMusic =
         
         | \barNumberCheck #033     bis4 b8 cis4 cis8
         | \barNumberCheck #034     bis4 bis8 < cis  gis >4 r8\fermata
-        | \barNumberCheck #035     r4. d=8[(\f e]) fis
+        | \barNumberCheck #035     r4. \resetRelativeOctave d d=8[(\f e]) fis
         \originalLineBreak
         \originalPageBreak
         
@@ -120,7 +120,7 @@ tenorMusic =
         | \barNumberCheck #072     r4 g8\> fis4.~
         | \barNumberCheck #073     fis4\! r8 r4.
         | \barNumberCheck #074     R2.\fermataMarkup
-        | \barNumberCheck #075  
+        % | \barNumberCheck #075  
             \time 4/4     
             \set Score.measurePosition=#(ly:make-moment 2 4)  
             a4.\p a8
@@ -158,7 +158,7 @@ tenorMusic =
         | \barNumberCheck #095     R2.\fermataMarkup
         \originalLineBreak
         
-        | \barNumberCheck #096     b=,8[(\f dis]) fis g4 fis8
+        | \barNumberCheck #096     \resetRelativeOctave b, b=,8[(\f dis]) fis g4 fis8
         | \barNumberCheck #097     b,8[(\cresc dis]) fis g4 fis8
         | \barNumberCheck #098     b,[( e]) fis g[( fis]) e
         | \barNumberCheck #099     c[( e]) fis g[( fis e])
@@ -192,7 +192,7 @@ tenorMusic =
         | \barNumberCheck #115     bis4 bis8 <cis gis>4 r8\fermata
         \originalLineBreak
         
-        | \barNumberCheck #116     r4. d=8[(\f e]) fis
+        | \barNumberCheck #116     r4. \resetRelativeOctave d d=8[(\f e]) fis
         | \barNumberCheck #117     gis4\cresc gis8 fis8[( gis]) a
         | \barNumberCheck #118     b4 b8 a[( b]) cis
         \originalLineBreak

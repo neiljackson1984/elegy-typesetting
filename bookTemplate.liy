@@ -354,6 +354,8 @@ $@(if makeMidiOutput
             #{ \book{ \bookOutputSuffix "alto"               \score { << \altoMusic    \tempoIndications >>  \midi { } } } #}
             #{ \book{ \bookOutputSuffix "tenor"              \score { << \tenorMusic   \tempoIndications >>  \midi { } } } #}
             #{ \book{ \bookOutputSuffix "bass"               \score { << \bassMusic    \tempoIndications >>  \midi { } } } #}
+            ; TO-DO: see http://lilypond.org/doc/v2.18/Documentation/notation/controlling-midi-dynamics 
+            ; to make emphasized midi parts.
             #{ \book{ \bookOutputSuffix "sopranoEmphasized"  \score { << \sopranoMusic \tempoIndications >>  \midi { } } } #}
             #{ \book{ \bookOutputSuffix "altoEmphasized"     \score { << \altoMusic    \tempoIndications >>  \midi { } } } #}
             #{ \book{ \bookOutputSuffix "tenorEmphasized"    \score { << \tenorMusic   \tempoIndications >>  \midi { } } } #}

@@ -1,17 +1,20 @@
 \version "2.18.2"
 
+
+    
+
 sopranoMusic =  
     \relative {
         \time 6/8  \key d \major 
         | \barNumberCheck #001     R2.
         | \barNumberCheck #002     R2.
-        | \barNumberCheck #003     b=8([ -\markup { \dynamic p \italic { con molto  } } d)] fis g4 fis8
+        | \barNumberCheck #003     \resetRelativeOctave b b=8([\pianoConMolto  d)] fis g4 fis8
         | \barNumberCheck #004     b,8([\cresc d)] fis g4.~
         \originalLineBreak
         
         | \barNumberCheck #005     g2.~
         | \barNumberCheck #006     g4.~ g8 r r
-        | \barNumberCheck #007     cis='([\f e)] fis\cresc g([ fis)] e
+        | \barNumberCheck #007     \resetRelativeOctave cis' cis='([\f e)] fis\cresc g([ fis)] e
         | \barNumberCheck #008     dis([\< fis)] a c([ b)] a
         \originalLineBreak
         
@@ -125,7 +128,7 @@ sopranoMusic =
         % to throw the warning 'warning: MultiMeasureRestText has empty extent and non-empty stencil.'
         %the fix is to replace \fermata with \fermataMarkup
         | \barNumberCheck #074     R2.\fermataMarkup
-        | \barNumberCheck #075     
+        % | \barNumberCheck #075     
             \time 4/4 
             
             % how should I handle the weird partial measure
@@ -182,8 +185,8 @@ sopranoMusic =
         \originalLineBreak
         
         | \barNumberCheck #096     b=8[(\f dis]) fis g4 fis8
-        | \barNumberCheck #097     b=[(\cresc dis]) fis g4 fis8
-        | \barNumberCheck #098     b=[( e]) fis g[( fis]) e
+        | \barNumberCheck #097     \resetRelativeOctave b b=[(\cresc dis]) fis g4 fis8
+        | \barNumberCheck #098     \resetRelativeOctave b b=[( e]) fis g[( fis]) e
         | \barNumberCheck #099     c[( e]) fis g[( fis e])
         \originalLineBreak
         \originalPageBreak
@@ -197,7 +200,7 @@ sopranoMusic =
         
         | \barNumberCheck #104     g=''8[(\ff fis]) e e[( d]) cis
         | \barNumberCheck #105     b[( cis]) d d4 cis8
-        | \barNumberCheck #106     g=''8[( fis]) e e[( d]) cis
+        | \barNumberCheck #106     \resetRelativeOctave g'' g=''8[( fis]) e e[( d]) cis
         | \barNumberCheck #107     b[( cis]) d d4( cis8)
 
         \originalLineBreak
@@ -209,13 +212,13 @@ sopranoMusic =
         \originalPageBreak
         
         
-        | \barNumberCheck #112     d=''8[( cis]) b b[( a]) gis
+        | \barNumberCheck #112     \resetRelativeOctave d'' d=''8[( cis]) b b[( a]) gis
         | \barNumberCheck #113     fis[( gis]) a8 a4( gis8)
         | \barNumberCheck #114     gis4 gis8 a4 gis8
         | \barNumberCheck #115     gis4 gis8 cis4 r8\fermata
         \originalLineBreak
         
-        | \barNumberCheck #116     r4. d='8[(\f e]) fis
+        | \barNumberCheck #116     r4. \resetRelativeOctave d' d='8[(\f e]) fis
         | \barNumberCheck #117     gis4 gis8\cresc fis[( gis]) a
         | \barNumberCheck #118     b4 b8 a[( b]) cis
         \originalLineBreak
