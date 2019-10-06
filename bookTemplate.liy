@@ -8,20 +8,20 @@
 
 %handle variables defined on the command line by m,eans of the "-e '(define-public foo 42)'" command line syntax.
 #(use-modules (guile-user))
-#(if (not (defined? 'makeMidi)) 
+#(if (not (defined? 'makeMidiOutput)) 
     (begin
-        (newline)(display "makeMidi was not defined, so we are setting it to default value.")(newline)
-        (define makeMidi #f)
+        (newline)(display "makeMidiOutput was not defined, so we are setting it to default value.")(newline)
+        (define makeMidiOutput #f)
     )
 )
-#(if (not (defined? 'makeLayout)) 
+#(if (not (defined? 'makeGraphicalOutput)) 
     (begin
-        (newline)(display "makeLayout was not defined, so we are setting it to default value.")(newline)
-        (define makeLayout #f)
+        (newline)(display "makeGraphicalOutput was not defined, so we are setting it to default value.")(newline)
+        (define makeGraphicalOutput #f)
     )
 )
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%  The variables makeMidi and makeLayout control whether to include a \midi output definition and a \layout output definition in 
+%  The variables makeMidiOutput and makeGraphicalOutput control whether to include a \midi output definition and a \layout output definition in 
 %  the score.  Roughly speaking, this controls whether we make a midi file and whether we make a pdf file.  Strictly speaking, this controls
 %  whether we include a \midi block and whether we include a \layout block in the \score block.
 %  It doesn't seem to be possible ever to simultaneously not make a midi file AND not make a pdf.
@@ -257,7 +257,7 @@ layoutSettings = \layout {
                     }
                 }
                 
-midiBlock = \midi{  
+midiSettings = \midi{  
             \context {
                 \Score
                 tempoWholesPerMinute = #(ly:make-moment 60 4)	
@@ -267,19 +267,19 @@ midiBlock = \midi{
             }
         }
         
-myScore = \score{
+% myScore = \score{
         
-        \scorecontents
-        % \layout {\layoutSettings}
-    }
+        % \scorecontents
+        % % \layout {\layoutSettings}
+    % }
 
-#(if makeLayout
-    (ly:score-add-output-def! myScore layoutSettings)
-)
+% #(if makeGraphicalOutput
+    % (ly:score-add-output-def! myScore layoutSettings)
+% )
 
-#(if makeMidi
-    (ly:score-add-output-def! myScore midiBlock)
-)
+% #(if makeMidiOutput
+    % (ly:score-add-output-def! myScore midiSettings)
+% )
 
 % \void #(begin
     % ;(display "layoutSettings: ") 
@@ -289,8 +289,8 @@ myScore = \score{
     % ;(display "myScore: ")
     % ;(display myScore)
     % ;(newline) 
-    % ;(display "midiBlock: ")
-    % ;(display midiBlock) 
+    % ;(display "midiSettings: ")
+    % ;(display midiSettings) 
     % ;(newline)
     % ;(display "ly:command-line-code: ")
     % ;(display (ly:command-line-code)) 
@@ -303,22 +303,64 @@ myScore = \score{
 }
 
 
-myBook = \book{
-    
-    \myScore
-    % \score {
-        % \sopranoMusic
-        % \midi { 
-           
-        % }
-    % }
-}
 
-$myBook
+%%%% make the graphical output, if so requested by the makeGraphicalOutput variable.
+$(if makeGraphicalOutput
+    (begin (newline)(display "we are making graphical output.")(newline)
+        #{
+            \book { \score{ \scorecontents  \layout {\layoutSettings} } }
+        #}
+    )
+    (begin (newline)(display "we are not making graphical output.")(newline))
+)
+
+%%%% make the midi output, if so requested by the makMidiOutput variable.
+% \book{ \bookOutputSuffix "soprano"  \score { \sopranoMusic  \midi { } } }
+% \book{ \bookOutputSuffix "bass"     \score { \bassMusic     \midi { } } }
+% the above two lines create the midi files, as desired, but we want to choose, programmatically, whether to create the midi files.
+
+% #(if makeMidiOutput
+    % (begin (newline)(display "we are making midi output.")(newline)
+        % #{ 
+            % \book{ \bookOutputSuffix "soprano"  \score { \sopranoMusic  \midi { } } } 
+            % \book{ \bookOutputSuffix "bass"     \score { \bassMusic     \midi { } } }
+        % #}
+    % )
+    % (begin (newline)(display "we are not making midi output.")(newline))
+% )
+% the above throws an error
+
+% $(if makeMidiOutput
+    % (begin (newline)(display "we are making midi output.")(newline)
+        % #{ 
+            % \book{ \bookOutputSuffix "soprano"  \score { \sopranoMusic  \midi { } } } 
+            % \book{ \bookOutputSuffix "bass"     \score { \bassMusic     \midi { } } }
+        % #}
+    % )
+    % (begin (newline)(display "we are not making midi output.")(newline))
+% )
+% the above generates the soprano midi file, but not the bass midi file, and throws an error -- I do not understand why.
 
 
-\book{ \bookOutputSuffix ""         \score { \allMusic      \midi { } } }
-\book{ \bookOutputSuffix "soprano"  \score { \sopranoMusic  \midi { } } }
-\book{ \bookOutputSuffix "alto"     \score { \altoMusic     \midi { } } }
-\book{ \bookOutputSuffix "tenor"    \score { \tenorMusic    \midi { } } }
-\book{ \bookOutputSuffix "bass"     \score { \bassMusic     \midi { } } }
+% the '@' character in the below statement is very important - it is the list splicing operator,
+% which tells Lilypond to take the list returned by the below expression, and 
+% process that list in the same way that it would process multiple expressions found directly in the 
+% raw lilypond input.
+$@(if makeMidiOutput
+    (begin (newline)(display "we are making midi output.")(newline)
+        (list
+            #{ \book{ \bookOutputSuffix "allParts"            \score { \allMusic                              \midi { \midiSettings } } } #}
+            #{ \book{ \bookOutputSuffix "soprano"            \score { << \sopranoMusic \tempoIndications >>  \midi { } } } #}
+            #{ \book{ \bookOutputSuffix "alto"               \score { << \altoMusic    \tempoIndications >>  \midi { } } } #}
+            #{ \book{ \bookOutputSuffix "tenor"              \score { << \tenorMusic   \tempoIndications >>  \midi { } } } #}
+            #{ \book{ \bookOutputSuffix "bass"               \score { << \bassMusic    \tempoIndications >>  \midi { } } } #}
+            #{ \book{ \bookOutputSuffix "sopranoEmphasized"  \score { << \sopranoMusic \tempoIndications >>  \midi { } } } #}
+            #{ \book{ \bookOutputSuffix "altoEmphasized"     \score { << \altoMusic    \tempoIndications >>  \midi { } } } #}
+            #{ \book{ \bookOutputSuffix "tenorEmphasized"    \score { << \tenorMusic   \tempoIndications >>  \midi { } } } #}
+            #{ \book{ \bookOutputSuffix "bassEmphasized"     \score { << \bassMusic    \tempoIndications >>  \midi { } } } #}
+        )
+    )
+    (begin (newline)(display "we are not making midi output.")(newline))
+)
+
+
