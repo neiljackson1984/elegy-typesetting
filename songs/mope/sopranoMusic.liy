@@ -122,35 +122,12 @@ sopranoMusic =
         | \barNumberCheck #071     R2.
         | \barNumberCheck #072     R2.
         | \barNumberCheck #073     R2.
-        % | \barNumberCheck #074     R2.\fermata
-        %attempting to apply a fermata to a multi-measure rest (the rest denoted with a capital 'R') fails to 
-        %produce the desired graphical fermata and causes LilyPond 
-        % to throw the warning 'warning: MultiMeasureRestText has empty extent and non-empty stencil.'
-        %the fix is to replace \fermata with \fermataMarkup
         | \barNumberCheck #074     R2.\fermataMarkup
-        % | \barNumberCheck #075     
+        | \barNumberCheck #075     
             \time 4/4 
-            
-            % how should I handle the weird partial measure
-            % option 1:
-            % \set Score.currentBarNumber=#76 %Lilypond doesn't seem to count a partial measure as it's own measure for purposes of measure numbering..  Hence, the forced setting of currentBarNumber
-            % \partial 2 
-            % apart from the measure numbering weirdness, using \partial does produce the desired effect.  However, LilyPond
-            % throws a warning complaining about \partial being encountered not at the beginning of the piece, which makes me think
-            % that \partial is inteneded to be used only at the beginning of the piece.
-            
-            % option 2: 
-            \set Score.measurePosition=#(ly:make-moment 2 4)
-            % curiously, Lilypond fails to print the bar number for measure 75 (the weird partial-length measure), but seems to correctly increment the measure number nonehteless
-            
-            % option 3: 
-            % s2
-            
-            %I prefer option 2.
-            
+            \set Timing.measureLength=#(ly:make-moment 2/4)    
             fis='4.\p a8 
-            
-        | \barNumberCheck #076     bes4\> bes\! a4. a8
+        | \barNumberCheck #076     \set Timing.measureLength=#(ly:make-moment 4/4)     bes4\> bes\! a4. a8
         \originalLineBreak
         \originalPageBreak
         
@@ -283,8 +260,8 @@ sopranoMusic =
         | \barNumberCheck #156     R2.\fermataMarkup
         \originalLineBreak
         
-        | \barNumberCheck #157     \time 3/4 \key b \major \set Score.measurePosition=#(ly:make-moment 2 4) fis='8.\f e16
-        | \barNumberCheck #158     dis4.\< dis8 e fis\!
+        | \barNumberCheck #157     \time 3/4 \key b \major \set Timing.measureLength=#(ly:make-moment 1/4)     fis='8.\f e16
+        | \barNumberCheck #158     \set Timing.measureLength=#(ly:make-moment 3/4)    dis4.\< dis8 e fis\!
         | \barNumberCheck #159     gis4\> cis,\! cis8\mf cis8
         | \barNumberCheck #160     fis4.\< dis8 cis cis\!
         \originalLineBreak
@@ -313,8 +290,8 @@ sopranoMusic =
         \originalLineBreak
         
         | \barNumberCheck #174     r2 g8. g16
-        | \barNumberCheck #175     g2 g4
-        | \barNumberCheck #176     fis2\dim fis4
+        | \barNumberCheck #175     \once {\set decrescendoText = \markup { \italic "poco a poco dim." } \set decrescendoSpanner = #'text } g2\> g4
+        | \barNumberCheck #176     fis2 fis4
         | \barNumberCheck #177     eis2 eis4
         | \barNumberCheck #178     fis2.
         | \barNumberCheck #179     fis2.

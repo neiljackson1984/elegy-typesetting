@@ -121,12 +121,11 @@ tempoIndications =
         | \barNumberCheck #072     s2.
         | \barNumberCheck #073     s2.
         | \barNumberCheck #074     s2.
-        % | \barNumberCheck #075     
+        | \barNumberCheck #075     
             \time 4/4     
-            \set Score.measurePosition=#(ly:make-moment 2 4)  
+            \set Timing.measureLength=#(ly:make-moment 2/4)    
             s2
-        | \barNumberCheck #076     s1
-        
+        | \barNumberCheck #076     \set Timing.measureLength=#(ly:make-moment 4/4)    s1
         
         
         | \barNumberCheck #077     s1
@@ -258,8 +257,8 @@ tempoIndications =
         | \barNumberCheck #156     s2.
         
         
-        | \barNumberCheck #157     \time 3/4 \set Score.measurePosition=#(ly:make-moment 2 4) s8. s16 
-        | \barNumberCheck #158     s2.
+        | \barNumberCheck #157     \time 3/4 \set Timing.measureLength=#(ly:make-moment 1/4)     s8. s16 
+        | \barNumberCheck #158     \set Timing.measureLength=#(ly:make-moment 3/4)    s2.
         | \barNumberCheck #159     s2.
         | \barNumberCheck #160     s2.
         

@@ -24,8 +24,8 @@ numberedSyllableDummyLyrics =
                             \markup {
                                 \column {
                                     \line{ \abs-fontsize #5 #(string-append prefix (number->string i)) }
-                                    \vspace #-0.3
-                                    \line {\abs-fontsize #10  \with-color #white A } 
+                                    % \vspace #-0.3
+                                    % \line {\abs-fontsize #10  \with-color #white A } 
                                     % \vspace #-0.6
                                 }
                             } 

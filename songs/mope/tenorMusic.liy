@@ -120,11 +120,11 @@ tenorMusic =
         | \barNumberCheck #072     r4 g8\> fis4.~
         | \barNumberCheck #073     fis4\! r8 r4.
         | \barNumberCheck #074     R2.\fermataMarkup
-        % | \barNumberCheck #075  
-            \time 4/4     
-            \set Score.measurePosition=#(ly:make-moment 2 4)  
+        | \barNumberCheck #075  
+            \time 4/4 
+            \set Timing.measureLength=#(ly:make-moment 2/4)                
             a4.\p a8
-        | \barNumberCheck #076     gis4\> gis\! a4. a8
+        | \barNumberCheck #076     \set Timing.measureLength=#(ly:make-moment 4/4)    gis4\> gis\! a4. a8
         \originalLineBreak
         \originalPageBreak
         
@@ -257,8 +257,8 @@ tenorMusic =
         | \barNumberCheck #156     R2.\fermataMarkup
         \originalLineBreak
         
-        | \barNumberCheck #157     \time 3/4 \key b \major \set Score.measurePosition=#(ly:make-moment 2 4)  fis8.\f fis16
-        | \barNumberCheck #158     fis4.\< fis8 fis8 fis8\!
+        | \barNumberCheck #157     \time 3/4 \key b \major \set Timing.measureLength=#(ly:make-moment 1/4)      fis8.\f fis16
+        | \barNumberCheck #158     \set Timing.measureLength=#(ly:make-moment 3/4)    fis4.\< fis8 fis8 fis8\!
         | \barNumberCheck #159     fis4\< fis4\! fis8\mf fis8
         | \barNumberCheck #160     fis4.\< fis8 fis fis\!
         \originalLineBreak
@@ -285,8 +285,8 @@ tenorMusic =
         \originalLineBreak
         
         | \barNumberCheck #174     r2 d8. d16
-        | \barNumberCheck #175     d2 d4
-        | \barNumberCheck #176     dis2\dim dis4
+        | \barNumberCheck #175     \once {\set decrescendoText = \markup { \italic "poco a poco dim." } \set decrescendoSpanner = #'text } d2\> d4
+        | \barNumberCheck #176     dis2 dis4
         | \barNumberCheck #177     d2 cis4
         | \barNumberCheck #178     cis2.
         | \barNumberCheck #179     cis2.
