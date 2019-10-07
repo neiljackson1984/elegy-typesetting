@@ -7,7 +7,7 @@
     poet = \markup {
       \column {
         \line {
-          "words by CROBA, A PIRANHA"
+          "words by Alexander Pushkin"
         }
         \line {
             % phonetization for English speakers by Yuly Kopkin

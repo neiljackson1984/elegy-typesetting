@@ -18,7 +18,7 @@ sopranoMusic =
         
         | \barNumberCheck #006     a a a a a4 a8 a 
         | \barNumberCheck #007     d d c c bes a g d
-        | \barNumberCheck #008     f e f g a4 a8 a8
+        | \barNumberCheck #008     f[( e]) f[( g]) a4 a8 a8
         \originalLineBreak
         \originalPageBreak
         
@@ -62,7 +62,73 @@ sopranoMusic =
     }
     
 sopranoOneLyrics = {
-    \context Lyrics = "lyricsUnderSopranoStaff" { 
-        \numberedSyllableDummyLyrics "s" 1 151
+    \context Lyrics = "lyricsUnderSopranoStaff" \lyricmode { 
+        % \numberedSyllableDummyLyrics "s" 1 151
+        Re -- dé -- yet    
+        a -- bla -- kóf    
+        le -- tú -- cha -- ya     
+        gre -- dá.
+        
+        
+        zve -- zdá     
+        pe -- chál' -- na -- ya,     
+        ve -- chér -- nya -- ya     
+        zve -- zdá, 
+        
+        tvoy
+        luch     
+        a -- se -- re -- bríl     
+        u -- výat -- shi -- ye 
+        rav -- ní -- ny     
+        i 
+        drém -- lu -- schi 
+        za -- líf, 
+        i 
+        chór -- nyh 
+        skal 
+        ver -- shí -- ny.  
+        
+        Lu -- blú -- tvoy 
+        slá -- by -- svet 
+        vne -- bés -- nay 
+        vy -- shy -- né 
+        on
+        dú -- my 
+        ra -- zbu -- díl 
+        u -- snúf -- shi -- ye 
+        vam -- ne;  
+        
+        ya 
+        póm -- nu -- tvoy 
+        vas -- hót, 
+        val -- shéb -- na 
+        ye 
+        sve -- tí -- la 
+        nad 
+        mír -- na -- yu 
+        stra -- nóy, 
+        gde -- fsyod -- lya 
+        sér -- tza 
+        mí -- la, 
+        gde -- stróy -- ny 
+        ta -- pa -- lýa 
+        vda -- lí -- nah 
+        vaz -- ne -- slís', 
+        gde -- drém -- let 
+        nézh -- ny  
+        mir -- ti 
+        týom -- ny  
+        ki -- pa -- ris, 
+        i -- slá -- da -- stna 
+        shu -- mýat 
+        po -- lú -- de -- ny 
+        ye -- vól -- ny 
+        tam  
+        vga -- ráh 
+        ya 
+        vla -- chíl 
+        za -- dúm  
+        chi -- vu -- yu  
+        len?       
     }
 }
