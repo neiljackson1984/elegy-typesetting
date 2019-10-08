@@ -15,7 +15,7 @@ bassMusic =
                                    
         | \barNumberCheck #006     cis cis cis cis c4 c8 c
         | \barNumberCheck #007     bes bes bes bes\> bes bes bes bes\!
-        | \barNumberCheck #008     c4 c f f8 f
+        | \barNumberCheck #008     c4 c f f8 \breathe f
         \originalLineBreak         
         \originalPageBreak         
                                    
@@ -31,7 +31,7 @@ bassMusic =
         \originalLineBreak         
                                    
         | \barNumberCheck #015     g4\> g\! a a\<
-        | \barNumberCheck #016     bes8\! bes g g\> c4 c\!
+        | \barNumberCheck #016     bes8\! bes g g\> c4 c\! \breathe
         | \barNumberCheck #017     c2\mp c4 c
         \originalLineBreak         
         \originalPageBreak         
@@ -57,7 +57,53 @@ bassMusic =
     }
     
 bassOneLyrics = {
-    \context Lyrics = "lyricsUnderBassStaff" { 
-        \numberedSyllableDummyLyrics "b" 1 120
+    \context Lyrics = "lyricsUnderBassStaff"  \lyricmode { 
+        % \numberedSyllableDummyLyrics "b" 1 120
+        
+        %system that starts with measure 1: 
+        %{ 3  %}  Re -- dé -- yet 
+        %{ 3  %}  a -- bla -- kóf 
+        %{ 4  %}  le -- tú -- cha -- ya 
+        %{ 2. %}  gre -- dá.
+        %{ 2  %}  zve -- zdá 
+
+        %system that starts with measure 3
+        %{ 4, %}  pe -- chál' -- na -- ya, 
+        %{ 4  %}  ve -- chér -- nya -- ya     
+        %{ 2, %}  zve -- zdá, 
+        %{ 1  %}  tvoy
+        %{ 1  %}  luch
+        %{ 4  %}  a -- se -- re -- bríl    
+        %{ 4  %}  u -- výat -- shi -- ye 
+
+        %system that starts with measure 6
+        %{ 3  %}  rav -- ní -- ny     
+        %{ 1  %}  i
+        %{ 3  %}  drém -- lu -- schi 
+        %{ 2, %}  za -- líf, 
+        %{ 1  %}  i 
+        %{ 2  %}  chór -- nyh 
+        %{ 1  %}  skal
+        %{ 3. %}  ver -- shí -- ny.  
+        %{ 2  %}  Lu -- blú  
+
+        %system that starts with measure 9
+        
+
+        %system that starts with measure 12
+        
+
+        %system that starts with measure 15
+        
+
+        %system that starts with measure 18
+        
+
+        %system that starts with measure 21
+       
+
+        %system that starts with measure 25
+        
+        
     }
 }

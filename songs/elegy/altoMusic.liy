@@ -16,7 +16,7 @@ altoMusic =
                                    
         | \barNumberCheck #006     e e e e ees4 ees8 ees
         | \barNumberCheck #007     d d d d\> d d d d\!
-        | \barNumberCheck #008     d[( c]) d[( e]) f4 f8 f
+        | \barNumberCheck #008     d[( c]) d[( e]) f4 f8 \breathe f
         \originalLineBreak         
         \originalPageBreak         
                                    
@@ -32,7 +32,7 @@ altoMusic =
         \originalLineBreak         
                                    
         | \barNumberCheck #015     e4\> e\! f f\<
-        | \barNumberCheck #016     f8\! f f f\> e4 e8\! e8
+        | \barNumberCheck #016     f8\! f f f\> e4 e8\! \breathe e8
         | \barNumberCheck #017     f8\mp f e e d4. e8
         \originalLineBreak         
         \originalPageBreak         
@@ -82,7 +82,52 @@ altoMusic =
     }
     
 altoOneLyrics = {
-    \context Lyrics = "lyricsUnderAltoStaff" { 
-        \numberedSyllableDummyLyrics "a" 1 152
+    \context Lyrics = "lyricsUnderAltoStaff" \lyricmode { 
+        % \numberedSyllableDummyLyrics "a" 1 152
+        
+        %system that starts with measure 1: 
+        %{ 3  %}  Re -- dé -- yet 
+        %{ 3  %}  a -- bla -- kóf 
+        %{ 4  %}  le -- tú -- cha -- ya 
+        %{ 2. %}  gre -- dá.
+        %{ 2  %}  zve -- zdá 
+
+        %system that starts with measure 3
+        %{ 4, %}  pe -- chál' -- na -- ya, 
+        %{ 4  %}  ve -- chér -- nya -- ya     
+        %{ 2, %}  zve -- zdá, 
+        %{ 1  %}  tvoy
+        %{ 1  %}  luch
+        %{ 4  %}  a -- se -- re -- bríl    
+        %{ 4  %}  u -- výat -- shi -- ye 
+
+        %system that starts with measure 6
+        %{ 3  %}  rav -- ní -- ny     
+        %{ 1  %}  i
+        %{ 3  %}  drém -- lu -- schi 
+        %{ 2, %}  za -- líf, 
+        %{ 1  %}  i 
+        %{ 2  %}  chór -- nyh 
+        %{ 1  %}  skal
+        %{ 3. %}  ver -- shí -- ny.  
+        %{ 2  %}  Lu -- blú  
+
+        %system that starts with measure 9
+        
+
+        %system that starts with measure 12
+        
+
+        %system that starts with measure 15
+        
+
+        %system that starts with measure 18
+        
+
+        %system that starts with measure 21
+       
+
+        %system that starts with measure 25
+        
     }
 }

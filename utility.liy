@@ -114,3 +114,11 @@ mezzoPianoConMolto =
             % \omit \mp %dynamics for midi, but not displayed %%does not work
         #}
     )
+    
+% textemdash = #"\u2014"
+% textemdash = $(list->string (list (integer->char 8212)))
+% the above both throw an error -- probably something relating to string encoding mismatch.
+
+textemdash = #"–"
+%the above works
+

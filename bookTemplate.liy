@@ -233,6 +233,7 @@ layoutSettings = \layout {
                         \Staff
                         %\remove Instrument_name_engraver
                         \override DynamicTextSpanner.dash-period = #0 %removes the dashed lines representing "cresc." crescendos, and similar decrescendoes and diminuendos.
+                        \override TextSpanner.dash-period = #0 %removes the dashed lines 
                         \accidentalStyle modern-voice-cautionary
                     }
 

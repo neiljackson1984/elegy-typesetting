@@ -20,7 +20,7 @@ tenorMusic =
       
         | \barNumberCheck #006     a a a a a4 g8 f
         | \barNumberCheck #007     f f fis fis g a bes bes
-        | \barNumberCheck #008      bes4 bes a4 a8  << \context Voice="tenor1" {\voiceOne  a}  \context Voice="tenor2" {\voiceTwo  a} >>  \oneVoice
+        | \barNumberCheck #008      bes4 bes a4 a8  \breathe << \context Voice="tenor1" {\voiceOne  a}  \context Voice="tenor2" {\voiceTwo  a} >>  \oneVoice
         \originalLineBreak         
         \originalPageBreak         
                                    
@@ -105,7 +105,7 @@ tenorMusic =
         \change Staff = "tenor-staff"    
         \unset Staff.shortInstrumentName 
         | \barNumberCheck #015     bes4\> d8 d\! c c c\< c\! 
-        | \barNumberCheck #016     bes bes bes d\> bes4 bes8\! a
+        | \barNumberCheck #016     bes bes bes d\> bes4 bes8\! \breathe a
         | \barNumberCheck #017     d, d e e f4. e8
         \originalLineBreak         
         \originalPageBreak         
@@ -149,19 +149,65 @@ tenorMusic =
 % \displayScheme  \markup { a \sub b }
 
 tenorOneLyrics = {
-    \context Lyrics = "lyricsUnderTenorStaff" { 
+    \context Lyrics = "lyricsUnderTenorStaff"  \lyricmode { 
         % \set associatedVoice = "tenor1"
-        \numberedSyllableDummyLyrics "t" 1 51
+        % \numberedSyllableDummyLyrics "t" 1 51
+        
+        %system that starts with measure 1: 
+        %{ 3  %}  Re -- dé -- yet 
+        %{ 3  %}  a -- bla -- kóf 
+        %{ 4  %}  le -- tú -- cha -- ya 
+        %{ 2. %}  gre -- dá.
+        %{ 2  %}  zve -- zdá 
+
+        %system that starts with measure 3
+        %{ 4, %}  pe -- chál' -- na -- ya, 
+        %{ 4  %}  ve -- chér -- nya -- ya     
+        %{ 2, %}  zve -- zdá, 
+        %{ 1  %}  tvoy
+        %{ 1  %}  luch
+        %{ 4  %}  a -- se -- re -- bríl    
+        %{ 4  %}  u -- výat -- shi -- ye 
+
+        %system that starts with measure 6
+        %{ 3  %}  rav -- ní -- ny     
+        %{ 1  %}  i
+        %{ 3  %}  drém -- lu -- schi 
+        %{ 2, %}  za -- líf, 
+        %{ 1  %}  i 
+        %{ 2  %}  chór -- nyh 
+        %{ 1  %}  skal
+        %{ 3. %}  ver -- shí -- ny.  
+        %{ 2  %}  Lu -- blú  
+
+        %system that starts with measure 9
+        
+
+        %system that starts with measure 12
+        
+
+        %system that starts with measure 15
+        
+
+        %system that starts with measure 18
+        
+
+        %system that starts with measure 21
+       
+
+        %system that starts with measure 25
+        
+        
     }
-    \context Lyrics = "lyricsUnderTenor1Staff" { 
+    \context Lyrics = "lyricsUnderTenor1Staff"  \lyricmode { 
         % \set associatedVoice = "tenor1"
         \numberedSyllableDummyLyrics "t" 52 5
     }
-    \context Lyrics = "lyricsUnderTenor1Staff"  {
+    \context Lyrics = "lyricsUnderTenor1Staff"   \lyricmode {
         % \set associatedVoice = "tenor1"
         \numberedSyllableDummyLyrics "t" 57 17
     }
-    \context Lyrics = "lyricsUnderTenorStaff"  { 
+    \context Lyrics = "lyricsUnderTenorStaff"   \lyricmode { 
         % \set associatedVoice = "tenor1"
         \numberedSyllableDummyLyrics "t" 74 62
     }          
@@ -174,13 +220,13 @@ tenorTwoLyrics =  {
     % in actuality, the humans assigned to the tenor 2 part will 
     % autoamtically sing the tenor 1 voice whenever the tenor 2 voice  is silent. 
     
-    \context Lyrics = "lyricsUnderTenorStaff" { 
+    \context Lyrics = "lyricsUnderTenorStaff"  \lyricmode { 
         \numberedSyllableDummyLyrics "t2" 1 1
     }
-    \context Lyrics = "lyricsUnderTenor2Staff" {      
+    \context Lyrics = "lyricsUnderTenor2Staff"  \lyricmode {      
         \numberedSyllableDummyLyrics "τ" 2 34
     }
-    \context Lyrics = "lyricsUnderTenorStaff"  {
+    \context Lyrics = "lyricsUnderTenorStaff"   \lyricmode {
          % \set associatedVoice = "tenor2" 
          % curiously, UNcommenting the above line causes Lilypond to issue a whole bunch of the warnings "warning: Lyric syllable does not have note.  Use \lyricsto or associatedVoice."
          % Evidently, there is something a bit mysterious about nested Lyrics contexts. (the strangeness might also be related to the syllable-to-rhythm matching mechanism)
