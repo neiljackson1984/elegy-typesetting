@@ -6,7 +6,7 @@
 tenorMusic =  
     \relative {
         \time 4/4  \key f \major 
-                                   \partial 8  \resetRelativeOctave f f=8          
+                                   \partial 8  \resetRelativeOctave f f=8\p          
         | \barNumberCheck #001      f f f f f4. f8
         % | \barNumberCheck #001     << \context Voice="tenor1" { f f f f f4. f8 }  \context Voice="tenor2" { f f f f f4. f8 } >> //produces desired results, but throws the warning "warning: ignoring too many clashing note columns"
         | \barNumberCheck #002      f f f f f4. f8
@@ -14,13 +14,13 @@ tenorMusic =
 
         | \barNumberCheck #003     f4( e8) g f f f f 
         | \barNumberCheck #004     f f f f e4. e8
-        | \barNumberCheck #005     e a a a a4. a8
+        | \barNumberCheck #005     e\< a a a\! a4. a8
         \originalLineBreak         
         
       
         | \barNumberCheck #006     a a a a a4 g8 f
-        | \barNumberCheck #007     f f fis fis g a bes bes
-        | \barNumberCheck #008      bes4 bes a4 a8  \breathe << \context Voice="tenor1" {\voiceOne  a}  \context Voice="tenor2" {\voiceTwo  a} >>  \oneVoice
+        | \barNumberCheck #007     f f fis fis\> g a bes bes
+        | \barNumberCheck #008      bes4\! bes a4 a8  \breathe << \context Voice="tenor1" {\voiceOne  a}  \context Voice="tenor2" {\voiceTwo  a} >>  \oneVoice
         \originalLineBreak         
         \originalPageBreak         
                                    
@@ -29,6 +29,7 @@ tenorMusic =
             \context Voice="tenor1" {
                 % \voiceOne 
                 \change Staff = "tenor1-staff"
+                  \key f \major 
                 | \barNumberCheck #009     \resetRelativeOctave c' c='1
                 | \barNumberCheck #010     c2~ c4. d8
                 | \barNumberCheck #011     ees2 d 
@@ -37,6 +38,7 @@ tenorMusic =
             \context Voice="tenor2" {
                 % \voiceTwo 
                  \change Staff = "tenor2-staff"
+                  \key f \major 
                  % uncommenting the above line seems to cause the "tenor2" Voice context to die at measure 12
                 | \barNumberCheck #009     \resetRelativeOctave g g=2( a8) a g fis
                 | \barNumberCheck #010     g4 g fis8 fis g a
@@ -104,9 +106,9 @@ tenorMusic =
         \originalLineBreak   
         \change Staff = "tenor-staff"    
         \unset Staff.shortInstrumentName 
-        | \barNumberCheck #015     << \context Voice="tenor1" { bes4\> d8} \context Voice="tenor2" { s4 s8 } >> d\! c c c\< c\! %the spacer rests here in tenor2 are to make the lyrics hyphenation work properly.        
-        | \barNumberCheck #016     bes bes bes d\> bes4 bes8\! \breathe a
-        | \barNumberCheck #017     d, d e e f4. e8
+        | \barNumberCheck #015     << \context Voice="tenor1" { bes4\> d8} \context Voice="tenor2" { s4 s8 } >> d\! c c c\< c %the spacer rests here in tenor2 are to make the lyrics hyphenation work properly.        
+        | \barNumberCheck #016     bes\! bes bes d\> bes4 bes8\! \breathe a
+        | \barNumberCheck #017     d,\mp d e e f4. e8
         \originalLineBreak         
         \originalPageBreak         
                                    
@@ -175,8 +177,15 @@ tenorOneLyrics = {
         %{ 2  %}  chór -- nyh 
         %{ 1  %}  skal
         %{ 3. %}  ver -- \markup{\concat{ sh \accentedI   }} -- ny.  
-        %{ 2  %}  Lu --  } \context Lyrics = "lyricsUnderTenor1Staff"  \lyricmode {  blú  
-
+        %{ 2  %}  \markup{\concat{ Lu - }} } \context Lyrics = "lyricsUnderTenor1Staff"  \lyricmode {  blú  
+        %the above markup concatenating a hyphen is a hack to work around the problem caused when we 
+        % attempt to use a real lyric syllable-separating hyphen ("--").  the problem that happens is 
+        % that the hyphen spanner persists across the next six bars and links to the first syllable 
+        % in the lyricsUnderTenorStaff context which occurs at the start of measure 15.
+        % simply concatenating a hyphen as we have done before does not produce exact, guaranteed graphical match
+        % to the real lyrics syllable separator (which I suspect is a primitive line rather than a font glyph)
+        %, but it comes darn close in the current project.
+        
         %system that starts with measure 9
         %{ 1, %}  svet,
         %{ 1  %}  on
@@ -190,7 +199,7 @@ tenorOneLyrics = {
         %{ 2, %}  vas -- hót, 
         %{ 4  %}  val -- shéb -- na -- ye
         %{ 3, %}  sve -- \markup{\concat{ t \accentedI   }} -- la,
-        %{ 3, %}  sve --     } \context Lyrics = "lyricsUnderTenorStaff"   \lyricmode {  \markup{\concat{ t \accentedI   }} -- la,
+        %{ 3, %}  %{ sve %} -- \markup{\concat{ sve - }}    } \context Lyrics = "lyricsUnderTenorStaff"   \lyricmode {  \markup{\concat{ t \accentedI   }} -- la,
 
         %system that starts with measure 15
         %{ 1  %}  nad
@@ -224,7 +233,7 @@ tenorOneLyrics = {
         %{ 1  %}  tam
 
         %system that starts with measure 24
-        %{ 2  %}  "v ga" -- ráh 
+        %{ 2  %}  v_ga -- ráh 
         %{ 1  %}  ya
         %{ 2  %}  vla -- \markup{\concat{ ch \accentedI l  }} 
         %{ 5  %}  za -- dúm  -- chi -- vu -- yu  
@@ -289,7 +298,7 @@ tenorTwoLyrics = {
         %{ 1  %}  tvoy
         %{ 2, %}  vas -- hót, 
         %{ 4  %}  val -- shéb -- na -- ye
-        %{ 3, %}  sve --     } \context Lyrics = "lyricsUnderTenorStaff"   \lyricmode {  %SILENCE DUE TO ABOVE RULE
+        %{ 3, %}  %{ sve %} -- \markup{\concat{ sve - }}    } \context Lyrics = "lyricsUnderTenorStaff"   \lyricmode {  %SILENCE DUE TO ABOVE RULE
 
         %system that starts with measure 15
         %{ 1  %}  %SILENCE DUE TO ABOVE RULE
@@ -330,6 +339,12 @@ tenorTwoLyrics = {
         %{ 1. %}  %SILENCE DUE TO ABOVE RULE    
     }
     
+
+}
+
+
+
+%%%%%%%  JUNK BELOW %%%%%%%%%%%%%
     % \context Lyrics = "lyricsUnderTenorStaff"   \lyricmode {
          % % \set associatedVoice = "tenor2" 
          % % curiously, UNcommenting the above line causes Lilypond to issue a whole bunch of the warnings "warning: Lyric syllable does not have note.  Use \lyricsto or associatedVoice."
@@ -337,4 +352,13 @@ tenorTwoLyrics = {
          % % The strangeness might ahve something to do with the keepalive music that is running simultaneously in the lyricsUnderTenorStaff lyrics context.
         % \numberedSyllableDummyLyrics "t2" 36 17
     % }
-}
+    
+        % %{ 2  %}  \override LyricHyphen.dash-period = #-10.0 Lu -- } \context Lyrics = "lyricsUnderTenor1Staff"  \lyricmode {  blú  
+        % %{ 2  %}  \override LyricHyphen.stencil = ##f Lu -- } \context Lyrics = "lyricsUnderTenor1Staff"  \lyricmode {  blú  
+        % %{ 2  %}  Lu  --   \override Lyrics.alignBelowContext = #"tenor1-staff"  blú  
+        % the above setting (or overriding) of Lyrics.alignBelowContext has no effect
+        % %{ 2  %}  \override LyricHyphen.stencil = ##f Lu -- } \context Lyrics = "lyricsUnderTenor1Staff"  \lyricmode {  blú  
+        % the above does cause the hyphens to disappear, but does not cause the lyrics line to be hidden for the two systems.
+        % %{ 2  %}  \override LyricHyphen.spanner-broken = ##f Lu -- } \context Lyrics = "lyricsUnderTenor1Staff"  \lyricmode {  blú  
+        %{ 2  %}  
+        % \markup{\concat{ Lu a }} \context Lyrics = "lyricsUnderTenor1Staff"  \lyricmode {  blú  

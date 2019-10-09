@@ -6,19 +6,19 @@
 sopranoMusic =  
     \relative {
         \time 4/4  \key f \major 
-                                   \partial 8   \resetRelativeOctave a'   a='8
+                                   \partial 8   \resetRelativeOctave a'   a='8\p
         | \barNumberCheck #001     a a a a a4. a8 
         | \barNumberCheck #002     a d, e f g4. g8
         \originalLineBreak
 
         | \barNumberCheck #003     g4( a8) e f f e f
         | \barNumberCheck #004     d d d d e4. e8 
-        | \barNumberCheck #005     a8 a8 a8 a8 a4. a8
+        | \barNumberCheck #005     a8\< a8 a8 a8\! a4. a8
         \originalLineBreak    
         
         | \barNumberCheck #006     a a a a a4 a8 a 
-        | \barNumberCheck #007     d d c c bes a g d
-        | \barNumberCheck #008     f[( e]) f[( g]) a4 a8 \breathe a8
+        | \barNumberCheck #007     d d c c\> bes a g d
+        | \barNumberCheck #008     f[(\! e]) f[( g]) a4 a8 \breathe a8
         \originalLineBreak
         \originalPageBreak
         
@@ -33,9 +33,9 @@ sopranoMusic =
         | \barNumberCheck #014     f e d c bes4 c8 d
         \originalLineBreak 
         
-        | \barNumberCheck #015     e d c bes a a gis\< a\!
-        | \barNumberCheck #016     d4. bes8\> a4 g8\! \breathe a        
-        | \barNumberCheck #017     a a a a a4. a8
+        | \barNumberCheck #015     e d c bes a a gis\< a
+        | \barNumberCheck #016     d4.\! bes8\> a4 g8\! \breathe a        
+        | \barNumberCheck #017     a\mp a a a a4. a8
         \originalLineBreak
         \originalPageBreak
         
@@ -180,7 +180,7 @@ sopranoOneLyrics = {
         %{ 1  %}  tam
 
         %system that starts with measure 24
-        %{ 2  %}  "v ga" -- ráh 
+        %{ 2  %}  v_ga -- ráh 
         %{ 1  %}  ya
         %{ 2  %}  vla -- \markup{\concat{ ch \accentedI l  }} 
         %{ 5  %}  za -- dúm  -- chi -- vu -- yu  
