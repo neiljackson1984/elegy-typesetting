@@ -104,7 +104,7 @@ tenorMusic =
         \originalLineBreak   
         \change Staff = "tenor-staff"    
         \unset Staff.shortInstrumentName 
-        | \barNumberCheck #015     bes4\> d8 d\! c c c\< c\! 
+        | \barNumberCheck #015     << \context Voice="tenor1" { bes4\> d8} \context Voice="tenor2" { s4 s8 } >> d\! c c c\< c\! %the spacer rests here in tenor2 are to make the lyrics hyphenation work properly.        
         | \barNumberCheck #016     bes bes bes d\> bes4 bes8\! \breathe a
         | \barNumberCheck #017     d, d e e f4. e8
         \originalLineBreak         
@@ -143,14 +143,11 @@ tenorMusic =
         \originalPageBreak 
     }
     
-% \displayMusic \lyricmode{ x y z }
-% \displayMusic {\numberedSyllableDummyLyrics \default }
 
-% \displayScheme  \markup { a \sub b }
 
 tenorOneLyrics = {
     \context Lyrics = "lyricsUnderTenorStaff"  \lyricmode { 
-        % \set associatedVoice = "tenor1"
+
         % \numberedSyllableDummyLyrics "t" 1 51
         
         %system that starts with measure 1: 
@@ -166,71 +163,178 @@ tenorOneLyrics = {
         %{ 2, %}  zve -- zdá, 
         %{ 1  %}  tvoy
         %{ 1  %}  luch
-        %{ 4  %}  a -- se -- re -- bríl    
+        %{ 4  %}  a -- se -- re -- \markup{\concat{ br \accentedI l  }}    
         %{ 4  %}  u -- výat -- shi -- ye 
 
         %system that starts with measure 6
-        %{ 3  %}  rav -- ní -- ny     
+        %{ 3  %}  rav -- \markup{\concat{ n \accentedI   }} -- ny     
         %{ 1  %}  i
         %{ 3  %}  drém -- lu -- schi 
-        %{ 2, %}  za -- líf, 
+        %{ 2, %}  za -- \markup{\concat{ l \accentedI f,  }} 
         %{ 1  %}  i 
         %{ 2  %}  chór -- nyh 
         %{ 1  %}  skal
-        %{ 3. %}  ver -- shí -- ny.  
-        %{ 2  %}  Lu -- blú  
+        %{ 3. %}  ver -- \markup{\concat{ sh \accentedI   }} -- ny.  
+        %{ 2  %}  Lu --  } \context Lyrics = "lyricsUnderTenor1Staff"  \lyricmode {  blú  
 
         %system that starts with measure 9
-        
+        %{ 1, %}  svet,
+        %{ 1  %}  on
+        %{ 2  %}  dú -- my
 
         %system that starts with measure 12
-        
+        %{ 3; %}  ra -- zbu -- \markup{\concat{ d \accentedI l;  }}
+        %{ 1  %}  ya
+        %{ 2  %}  póm -- nu
+        %{ 1  %}  tvoy
+        %{ 2, %}  vas -- hót, 
+        %{ 4  %}  val -- shéb -- na -- ye
+        %{ 3, %}  sve -- \markup{\concat{ t \accentedI   }} -- la,
+        %{ 3, %}  sve --     } \context Lyrics = "lyricsUnderTenorStaff"   \lyricmode {  \markup{\concat{ t \accentedI   }} -- la,
 
         %system that starts with measure 15
-        
+        %{ 1  %}  nad
+        %{ 3  %}  \markup{\concat{ m \accentedI r  }} -- na -- yu  % YULY: DO YOU WANT THE GRAVE ACCENT TO APPEAR ABOVE THE 'm' ?
+        %{ 2, %}  stra -- nóy, 
+        %{ 1  %}  gde
+        %{ 1  %}  vsyo  % YULY: should this be "fsyo"?
+        %{ 1  %}  mne
+        %{ 2, %}  \markup{\concat{ m \accentedI   }} -- la, 
+        %{ 1  %}  gde
+        %{ 2  %}  stróy -- ny 
+        %{ 3  %}  ta -- pa -- lýa 
+        %{ 3  %}  vda -- \markup{\concat{ l \accentedI   }} -- nah 
 
         %system that starts with measure 18
-        
+        %{ 3, %}  vaz -- ne -- \markup{\concat{ sl \accentedI s',  }} 
+        %{ 1  %}  gde 
+        %{ 2  %}  drém -- let 
+        %{ 2  %}  nézh -- ny  
+        %{ 1, %}  mirt, 
+        %{ 1  %}  i
+        %{ 2  %}  týom -- ny  
+        %{ 3, %}  ki -- pa -- ris, 
+        %{ 1  %}  i 
 
         %system that starts with measure 21
-       
+        %{ 3  %}  slá -- da -- stna 
+        %{ 2  %}  shu -- mýat 
+        %{ 5  %}  po -- lú -- de -- ny -- ye 
+        %{ 2- %}  vól -- ny %"ny –"
+        %{ 1  %}  tam
 
-        %system that starts with measure 25
-        
-        
-    }
-    \context Lyrics = "lyricsUnderTenor1Staff"  \lyricmode { 
-        % \set associatedVoice = "tenor1"
-        \numberedSyllableDummyLyrics "t" 52 5
-    }
-    \context Lyrics = "lyricsUnderTenor1Staff"   \lyricmode {
-        % \set associatedVoice = "tenor1"
-        \numberedSyllableDummyLyrics "t" 57 17
-    }
-    \context Lyrics = "lyricsUnderTenorStaff"   \lyricmode { 
-        % \set associatedVoice = "tenor1"
-        \numberedSyllableDummyLyrics "t" 74 62
+        %system that starts with measure 24
+        %{ 2  %}  "v ga" -- ráh 
+        %{ 1  %}  ya
+        %{ 2  %}  vla -- \markup{\concat{ ch \accentedI l  }} 
+        %{ 5  %}  za -- dúm  -- chi -- vu -- yu  
+        %{ 1. %}  len?       
     }          
 }
         
-tenorTwoLyrics =  {
+tenorTwoLyrics = { 
+    \context Lyrics = "lyricsUnderTenorStaff"  \lyricmode { 
     % Lilypond's internal model is that the tenor 2 voice is silent 
     % except during divisi parts.  Hence, the tenor 2 lyrics are the lyrics 
     % for only those notes where the tenor 2 is different from tenor 1.
     % in actuality, the humans assigned to the tenor 2 part will 
-    % autoamtically sing the tenor 1 voice whenever the tenor 2 voice  is silent. 
+    % automatically sing the tenor 1 voice whenever the tenor 2 voice  is silent. 
     
-    \context Lyrics = "lyricsUnderTenorStaff"  \lyricmode { 
-        \numberedSyllableDummyLyrics "t2" 1 1
+        
+        %system that starts with measure 1: 
+        %{ 3  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 3  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 4  %}  %SILENCE DUE TO ABOVE RULE 
+        %{ 2. %}  %SILENCE DUE TO ABOVE RULE
+        %{ 2  %}  %SILENCE DUE TO ABOVE RULE
+
+        %system that starts with measure 3
+        %{ 4, %}  %SILENCE DUE TO ABOVE RULE
+        %{ 4  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 2, %}  %SILENCE DUE TO ABOVE RULE
+        %{ 1  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 1  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 4  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 4  %}  %SILENCE DUE TO ABOVE RULE
+
+        %system that starts with measure 6
+        %{ 3  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 1  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 3  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 2, %}  %SILENCE DUE TO ABOVE RULE
+        %{ 1  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 2  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 1  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 3. %}  %SILENCE DUE TO ABOVE RULE
+        %{ 2  %}  Lu %{ -- %}  } \context Lyrics = "lyricsUnderTenor2Staff"  \lyricmode {  blú  
+
+        %system that starts with measure 9
+        %{ 1  %}  tvoy
+        %{ 2  %}  slá -- by   
+        %{ 1  %}  svet
+        %{ 3  %}  vne -- bés -- nay
+        %{ 3- %}  vy -- shy -- né  %"né –" 
+        %{ 1  %}  on
+        %{ 2  %}  dú -- my
+        %{ 3  %}  ra -- zbu -- \markup{\concat{ d \accentedI l  }} 
+        
+        
+
+        %system that starts with measure 12
+        %{ 4  %}  u -- snúf -- shi -- ye
+        %{ 1  %}  va
+        %{ 1; %}  mne; 
+        %{ 1  %}  ya
+        %{ 2  %}  póm -- nu
+        %{ 1  %}  tvoy
+        %{ 2, %}  vas -- hót, 
+        %{ 4  %}  val -- shéb -- na -- ye
+        %{ 3, %}  sve --     } \context Lyrics = "lyricsUnderTenorStaff"   \lyricmode {  %SILENCE DUE TO ABOVE RULE
+
+        %system that starts with measure 15
+        %{ 1  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 3  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 2, %}  %SILENCE DUE TO ABOVE RULE
+        %{ 1  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 1  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 1  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 2, %}  %SILENCE DUE TO ABOVE RULE
+        %{ 1  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 2  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 3  %}  %SILENCE DUE TO ABOVE RULE 
+        %{ 3  %}  %SILENCE DUE TO ABOVE RULE
+
+        %system that starts with measure 18
+        %{ 3, %}  %SILENCE DUE TO ABOVE RULE
+        %{ 1  %}  %SILENCE DUE TO ABOVE RULE 
+        %{ 2  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 2  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 1, %}  %SILENCE DUE TO ABOVE RULE
+        %{ 1  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 2  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 3, %}  %SILENCE DUE TO ABOVE RULE
+        %{ 1  %}  %SILENCE DUE TO ABOVE RULE
+
+        %system that starts with measure 21
+        %{ 3  %}  slá -- da -- stna 
+        %{ 2  %}  shu -- mýat 
+        %{ 5  %}  po -- lú -- de -- ny -- ye 
+        %{ 2- %}  vól -- ny %"ny –"
+        %{ 1  %}  %SILENCE DUE TO ABOVE RULE
+
+        %system that starts with measure 24
+        %{ 2  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 1  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 2  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 5  %}  %SILENCE DUE TO ABOVE RULE
+        %{ 1. %}  %SILENCE DUE TO ABOVE RULE    
     }
-    \context Lyrics = "lyricsUnderTenor2Staff"  \lyricmode {      
-        \numberedSyllableDummyLyrics "τ" 2 34
-    }
-    \context Lyrics = "lyricsUnderTenorStaff"   \lyricmode {
-         % \set associatedVoice = "tenor2" 
-         % curiously, UNcommenting the above line causes Lilypond to issue a whole bunch of the warnings "warning: Lyric syllable does not have note.  Use \lyricsto or associatedVoice."
-         % Evidently, there is something a bit mysterious about nested Lyrics contexts. (the strangeness might also be related to the syllable-to-rhythm matching mechanism)
-         % The strangeness might ahve something to do with the keepalive music that is running simultaneously in the lyricsUnderTenorStaff lyrics context.
-        \numberedSyllableDummyLyrics "t2" 36 17
-    }
+    
+    % \context Lyrics = "lyricsUnderTenorStaff"   \lyricmode {
+         % % \set associatedVoice = "tenor2" 
+         % % curiously, UNcommenting the above line causes Lilypond to issue a whole bunch of the warnings "warning: Lyric syllable does not have note.  Use \lyricsto or associatedVoice."
+         % % Evidently, there is something a bit mysterious about nested Lyrics contexts. (the strangeness might also be related to the syllable-to-rhythm matching mechanism)
+         % % The strangeness might ahve something to do with the keepalive music that is running simultaneously in the lyricsUnderTenorStaff lyrics context.
+        % \numberedSyllableDummyLyrics "t2" 36 17
+    % }
 }

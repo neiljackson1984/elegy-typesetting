@@ -73,37 +73,69 @@ bassOneLyrics = {
         %{ 2, %}  zve -- zdá, 
         %{ 1  %}  tvoy
         %{ 1  %}  luch
-        %{ 4  %}  a -- se -- re -- bríl    
+        %{ 4  %}  a -- se -- re -- \markup{\concat{ br \accentedI l  }}    
         %{ 4  %}  u -- výat -- shi -- ye 
 
         %system that starts with measure 6
-        %{ 3  %}  rav -- ní -- ny     
+        %{ 3  %}  rav -- \markup{\concat{ n \accentedI   }} -- ny     
         %{ 1  %}  i
         %{ 3  %}  drém -- lu -- schi 
-        %{ 2, %}  za -- líf, 
+        %{ 2, %}  za -- \markup{\concat{ l \accentedI f,  }} 
         %{ 1  %}  i 
         %{ 2  %}  chór -- nyh 
         %{ 1  %}  skal
-        %{ 3. %}  ver -- shí -- ny.  
+        %{ 3. %}  ver -- \markup{\concat{ sh \accentedI   }} -- ny.  
         %{ 2  %}  Lu -- blú  
 
         %system that starts with measure 9
-        
+        %{ 1  %}  tvoy
+        %{ 1, %}  svet,
+        %{ 1  %}  on
+        %{ 2  %}  dú -- my
 
         %system that starts with measure 12
-        
+        %{ 3; %}  ra -- zbu -- \markup{\concat{ d \accentedI l;  }}
+        %{ 1  %}  ya
+        %{ 2  %}  póm -- nu
+        %{ 1  %}  tvoy
+        %{ 2, %}  vas -- hót, 
+        %{ 3, %}  sve -- \markup{\concat{ t \accentedI   }} -- la,
+        %{ 1  %}  nad
 
         %system that starts with measure 15
-        
+        %{ 3  %}  \markup{\concat{ m \accentedI r  }} -- na -- yu 
+        %{ 2, %}  stra -- nóy, 
+        %{ 1  %}  gde
+        %{ 1  %}  fsyo
+        %{ 1  %}  mne
+        %{ 2, %}  \markup{\concat{ m \accentedI   }} -- la, 
+        %{ 1  %}  gde
+        %{ 3, %}  ta -- pa -- lýa, 
 
         %system that starts with measure 18
-        
+        %{ 1  %}  gde
+        %{ 1  %}  mirt
+        %{ 1  %}  i
+        %{ 3, %}  ki -- pa -- ris, 
 
         %system that starts with measure 21
-       
+        %{ 2  %}  shu -- mýat 
+        %{ 1  %}  gde
+        %{ 2- %}  vól -- ny %"ny –"
+        %{ 1  %}  tam
+        %{ 3  %}  né -- kag -- da
+        %{ 2, %}  "v ga" -- ráh,
 
-        %system that starts with measure 25
-        
+        %system that starts with measure 24
+        %{ 3  %}  ser -- déch -- nay
+        %{ 2  %}  dú -- my
+        %{ 2, %}  pó -- lny,
+        %{ 1  %}  nad
+        %{ 2  %}  mó -- rem
+        %{ 1  %}  ya
+        %{ 2  %}  vla -- \markup{\concat{ ch \accentedI l  }} 
+        %{ 5  %}  za -- dúm  -- chi -- vu -- yu 
+        %{ 1. %}  len?   % YULY: SHOULD THE FINAL PUNCTUATION HERE REALLY BE A QUESTION MARK? 
         
     }
 }

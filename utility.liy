@@ -122,3 +122,14 @@ mezzoPianoConMolto =
 textemdash = #"–"
 %the above works
 
+% i̇́i %CC%87 %CC%81 <U+0069, U+0307, U+0301>
+% Character name	LATIN SMALL LETTER I WITH DOT ABOVE AND ACUTE Copy 
+
+% Unicode Character 'COMBINING DOT ABOVE' (U+0307)
+% Unicode Character 'COMBINING ACUTE ACCENT' (U+0301)
+% Unicode Character 'LATIN SMALL LETTER I' (U+0069)
+
+accentedI = \markup{ \combine i  \raise #0.75 #"´"  }
+% example: 
+% \markup{ \concat{ ab \accentedI c } }
+
