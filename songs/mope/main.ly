@@ -2,17 +2,16 @@
 
 
 
-\header
-{
-    title = \markup{ \caps {MOPE N YTEC (working version 2019/09/25)} } 
-    composer = "<composer goes here>"
+\header{
+    title = \markup{ \caps {The Sea and the Cliff} } 
+    composer = "Mikhail Vasilyevich Antsev (1865 – 1945)"
     poet = \markup {
       \column {
         \line {
-          "words by TIOTHEBA"
+          "words by Fyodor Ivanovich Tyutchev (1803 – 1873)"
         }
         \line {
-            phonetization for English speakers by Yuly Kopkin
+            phonetization for English speakers by Yuly Vladimirovich Kopkin  (1981 – )
         }
       }
    }

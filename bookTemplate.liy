@@ -2,6 +2,12 @@
 #(ly:set-option 'point-and-click #f)
 \include "utility.liy"
 
+versionCode = #(strftime "%Y-%m-%d-%H-%M" (localtime (current-time)))
+%we will use this date/timestamp as a version code
+
+deEmphasisRatioForMidiEmphasizedParts = #0.4
+%we will multiply the vloume of the non-emphasized parts by this ratio while letting the 
+% emphasized part be at an un unreduced volume to generate the emphasized part midi files. (used for singers to paractice)
 
 #(set-global-staff-size 15.5)
 #(set-default-paper-size "letter")
@@ -36,6 +42,45 @@
 %     || yes                                |   yes                                  ||  yes                   | yes                     ||
 %     -------------------------------------------------------------------------------------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paper{
+    % oddFooterMarkup = \markup{  \teeny { "version: " \versionCode }}
+    % oddFooterMarkup = \markup{  \teeny { "version: " \versionCode }}
+    % \void #(begin (newline)(display "oddFooterMarkup: "))
+    % \displayScheme \oddFooterMarkup
+    
+% (markup
+%   #:line
+%   (#:column
+%    (#:fill-line
+%     (#:on-the-fly
+%      part-first-page
+%      (#:fromproperty (quote header:copyright)))
+%     #:fill-line
+%     (#:on-the-fly
+%      last-page
+%      (#:fromproperty (quote header:tagline))))))
+    oddFooterMarkup = 
+        \markup{
+            \line{
+                \column{
+                    \fill-line{
+                        \on-the-fly \part-first-page { \fromproperty #'header:copyright }
+                    }
+                    \fill-line{
+                        \on-the-fly \last-page { \fromproperty #'header:tagline }
+                    }
+                    \fill-line{
+                        \line{ \teeny { "version: " \versionCode } } \null
+                    }
+                }
+            }
+        }
+
+    % \void #(begin (newline)(display "oddFooterMarkup: "))
+    % \displayScheme \oddFooterMarkup
+} 
+
 
 \paper {
 	% line-width = 6.5\in
@@ -258,16 +303,24 @@ layoutSettings = \layout {
                     }
                 }
                 
-midiSettings = \midi{  
+globalMidiSettings = \midi{  
             \context {
-                \Score
+                \Staff
                 tempoWholesPerMinute = #(ly:make-moment 60 4)	
-                midiMinimumVolume = #0.7
-                midiMaximumVolume = #0.7
+                % midiMinimumVolume = #0.7
+                % midiMaximumVolume = #0.7
                 midiInstrument = #"voice oohs"
             }
         }
-        
+
+sopranoEmphasisMidiSettings = \midi{  
+            \context {
+                \Voice
+                % midiMinimumVolume = #0.7
+                % midiMaximumVolume = #0.7
+            }
+        }
+       
 % myScore = \score{
         
         % \scorecontents
@@ -350,17 +403,77 @@ $(if makeGraphicalOutput
 $@(if makeMidiOutput
     (begin (newline)(display "we are making midi output.")(newline)
         (list
-            #{ \book{ \bookOutputSuffix "allParts"            \score { \allMusic                              \midi { \midiSettings } } } #}
-            #{ \book{ \bookOutputSuffix "soprano"            \score { << \sopranoMusic \tempoIndications >>  \midi { } } } #}
-            #{ \book{ \bookOutputSuffix "alto"               \score { << \altoMusic    \tempoIndications >>  \midi { } } } #}
-            #{ \book{ \bookOutputSuffix "tenor"              \score { << \tenorMusic   \tempoIndications >>  \midi { } } } #}
-            #{ \book{ \bookOutputSuffix "bass"               \score { << \bassMusic    \tempoIndications >>  \midi { } } } #}
+            #{ \book{ \bookOutputSuffix "allParts"           \score {  \scorecontents                        \midi { \globalMidiSettings } } } #}
+            #{ \book{ \bookOutputSuffix "soprano"            \score { << \sopranoMusic \tempoIndications >>  \midi { \globalMidiSettings } } } #}
+            #{ \book{ \bookOutputSuffix "alto"               \score { << \altoMusic    \tempoIndications >>  \midi { \globalMidiSettings } } } #}
+            #{ \book{ \bookOutputSuffix "tenor"              \score { << \tenorMusic   \tempoIndications >>  \midi { \globalMidiSettings } } } #}
+            #{ \book{ \bookOutputSuffix "bass"               \score { << \bassMusic    \tempoIndications >>  \midi { \globalMidiSettings } } } #}
             ; TO-DO: see http://lilypond.org/doc/v2.18/Documentation/notation/controlling-midi-dynamics 
             ; to make emphasized midi parts.
-            #{ \book{ \bookOutputSuffix "sopranoEmphasized"  \score { << \sopranoMusic \tempoIndications >>  \midi { } } } #}
-            #{ \book{ \bookOutputSuffix "altoEmphasized"     \score { << \altoMusic    \tempoIndications >>  \midi { } } } #}
-            #{ \book{ \bookOutputSuffix "tenorEmphasized"    \score { << \tenorMusic   \tempoIndications >>  \midi { } } } #}
-            #{ \book{ \bookOutputSuffix "bassEmphasized"     \score { << \bassMusic    \tempoIndications >>  \midi { } } } #}
+            #{ 
+                \book{ 
+                    \bookOutputSuffix "sopranoEmphasized"  
+                    \score { 
+                        << 
+                            \new Staff="emphasized-staff" \with {} << \sopranoMusic \tempoIndications >>  
+                            \new Staff="deEmphasized-staff" \with { midiMaximumVolume=\deEmphasisRatioForMidiEmphasizedParts } << 
+                                \altoMusic
+                                \tenorMusic
+                                \bassMusic
+                            >>  
+                        >>  
+                        \midi { \globalMidiSettings }  
+                    } 
+                } 
+            #} 
+            #{ 
+                \book{ 
+                    \bookOutputSuffix "altoEmphasized"  
+                    \score { 
+                        << 
+                            \new Staff="emphasized-staff" \with {} << \altoMusic \tempoIndications >>  
+                            \new Staff="deEmphasized-staff" \with { midiMaximumVolume=\deEmphasisRatioForMidiEmphasizedParts } << 
+                                \sopranoMusic
+                                \tenorMusic
+                                \bassMusic
+                            >>  
+                        >>  
+                        \midi { \globalMidiSettings }  
+                    } 
+                } 
+            #} 
+            #{ 
+                \book{ 
+                    \bookOutputSuffix "tenorEmphasized"  
+                    \score { 
+                        << 
+                            \new Staff="emphasized-staff" \with {} << \tenorMusic \tempoIndications >>  
+                            \new Staff="deEmphasized-staff" \with { midiMaximumVolume=\deEmphasisRatioForMidiEmphasizedParts } << 
+                                \sopranoMusic
+                                \altoMusic
+                                \bassMusic
+                            >>  
+                        >>  
+                        \midi { \globalMidiSettings }  
+                    } 
+                } 
+            #} 
+            #{ 
+                \book{ 
+                    \bookOutputSuffix "bassEmphasized"  
+                    \score { 
+                        << 
+                            \new Staff="emphasized-staff" \with {} << \bassMusic \tempoIndications >>  
+                            \new Staff="deEmphasized-staff" \with { midiMaximumVolume=\deEmphasisRatioForMidiEmphasizedParts } << 
+                                \sopranoMusic
+                                \altoMusic
+                                \tenorMusic
+                            >>  
+                        >>  
+                        \midi { \globalMidiSettings }  
+                    } 
+                } 
+            #} 
         )
     )
     (begin (newline)(display "we are not making midi output.")(newline))

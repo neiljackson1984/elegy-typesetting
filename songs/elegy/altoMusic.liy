@@ -6,10 +6,10 @@ altoMusic =
         \time 4/4  \key f \major 
                                    \partial 8      \resetRelativeOctave c' c='8\p          
         | \barNumberCheck #001     c c c c c4. c8
-        | \barNumberCheck #002     d d c c b4. b8
+        | \barNumberCheck #002     d d c c b4.  \breathe  b8
         \originalLineBreak
 
-        | \barNumberCheck #003     bes4. b8 a a a a
+        | \barNumberCheck #003     bes4. bes8 a a a a
         | \barNumberCheck #004     a a a a gis4. gis8
         | \barNumberCheck #005     a\< e' d d\! cis4. d8
         \originalLineBreak         

@@ -5,7 +5,7 @@ bassMusic =
         \time 4/4  \key f \major 
                                   \partial 8  \resetRelativeOctave f  f=8\p            
         | \barNumberCheck #001     f f f f e4. e8
-        | \barNumberCheck #002     d d d d d4. d8
+        | \barNumberCheck #002     d d d d d4. \breathe  d8
         \originalLineBreak
 
         | \barNumberCheck #003     des4( c8) c d d c c
@@ -26,7 +26,7 @@ bassMusic =
         \originalLineBreak         
                                    
         | \barNumberCheck #012     c4 c c\! c 
-        | \barNumberCheck #013     g\ff g g' g,
+        | \barNumberCheck #013     bes\ff bes bes' bes,
         | \barNumberCheck #014     a a a' a,8 a
         \originalLineBreak         
                                    

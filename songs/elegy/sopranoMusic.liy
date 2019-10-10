@@ -7,8 +7,8 @@ sopranoMusic =
     \relative {
         \time 4/4  \key f \major 
                                    \partial 8   \resetRelativeOctave a'   a='8\p
-        | \barNumberCheck #001     a a a a a4. a8 
-        | \barNumberCheck #002     a d, e f g4. g8
+        | \barNumberCheck #001     a a a a a4.  a8 
+        | \barNumberCheck #002     a d, e f g4.  \breathe  g8
         \originalLineBreak
 
         | \barNumberCheck #003     g4( a8) e f f e f

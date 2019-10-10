@@ -9,7 +9,7 @@ tenorMusic =
                                    \partial 8  \resetRelativeOctave f f=8\p          
         | \barNumberCheck #001      f f f f f4. f8
         % | \barNumberCheck #001     << \context Voice="tenor1" { f f f f f4. f8 }  \context Voice="tenor2" { f f f f f4. f8 } >> //produces desired results, but throws the warning "warning: ignoring too many clashing note columns"
-        | \barNumberCheck #002      f f f f f4. f8
+        | \barNumberCheck #002      f f f f f4. \breathe f8
         \originalLineBreak
 
         | \barNumberCheck #003     f4( e8) g f f f f 
@@ -199,7 +199,7 @@ tenorOneLyrics = {
         %{ 2, %}  vas -- hót, 
         %{ 4  %}  val -- shéb -- na -- ye
         %{ 3, %}  sve -- \markup{\concat{ t \accentedI   }} -- la,
-        %{ 3, %}  %{ sve %} -- \markup{\concat{ sve - }}    } \context Lyrics = "lyricsUnderTenorStaff"   \lyricmode {  \markup{\concat{ t \accentedI   }} -- la,
+        %{ 3, %}  %{ sve -- %} \markup{\concat{ sve - }}    } \context Lyrics = "lyricsUnderTenorStaff"   \lyricmode {  \markup{\concat{ t \accentedI   }} -- la,
 
         %system that starts with measure 15
         %{ 1  %}  nad
@@ -298,7 +298,7 @@ tenorTwoLyrics = {
         %{ 1  %}  tvoy
         %{ 2, %}  vas -- hót, 
         %{ 4  %}  val -- shéb -- na -- ye
-        %{ 3, %}  %{ sve %} -- \markup{\concat{ sve - }}    } \context Lyrics = "lyricsUnderTenorStaff"   \lyricmode {  %SILENCE DUE TO ABOVE RULE
+        %{ 3, %}  %{ sve -- %} \markup{\concat{ sve - }}    } \context Lyrics = "lyricsUnderTenorStaff"   \lyricmode {  %SILENCE DUE TO ABOVE RULE
 
         %system that starts with measure 15
         %{ 1  %}  %SILENCE DUE TO ABOVE RULE
