@@ -26,7 +26,7 @@ bassMusic =
         \originalLineBreak         
                                    
         | \barNumberCheck #012     c4 c c\! c 
-        | \barNumberCheck #013     g g g' g,
+        | \barNumberCheck #013     g\ff g g' g,
         | \barNumberCheck #014     a a a' a,8 a
         \originalLineBreak         
                                    
@@ -135,7 +135,7 @@ bassOneLyrics = {
         %{ 1  %}  ya
         %{ 2  %}  vla -- \markup{\concat{ ch \accentedI l  }} 
         %{ 5  %}  za -- dúm  -- chi -- vu -- yu 
-        %{ 1. %}  len?   % YULY: SHOULD THE FINAL PUNCTUATION HERE REALLY BE A QUESTION MARK? 
+        %{ 1. %}  len'.
         
     }
 }

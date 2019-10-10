@@ -32,7 +32,7 @@ tenorMusic =
                   \key f \major 
                 | \barNumberCheck #009     \resetRelativeOctave c' c='1
                 | \barNumberCheck #010     c2~ c4. d8
-                | \barNumberCheck #011     ees2 d 
+                | \barNumberCheck #011     ees2  \<  d 
                 \change Staff = "tenor-staff"
             }  
             \context Voice="tenor2" {
@@ -42,7 +42,7 @@ tenorMusic =
                  % uncommenting the above line seems to cause the "tenor2" Voice context to die at measure 12
                 | \barNumberCheck #009     \resetRelativeOctave g g=2( a8) a g fis
                 | \barNumberCheck #010     g4 g fis8 fis g a
-                | \barNumberCheck #011     g4 g a8 a g fis
+                | \barNumberCheck #011     g4\< g a8 a g fis
                 \change Staff = "tenor-staff" %changing back to tenor-staff seems to be necessary in order to keep the tenor2 voice alive, even if we will change back to tenor2-staff immedieately when we next enter the tenor2 context.
             } 
         >> 
@@ -51,14 +51,14 @@ tenorMusic =
         << 
             \context Voice="tenor1" { 
                 \change Staff = "tenor1-staff"
-                | \barNumberCheck #012     \resetRelativeOctave ees' ees='4 ees d4. d8
+                | \barNumberCheck #012     \resetRelativeOctave ees' ees='4 ees d4. \! d8
                 | \barNumberCheck #013     g8\f f e d c4( d8) e
                 | \barNumberCheck #014     f e d c bes4 c8 d
                 \change Staff = "tenor-staff"
             }  
             \context Voice="tenor2" { 
                 \change Staff = "tenor2-staff"
-                | \barNumberCheck #012     \resetRelativeOctave g g=4 g fis8 fis g a
+                | \barNumberCheck #012     \resetRelativeOctave g g=4 g fis8\! fis g a
                 | \barNumberCheck #013     d[(\f g,]) bes[( d]) e e d c
                 | \barNumberCheck #014     c[( f,]) a[( c]) d d c bes
                 \change Staff = "tenor-staff"
@@ -114,7 +114,7 @@ tenorMusic =
                                    
                                    
         | \barNumberCheck #018     d d e e f4. f8
-        | \barNumberCheck #019     g g a a bes4. a8
+        | \barNumberCheck #019     \once {\set crescendoText = \markup { \italic "poco cresc." } \set crescendoSpanner = #'text } g\< g a a bes4. a8
         | \barNumberCheck #020     g g a a bes4 bes
         \originalLineBreak         
        
@@ -131,14 +131,14 @@ tenorMusic =
                 % | \barNumberCheck #22      c c bes a a4 g4
             % }
         % >>  \oneVoice  
-        | \barNumberCheck #021      << \context Voice="tenor1" { \voiceOne a8 } \context Voice="tenor2" { \voiceTwo a8 } >>  \oneVoice << {\resetRelativeOctave c' c='8 c c ees4. ees8} {\resetRelativeOctave a a=8 a a a4. a8} >>             
-        | \barNumberCheck #022      << {\resetRelativeOctave ees' ees='8 ees ees ees d4 d} {\resetRelativeOctave c' c='8 c bes a a4 g4} >>        
-        | \barNumberCheck #023     r4 a2.~ 
+        | \barNumberCheck #021      << \context Voice="tenor1" { \voiceOne a8\< } \context Voice="tenor2" { \voiceTwo a8 } >>  \oneVoice << {\resetRelativeOctave c' c='8 c c\! ees4. ees8} {\resetRelativeOctave a a=8 a a a4. a8} >>             
+        | \barNumberCheck #022      << {\resetRelativeOctave ees' ees='8 ees ees ees d4\> d\!} {\resetRelativeOctave c' c='8 c bes a a4 g4} >>        
+        | \barNumberCheck #023     r4\p a2.~ 
         \originalLineBreak         
                                    
         | \barNumberCheck #024     a4 a2.
-        | \barNumberCheck #025     a2 a4 a
-        | \barNumberCheck #026     a a a8 a bes bes 
+        | \barNumberCheck #025     a2 a4\< a
+        | \barNumberCheck #026     a a\> a8 a bes bes\pp 
         | \barNumberCheck #027     a1 \fermata
         \bar "|."
         \originalLineBreak
@@ -206,13 +206,13 @@ tenorOneLyrics = {
         %{ 3  %}  \markup{\concat{ m \accentedI r  }} -- na -- yu  % YULY: DO YOU WANT THE GRAVE ACCENT TO APPEAR ABOVE THE 'm' ?
         %{ 2, %}  stra -- nóy, 
         %{ 1  %}  gde
-        %{ 1  %}  vsyo  % YULY: should this be "fsyo"?
+        %{ 1  %}  fsyo 
         %{ 1  %}  mne
         %{ 2, %}  \markup{\concat{ m \accentedI   }} -- la, 
         %{ 1  %}  gde
         %{ 2  %}  stróy -- ny 
         %{ 3  %}  ta -- pa -- lýa 
-        %{ 3  %}  vda -- \markup{\concat{ l \accentedI   }} -- nah 
+        %{ 3  %}  v_da -- \markup{\concat{ l \accentedI   }} -- nah 
 
         %system that starts with measure 18
         %{ 3, %}  vaz -- ne -- \markup{\concat{ sl \accentedI s',  }} 
@@ -237,7 +237,7 @@ tenorOneLyrics = {
         %{ 1  %}  ya
         %{ 2  %}  vla -- \markup{\concat{ ch \accentedI l  }} 
         %{ 5  %}  za -- dúm  -- chi -- vu -- yu  
-        %{ 1. %}  len?       
+        %{ 1. %}  len'.      
     }          
 }
         
@@ -281,7 +281,7 @@ tenorTwoLyrics = {
         %{ 1  %}  tvoy
         %{ 2  %}  slá -- by   
         %{ 1  %}  svet
-        %{ 3  %}  vne -- bés -- nay
+        %{ 3  %}  v_ne -- bés -- nay
         %{ 3- %}  vy -- shy -- né  %"né –" 
         %{ 1  %}  on
         %{ 2  %}  dú -- my

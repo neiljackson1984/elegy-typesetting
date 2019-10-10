@@ -39,10 +39,10 @@
 
 \paper {
 	% line-width = 6.5\in
-    top-margin = 0.4\in
+    top-margin = 0.3\in
     left-margin = 1\in
     right-margin = 1\in
-    bottom-margin = 0.4\in
+    bottom-margin = 0.3\in
     two-sided = ##t
     inner-margin=0.9\in
     outer-margin=0.9\in

@@ -55,7 +55,7 @@ altoMusic =
         % >> \oneVoice
         <<
             {   
-                | \barNumberCheck #019     f4 f f f
+                | \barNumberCheck #019     \once {\set crescendoText = \markup { \italic "poco cresc." } \set crescendoSpanner = #'text }  f4\< f f f
                 | \barNumberCheck #020     f f f e 
             }
             {
@@ -116,7 +116,7 @@ altoOneLyrics = {
         %{ 1  %}  tvoy
         %{ 2  %}  slá -- by   
         %{ 1  %}  svet
-        %{ 3  %}  vne -- bés -- nay
+        %{ 3  %}  v_ne -- bés -- nay
         %{ 3- %}  vy -- shy -- né  %"né –" 
         %{ 1  %}  on
         %{ 2  %}  dú -- my
@@ -137,13 +137,13 @@ altoOneLyrics = {
         %{ 3  %}  \markup{\concat{ m \accentedI r  }} -- na -- yu  % YULY: DO YOU WANT THE GRAVE ACCENT TO APPEAR ABOVE THE 'm' ?
         %{ 2, %}  stra -- nóy, 
         %{ 1  %}  gde
-        %{ 1  %}  vsyo  % YULY: should this be "fsyo"?
+        %{ 1  %}  fsyo 
         %{ 1  %}  mne
         %{ 2, %}  \markup{\concat{ m \accentedI   }} -- la, 
         %{ 1  %}  gde
         %{ 2  %}  stróy -- ny 
         %{ 3  %}  ta -- pa -- lýa 
-        %{ 3  %}  vda -- \markup{\concat{ l \accentedI   }} -- nah 
+        %{ 3  %}  v_da -- \markup{\concat{ l \accentedI   }} -- nah 
 
         %system that starts with measure 18
         %{ 3, %}  vaz -- ne -- \markup{\concat{ sl \accentedI s',  }} 
@@ -172,6 +172,6 @@ altoOneLyrics = {
        %{ 1  %}  ya
        %{ 2  %}  vla -- \markup{\concat{ ch \accentedI l  }} 
        %{ 5  %}  za -- dúm  -- chi -- vu -- yu 
-       %{ 1. %}  len?  
+       %{ 1. %}  len'.
     }
 }

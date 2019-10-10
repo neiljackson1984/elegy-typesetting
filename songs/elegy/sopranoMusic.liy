@@ -25,15 +25,15 @@ sopranoMusic =
 
         | \barNumberCheck #009     c8 c bes a c4. a8
         | \barNumberCheck #010     c c bes a c4. d8
-        | \barNumberCheck #011     ees ees d c d4. d8 
+        | \barNumberCheck #011     ees\< ees d c d4. d8 
         \originalLineBreak
         
-        | \barNumberCheck #012     ees ees d c d4. d8 
+        | \barNumberCheck #012     ees ees d c d4.\! d8 
         | \barNumberCheck #013     g\f f e d c4( d8) e
         | \barNumberCheck #014     f e d c bes4 c8 d
         \originalLineBreak 
         
-        | \barNumberCheck #015     e d c bes a a gis\< a
+        | \barNumberCheck #015     e\> d c bes\! a a gis\< a
         | \barNumberCheck #016     d4.\! bes8\> a4 g8\! \breathe a        
         | \barNumberCheck #017     a\mp a a a a4. a8
         \originalLineBreak
@@ -47,14 +47,14 @@ sopranoMusic =
         | \barNumberCheck #020     bes bes a a g4 a8[( g)]
         \originalLineBreak
         
-        | \barNumberCheck #021     c f, a c d4. c8
-        | \barNumberCheck #022     bes a bes c d4 g,4^-
-        | \barNumberCheck #023     r4 a2.~
+        | \barNumberCheck #021     c\< f, a c\! d4. c8
+        | \barNumberCheck #022     bes a bes c d4\> g,4^-\!
+        | \barNumberCheck #023     r4\p a2.~
         \originalLineBreak
         
         | \barNumberCheck #024     a4 a2. 
-        | \barNumberCheck #025     a2 a4 a
-        | \barNumberCheck #026     a a a8 a a a
+        | \barNumberCheck #025     a2 a4\< a
+        | \barNumberCheck #026     a a\> a8 a a a\pp
         | \barNumberCheck #027     a1\! \fermata        
         \bar "|."
         \originalLineBreak
@@ -116,7 +116,7 @@ sopranoOneLyrics = {
         %{ 4  %}  u -- výat -- shi -- ye 
 
         %system that starts with measure 6
-        %{ 3  %}  rav -- \markup{\concat{ n \accentedI l }} -- ny     
+        %{ 3  %}  rav -- \markup{\concat{ n \accentedI  }} -- ny     
         %{ 1  %}  i
         %{ 3  %}  drém -- lu -- schi 
         %{ 2, %}  za -- \markup{\concat{ l \accentedI f, }} % \markup{\concat{ l \accentedI f,  }} 
@@ -130,7 +130,7 @@ sopranoOneLyrics = {
         %{ 1  %}  tvoy
         %{ 2  %}  slá -- by   
         %{ 1  %}  svet
-        %{ 3  %}  vne -- bés -- nay
+        %{ 3  %}  v_ne -- bés -- nay
         %{ 3- %}  vy -- shy -- né- 
         %{ 1  %}  on
         %{ 2  %}  dú -- my
@@ -159,7 +159,7 @@ sopranoOneLyrics = {
         %{ 1  %}  gde
         %{ 2  %}  stróy -- ny 
         %{ 3  %}  ta -- pa -- lýa 
-        %{ 3  %}  vda -- \markup{\concat{ l \accentedI   }} -- nah 
+        %{ 3  %}  v_da -- \markup{\concat{ l \accentedI   }} -- nah 
 
         %system that starts with measure 18
         %{ 3, %}  vaz -- ne -- \markup{\concat{ sl \accentedI s',  }} 
@@ -184,7 +184,7 @@ sopranoOneLyrics = {
         %{ 1  %}  ya
         %{ 2  %}  vla -- \markup{\concat{ ch \accentedI l  }} 
         %{ 5  %}  za -- dúm  -- chi -- vu -- yu  
-        %{ 1? %}  len?  
+        %{ 1? %}  len'.  
     }
 }
 
