@@ -11,7 +11,7 @@
           "words by Alexander Sergeyevich Pushkin (1799 – 1837)"
         }
         \line {
-            phonetization for English speakers by Yuly Vladimirovich Kopkin (1981 – )
+            phonetization by Yuly Vladimirovich Kopkin  (1981 – )
         }
       }
    }

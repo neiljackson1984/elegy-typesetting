@@ -3,7 +3,7 @@
 
 
 \header{
-    title = \markup{ \caps {The Sea and the Cliff} } 
+    title = \markup{ \caps {The Sea and the Cliff (IN-PROGRESS - DO NOT USE)} } 
     composer = "Mikhail Vasilyevich Antsev (1865 – 1945)"
     poet = \markup {
       \column {
@@ -11,7 +11,7 @@
           "words by Fyodor Ivanovich Tyutchev (1803 – 1873)"
         }
         \line {
-            phonetization for English speakers by Yuly Vladimirovich Kopkin  (1981 – )
+            phonetization by Yuly Vladimirovich Kopkin  (1981 – )
         }
       }
    }
