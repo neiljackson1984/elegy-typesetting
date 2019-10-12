@@ -1,3 +1,5 @@
+#here are some useful regex replacements for manipulating the lyrics
+
 delete lines consisting of only spaces
 ^\s*$ -> ""
 
@@ -12,3 +14,22 @@ surround the syllable codes with block quotes
 
 insert newlines to divide systems
 ^(\s*%system.*)$ -> "\n$1"
+
+
+
+======================================
+^\s*%system that starts with measure (\d{1}):\s*\r{0,1}\n(\s*)(.*)$
+->
+$2%{SM $1   %}$3
+
+^\s*%system that starts with measure (\d{2}):\s*\r{0,1}\n(\s*)(.*)$
+->
+$2%{SM $1  %}$3
+
+^\s*%system that starts with measure (\d{3}):\s*\r{0,1}\n(\s*)(.*)$
+->
+$2%{SM $1 %}$3
+
+^(\s*)(%{ .*)$
+->
+$1           $2
