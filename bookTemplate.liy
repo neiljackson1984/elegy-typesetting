@@ -197,7 +197,10 @@ scorecontents = {
           % lyrics above a staff should have this override
           \override VerticalAxisGroup.staff-affinity = #DOWN
         } { \dummyKeepAliveMusic } 
-		\new Staff = "tenor-staff" \with{\RemoveEmptyStaves } <<
+		\new Staff = "tenor-staff" \with{ 
+        %{\RemoveEmptyStaves%} 
+
+        } <<
 			\set Staff.instrumentName = "tenor"
             \clef "treble_8"
             \new Voice = "dummyKeepAliveVoiceForTenorStaff" { \dummyKeepAliveMusic }
@@ -210,11 +213,14 @@ scorecontents = {
         \new Lyrics = "lyricsUnderTenorStaff" { \dummyKeepAliveMusic } 
 
         \new StaffGroup = "tenorStaffGroup" 
-            \with {\RemoveEmptyStaves }
+            \with{   
+                \override VerticalAxisGroup.remove-empty = ##t
+                \override VerticalAxisGroup.remove-first = ##t
+            }
                 <<
                     \new Lyrics = "lyricsAboveTenor1Staff" { \dummyKeepAliveMusic } 
                     \new Staff = "tenor1-staff" \with { } <<
-                        \override Staff.VerticalAxisGroup.remove-first = ##t
+                        %% \override Staff.VerticalAxisGroup.remove-first = ##t
                         \set Staff.instrumentName = "tenor 1"
                         \set Staff.shortInstrumentName = "tenor 1"
                         \clef "treble_8"
@@ -225,7 +231,7 @@ scorecontents = {
                     >> 
                     \new Lyrics = "lyricsUnderTenor1Staff" \with { alignBelowContext = #"tenor1-staff" } { \dummyKeepAliveMusic  }                     
                     \new Staff = "tenor2-staff"  \with { }  <<
-                        \override Staff.VerticalAxisGroup.remove-first = ##t
+                        %% \override Staff.VerticalAxisGroup.remove-first = ##t
                         \set Staff.instrumentName = "tenor 2"
                         \set Staff.shortInstrumentName = "tenor 2"
                         \clef "treble_8" 
@@ -277,7 +283,8 @@ layoutSettings = \layout {
                     \context{
                         \Staff
                         %\remove Instrument_name_engraver
-                        \override DynamicTextSpanner.dash-period = #0 %removes the dashed lines representing "cresc." crescendos, and similar decrescendoes and diminuendos.
+                        %{ \override DynamicTextSpanner.dash-period = #0 %removes the dashed lines representing "cresc." crescendos, and similar decrescendoes and diminuendos. %}
+                        \override DynamicTextSpanner.style = #'none %removes the dashed lines representing "cresc." crescendos, and similar decrescendoes and diminuendos.
                         \override TextSpanner.dash-period = #0 %removes the dashed lines 
                         \accidentalStyle modern-voice-cautionary
                     }

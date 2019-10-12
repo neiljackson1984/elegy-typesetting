@@ -5,6 +5,10 @@
 
 tenorMusic =  
     \relative {
+        \override Staff.VerticalAxisGroup.remove-empty = ##t
+        \override Staff.VerticalAxisGroup.remove-first = ##t
+        %the above ensures that empty systems of tenor line will be removed.
+        
         \time 4/4  \key f \major 
                                    \partial 8  \resetRelativeOctave f f=8\p          
         | \barNumberCheck #001      f f f f f4. f8
@@ -114,7 +118,7 @@ tenorMusic =
                                    
                                    
         | \barNumberCheck #018     d d e e f4. f8
-        | \barNumberCheck #019     \once {\set crescendoText = \markup { \italic "poco cresc." } \set crescendoSpanner = #'text } g\< g a a bes4. a8
+        | \barNumberCheck #019     g\pocoCrescendo g a a bes4. a8
         | \barNumberCheck #020     g g a a bes4 bes
         \originalLineBreak         
        

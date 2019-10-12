@@ -55,7 +55,7 @@ altoMusic =
         % >> \oneVoice
         <<
             {   
-                | \barNumberCheck #019     \once {\set crescendoText = \markup { \italic "poco cresc." } \set crescendoSpanner = #'text }  f4\< f f f
+                | \barNumberCheck #019     f4\pocoCrescendo f f f
                 | \barNumberCheck #020     f f f e 
             }
             {

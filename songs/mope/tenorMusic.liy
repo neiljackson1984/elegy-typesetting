@@ -25,7 +25,7 @@ tenorMusic =
         | \barNumberCheck #013     e8[( d]) cis g'[( fis]) e
         | \barNumberCheck #014     d[( e]) eis fis4.
         | \barNumberCheck #015     eis4 eis8 fis4 fis8
-        | \barNumberCheck #016     eis4 eis8 <<fis4 \\ cis4>> r8\fermata
+        | \barNumberCheck #016     eis4 eis8 <fis cis>4 r8\fermata
         \originalLineBreak
         
         | \barNumberCheck #017     R2.
@@ -285,7 +285,8 @@ tenorMusic =
         \originalLineBreak
         
         | \barNumberCheck #174     r2 d8. d16
-        | \barNumberCheck #175     \once {\set decrescendoText = \markup { \italic "poco a poco dim." } \set decrescendoSpanner = #'text } d2\> d4
+        % | \barNumberCheck #175     \once {\set decrescendoText = \markup { \italic "poco a poco dim." } \set decrescendoSpanner = #'text } d2\> d4
+        | \barNumberCheck #175     d2\pocoAPocoDiminuendo d4
         | \barNumberCheck #176     dis2 dis4
         | \barNumberCheck #177     d2 cis4
         | \barNumberCheck #178     cis2.
@@ -297,223 +298,223 @@ tenorMusic =
     }
     
 tenorOneLyrics = {
-    \context Lyrics = "lyricsUnderTenorStaff" { 
+    \context Lyrics = "lyricsUnderTenorStaff" \lyricmode { 
         % \numberedSyllableDummyLyrics "t" \default
-        %{SM 1   %}%{ 2    %}  Plé -- schet, 
-                   %{ 2    %}  sví -- schet
-                   %{ 1    %}  i
-                   %{ 2,   %}  rev -- yót,
-        %{SM 5   %}%{ 1    %}  i
-                   %{ 1    %}  do
-                   %{ 1    %}  zvyóst
-                   %{ 3    %}  da -- pryá -- nut'
-                   %{ 2,   %}  hó -- chet,
-        %{SM 9   %}%{ 1    %}  da
-                   %{ 4    %}  ne -- zý -- ble -- myh
-                   %{ 2... %}  vy -- sót... %yuly wants an exclamation point instead of ellipses
-                   %{ 1    %}  I
-                   %{ 3    %}  bun -- tú -- yet %yuly wants a comma.  perhaps he really wants a breathe mark
-                   %{ 1    %}  i
-                   %{ 3,   %}  kla -- kó -- chet,
-        %{SM 13  %}%{ 2,   %}  plé -- schet,
-                   %{ 2    %}  sví -- schet
-                   %{ 1    %}  i
-                   %{ 2,   %}  rev -- yót,
-                   %{ 2,   %}  plé -- schet,
-                   %{ 2    %}  sví -- schet
-                   %{ 1    %}  i
-                   %{ 2.   %}  rev -- yót! %yuly wants an exclamation instead of period.
-        %{SM 17  %}%{ 4    %}  Be -- spre -- rý -- vna
-                   %{ 1    %}  val
-                   %{ 2    %}  mar -- skóy
-        %{SM 21  %}%{ 2,   %}  srýo -- vam,
-                   %{ 2,   %}  sví --- stam,
-                   %{ 2,   %}  ví -- zgam,
-                   %{ 2    %}  vó -- yem
-        %{SM 25  %}%{ 1    %}  byot
-                   %{ 2    %}  v_u -- tyós
-                   %{ 4,   %}  be -- re -- ga -- vóy,
-                   %{ 2,   %}  srýo -- vam,
-                   %{ 2,   %}  sví -- stam,
-                   %{ 2,   %}  ví -- zgam, 
-                   %{ 2,   %}  vó -- yem,
-        %{SM 29  %}%{ 2,   %}  srýo -- vam,
-                   %{ 2,   %}  sví -- stam,
-                   %{ 2,   %}  ví -- zgam, 
-                   %{ 2    %}  vó -- yem
-                   %{ 1    %}  byot
-                   %{ 2    %}  v_u -- tyós
-                   %{ 4,   %}  be -- re -- ga -- vóy,
-        %{SM 33  %}%{ 2,   %}  srýo -- vam,
-                   %{ 2    %}  sví -- stam
-                   %{ 1    %}  byot
-                   %{ 2.   %}  v_u -- tyós.
-                   %{ 1    %}  Val
-                   %{ 2    %}  mar -- skóy
-        %{SM 36  %}%{ 1    %}  byot
-                   %{ 2    %}  v_u -- tyós
-                   %{ 4,   %}  be -- re -- ga -- vóy,
-                   %{ 2,   %}  plé -- schet,
-        %{SM 39  %}%{ 2,   %}  sví -- schet,
-                   %{ 2,   %}  srýo -- vam,
-                   %{ 2,   %}  ví -- zgam, 
-                   %{ 2    %}  vó -- yem
-        %{SM 43  %}%{ 1    %}  byot
-                   %{ 2    %}  v_u -- tyós
-                   %{ 4,   %}  be -- re -- ga -- vóy,
-                   %{ 1    %}  val
-                   %{ 2    %}  mar -- skóy
-                   %{ 1    %}  byot
-                   %{ 2    %}  v_u -- tyós
-        %{SM 47  %}%{ 4,   %}  be -- re -- ga -- vóy,
-                   %{ 1    %}  val
-                   %{ 2    %}  mar -- skóy
-                   %{ 1    %}  byot
-                   %{ 2,   %}  v_u -- tyós,
-        %{SM 51  %}%{ 1    %}  byot
-                   %{ 2    %}  v_u -- tyós
-                   %{ 4,   %}  be -- re -- ga -- vóy,
-                   %{ 1    %}  val
-        %{SM 57  %}%{ 1    %}  byot
-                   %{ 2    %}  v_u -- tyós
-                   %{ 4,   %}  be -- re -- ga -- vóy,
-        %{SM 62  %}%{ 2,   %}  srýo -- vam,
-                   %{ 2,   %}  sví -- stam,
-                   %{ 2,   %}  ví -- zgam, 
-                   %{ 2,   %}  vó -- yem,
-        %{SM 66  %}%{ 2,   %}  srýo -- vam,
-                   %{ 2,   %}  sví -- stam,
-                   %{ 2,   %}  ví -- zgam, 
-                   %{ 2.   %}  vó -- yem.
-        %{SM 71  %}%{ 2.   %}  v_u -- tyós.
-                   %{ 1    %}  No
-                   %{ 3    %}  spa -- kóy -- ny
-                   %{ 1    %}  i
-                   %{ 3,   %}  nad -- mé -- ny,
-        %{SM 77  %}%{ 2    %}  dúr -- yu
-                   %{ 1    %}  voln
-                   %{ 1    %}  ne
-                   %{ 3,   %}  a -- bu -- yán,
-                   %{ 4,   %}  ne -- pa -- dvízh -- ny,
-                   %{ 4,   %}  ne -- i -- zmé -- ny,
-        %{SM 81  %}%{ 1    %}  ty
-                   %{ 2,   %}  sta -- ísh,
-                   %{ 1    %}  nash
-                   %{ 3!   %}  ve -- li -- kán!
-        %{SM 84  %}%{ 1    %}  Ty
-                   %{ 2,   %}  sta -- ísh,
-                   %{ 1    %}  nash
-                   %{ 3!   %}  ve -- li -- kán!
-        %{SM 88  %}%{ 0    %}  %SILENCE
-        %{SM 92  %}%{ 0    %}  %SILENCE
-        %{SM 96  %}%{ 1    %}  I
-                   %{ 5    %}  a -- zló -- ble -- ny -- ye
-                   %{ 2,   %}  bó -- yem,
-                   %{ 1    %}  kak
-                   %{ 1    %}  na
-                   %{ 2    %}  prí -- stup
-                   %{ 3,   %}  ra -- ka -- vóy,
-        %{SM 100 %}%{ 2    %}  snó -- va 
-                   %{ 2    %}  vól -- ny
-                   %{ 2    %}  lé -- zut
-                   %{ 2    %}  svó -- yem
-                   %{ 1    %}  na
-                   %{ 2    %}  gra -- nít
-                   %{ 3    %}  gra -- má -- dny 
-                   %{ 1,   %}  tvoy! %yuly wants exclamation
-        %{SM 104 %}%{ 1    %}  I
-                   %{ 5    %}  a -- zló -- ble -- ny -- ye
-                   %{ 2,   %}  bó -- yem,
-                   %{ 1    %}  kak
-                   %{ 1    %}  na
-                   %{ 2    %}  prí -- stup
-                   %{ 3,   %}  ra -- ka -- vóy,
-        %{SM 108 %}%{ 1    %}  i
-                   %{ 5    %}  a -- zló -- ble -- ny -- ye
-                   %{ 1    %}  bó -- yem,
-                   %{ 2,   %}  snó -- va 
-                   %{ 2    %}  vól -- ny
-                   %{ 2    %}  lé -- zut
-                   %{ 2    %}  svó -- yem
-                   %{ 2    %}  
-        %{SM 112 %}%{ 1    %}  na
-                   %{ 2    %}  gra -- nít
-                   %{ 3    %}  gra -- má -- dny 
-                   %{ 1,   %}  tvoy,
-                   %{ 2    %}  vól -- ny
-                   %{ 2    %}  lé -- zut
-                   %{ 1    %}  na
-                   %{ 2,   %}  gra -- nít,
-        %{SM 116 %}%{ 2    %}  snó -- va 
-                   %{ 2    %}  vól -- ny
-                   %{ 2    %}  lé -- zut
-                   %{ 2    %}  svó -- yem
-                   %{ 1    %}  na
-                   %{ 2,   %}  gra -- nít,
-        %{SM 119 %}%{ 2    %}  snó -- va 
-                   %{ 2    %}  vól -- ny
-                   %{ 2    %}  lé -- zut
-                   %{ 2,   %}  svó -- yem,
-        %{SM 123 %}%{ 2    %}  lé -- zut
-                   %{ 1    %}  na
-                   %{ 2    %}  gra -- nít
-                   %{ 3    %}  gra -- má -- dny 
-                   %{ 1.   %}  tvoy! %yuly wants exclamation here.
-                   %{ 1    %}  No
-                   %{ 1    %}  a
-                   %{ 2    %}  ka -- men'
-        %{SM 127 %}%{ 4    %}  ne -- i -- zmé -- ny
-                   %{ 2    %}  búr -- ny
-                   %{ 2    %}  ná -- tisk
-                   %{ 3,   %}  pre -- la -- míf,
-                   %{ 1    %}  val
-                   %{ 3,   %}  ad -- brý -- znul,
-        %{SM 131 %}%{ 1    %}  val
-                   %{ 3    %}  ad -- brý -- znul
-                   %{ 4,   %}  sa -- kru -- shó -- ny,
-                   %{ 1,   %}  val,
-        %{SM 136 %}%{ 1    %}  i
-                   %{ 3    %}  klu -- bí -- tza
-                   %{ 2    %}  mút -- nay
-                   %{ 2,   %}  pé -- nay,
-        %{SM 141 %}%{ 1    %}  i
-                   %{ 3    %}  klu -- bí -- tza
-                   %{ 2    %}  mút -- nay
-                   %{ 2,   %}  pé -- nay,
-        %{SM 145 %}%{ 2    %}  mút -- nay
-                   %{ 2    %}  pé -- nay
-                   %{ 1    %}  val % yuly wrote " mút -- nay ", probably in error
-                   %{ 3,   %}  klu -- bí -- tza,
-        %{SM 150 %}%{ 2    %}  mút -- nay
-                   %{ 2.   %}  pé -- nay.
-        %{SM 157 %}%{ 1    %}  Stoy
-                   %{ 1    %}  zhe
-                   %{ 1,   %}  ty,
-                   %{ 2    %}  u -- tyós
-                   %{ 3!   %}  ma -- gú -- chi!
-                   %{ 3    %}  A -- ba -- zhdí
-                   %{ 1    %}  lish
-                   %{ 1,   %}  chas,
-                   %{ 2-   %}  dru -- goy- %yuly wants comma instead of emdash. % Yuly: which syllable has the accent? 
-        %{SM 161 %}%{ 3    %}  na -- da -- yést
-                   %{ 2    %}  val -- né
-                   %{ 3    %}  gre -- mú -- chey
-                   %{ 3    %}  va -- ye -- vat'
-                   %{ 2    %}  stva -- yey
-                   %{ 2... %}  pya -- toy... 
-        %{SM 165 %}%{ 3,   %}  u -- ta -- myas', %Yuly: which syllable has accent?
-        %{SM 169 %}%{ 4    %}  pri -- smi -- ré -- yet
-                   %{ 1    %}  vno
-                   %{ 2-   %}  v'a -- na-
-                   %{ 1    %}  i
-                   %{ 1    %}  bez
-                   %{ 2    %}  bó -- yu
-        %{SM 174 %}%{ 1    %}  i
-                   %{ 1    %}  bez
-                   %{ 2    %}  vó -- yu
-                   %{ 1    %}  vnof'
-                   %{ 4    %}  u -- lyá -- zhe -- tza
-                   %{ 2.   %}  va -- lna.
+        %{SM 1   %}%{ 2  %}  Plé -- schet, 
+                   %{ 2  %}  sví -- schet
+                   %{ 1  %}  i
+                   %{ 2, %}  rev -- yót,
+        %{SM 5   %}%{ 1  %}  i
+                   %{ 1  %}  do
+                   %{ 1  %}  zvyóst
+                   %{ 3  %}  da -- pryá -- nut'
+                   %{ 2, %}  hó -- chet,
+        %{SM 9   %}%{ 1  %}  da
+                   %{ 4  %}  ne -- zý -- ble -- myh
+                   %{ 2… %}  vy -- sót… %yuly wants an exclamation point instead of ellipses
+                   %{ 1  %}  I
+                   %{ 3  %}  bun -- tú -- yet %yuly wants a comma.  perhaps he really wants a breathe mark
+                   %{ 1  %}  i
+                   %{ 3, %}  kla -- kó -- chet,
+        %{SM 13  %}%{ 2, %}  plé -- schet,
+                   %{ 2  %}  sví -- schet
+                   %{ 1  %}  i
+                   %{ 2, %}  rev -- yót,
+                   %{ 2, %}  plé -- schet,
+                   %{ 2  %}  sví -- schet
+                   %{ 1  %}  i
+                   %{ 2. %}  rev -- yót! %yuly wants an exclamation instead of period.
+        %{SM 17  %}%{ 4  %}  Be -- spre -- rý -- vna
+                   %{ 1  %}  val
+                   %{ 2  %}  mar -- skóy
+        %{SM 21  %}%{ 2, %}  srýo -- vam,
+                   %{ 2, %}  sví -- stam,
+                   %{ 2, %}  ví -- zgam,
+                   %{ 2  %}  vó -- yem
+        %{SM 25  %}%{ 1  %}  byot
+                   %{ 2  %}  v_u -- tyós
+                   %{ 4, %}  be -- re -- ga -- vóy,
+                   %{ 2, %}  srýo -- vam,
+                   %{ 2, %}  sví -- stam,
+                   %{ 2, %}  ví -- zgam, 
+                   %{ 2, %}  vó -- yem,
+        %{SM 29  %}%{ 2, %}  srýo -- vam,
+                   %{ 2, %}  sví -- stam,
+                   %{ 2, %}  ví -- zgam, 
+                   %{ 2  %}  vó -- yem
+                   %{ 1  %}  byot
+                   %{ 2  %}  v_u -- tyós
+                   %{ 4, %}  be -- re -- ga -- vóy,
+        %{SM 33  %}%{ 2, %}  srýo -- vam,
+                   %{ 2  %}  sví -- stam
+                   %{ 1  %}  byot
+                   %{ 2. %}  v_u -- tyós.
+                   %{ 1  %}  Val
+                   %{ 2  %}  mar -- skóy
+        %{SM 36  %}%{ 1  %}  byot
+                   %{ 2  %}  v_u -- tyós
+                   %{ 4, %}  be -- re -- ga -- vóy,
+                   %{ 2, %}  plé -- schet,
+        %{SM 39  %}%{ 2, %}  sví -- schet,
+                   %{ 2, %}  srýo -- vam,
+                   %{ 2, %}  ví -- zgam, 
+                   %{ 2  %}  vó -- yem
+        %{SM 43  %}%{ 1  %}  byot
+                   %{ 2  %}  v_u -- tyós
+                   %{ 4, %}  be -- re -- ga -- vóy,
+                   %{ 1  %}  val
+                   %{ 2  %}  mar -- skóy
+                   %{ 1  %}  byot
+                   %{ 2  %}  v_u -- tyós
+        %{SM 47  %}%{ 4, %}  be -- re -- ga -- vóy,
+                   %{ 1  %}  val
+                   %{ 2  %}  mar -- skóy
+                   %{ 1  %}  byot
+                   %{ 2, %}  v_u -- tyós,
+        %{SM 51  %}%{ 1  %}  byot
+                   %{ 2  %}  v_u -- tyós
+                   %{ 4, %}  be -- re -- ga -- vóy,
+                   %{ 1  %}  val
+        %{SM 57  %}%{ 1  %}  byot
+                   %{ 2  %}  v_u -- tyós
+                   %{ 4, %}  be -- re -- ga -- vóy,
+        %{SM 62  %}%{ 2, %}  srýo -- vam,
+                   %{ 2, %}  sví -- stam,
+                   %{ 2, %}  ví -- zgam, 
+                   %{ 2, %}  vó -- yem,
+        %{SM 66  %}%{ 2, %}  srýo -- vam,
+                   %{ 2, %}  sví -- stam,
+                   %{ 2, %}  ví -- zgam, 
+                   %{ 2. %}  vó -- yem.
+        %{SM 71  %}%{ 2. %}  v_u -- tyós.
+                   %{ 1  %}  No
+                   %{ 3  %}  spa -- kóy -- ny
+                   %{ 1  %}  i
+                   %{ 3, %}  nad -- mé -- ny,
+        %{SM 77  %}%{ 2  %}  dúr -- yu
+                   %{ 1  %}  voln
+                   %{ 1  %}  ne
+                   %{ 3, %}  a -- bu -- yán,
+                   %{ 4, %}  ne -- pa -- dvízh -- ny,
+                   %{ 4, %}  ne -- i -- zmé -- ny,
+        %{SM 81  %}%{ 1  %}  ty
+                   %{ 2, %}  sta -- ísh,
+                   %{ 1  %}  nash
+                   %{ 3! %}  ve -- li -- kán!
+        %{SM 84  %}%{ 1  %}  Ty
+                   %{ 2, %}  sta -- ísh,
+                   %{ 1  %}  nash
+                   %{ 3! %}  ve -- li -- kán!
+        %{SM 88  %}%{ 0  %}  %SILENCE
+        %{SM 92  %}%{ 0  %}  %SILENCE
+        %{SM 96  %}%{ 1  %}  I
+                   %{ 5  %}  a -- zló -- ble -- ny -- ye
+                   %{ 2, %}  bó -- yem,
+                   %{ 1  %}  kak
+                   %{ 1  %}  na
+                   %{ 2  %}  prí -- stup
+                   %{ 3, %}  ra -- ka -- vóy,
+        %{SM 100 %}%{ 2  %}  snó -- va 
+                   %{ 2  %}  vól -- ny
+                   %{ 2  %}  lé -- zut
+                   %{ 2  %}  svó -- yem
+                   %{ 1  %}  na
+                   %{ 2  %}  gra -- nít
+                   %{ 3  %}  gra -- má -- dny 
+                   %{ 1, %}  tvoy! %yuly wants exclamation
+        %{SM 104 %}%{ 1  %}  I
+                   %{ 5  %}  a -- zló -- ble -- ny -- ye
+                   %{ 2, %}  bó -- yem,
+                   %{ 1  %}  kak
+                   %{ 1  %}  na
+                   %{ 2  %}  prí -- stup
+                   %{ 3, %}  ra -- ka -- vóy,
+        %{SM 108 %}%{ 1  %}  i
+                   %{ 5  %}  a -- zló -- ble -- ny -- ye
+                   %{ 1  %}  bó -- yem,
+                   %{ 2, %}  snó -- va 
+                   %{ 2  %}  vól -- ny
+                   %{ 2  %}  lé -- zut
+                   %{ 2  %}  svó -- yem
+                   %{ 2  %}  
+        %{SM 112 %}%{ 1  %}  na
+                   %{ 2  %}  gra -- nít
+                   %{ 3  %}  gra -- má -- dny 
+                   %{ 1, %}  tvoy,
+                   %{ 2  %}  vól -- ny
+                   %{ 2  %}  lé -- zut
+                   %{ 1  %}  na
+                   %{ 2, %}  gra -- nít,
+        %{SM 116 %}%{ 2  %}  snó -- va 
+                   %{ 2  %}  vól -- ny
+                   %{ 2  %}  lé -- zut
+                   %{ 2  %}  svó -- yem
+                   %{ 1  %}  na
+                   %{ 2, %}  gra -- nít,
+        %{SM 119 %}%{ 2  %}  snó -- va 
+                   %{ 2  %}  vól -- ny
+                   %{ 2  %}  lé -- zut
+                   %{ 2, %}  svó -- yem,
+        %{SM 123 %}%{ 2  %}  lé -- zut
+                   %{ 1  %}  na
+                   %{ 2  %}  gra -- nít
+                   %{ 3  %}  gra -- má -- dny 
+                   %{ 1. %}  tvoy! %yuly wants exclamation here.
+                   %{ 1  %}  No
+                   %{ 1  %}  a
+                   %{ 2  %}  ka -- men'
+        %{SM 127 %}%{ 4  %}  ne -- i -- zmé -- ny
+                   %{ 2  %}  búr -- ny
+                   %{ 2  %}  ná -- tisk
+                   %{ 3, %}  pre -- la -- míf,
+                   %{ 1  %}  val
+                   %{ 3, %}  ad -- brý -- znul,
+        %{SM 131 %}%{ 1  %}  val
+                   %{ 3  %}  ad -- brý -- znul
+                   %{ 4, %}  sa -- kru -- shó -- ny,
+                   %{ 1, %}  val,
+        %{SM 136 %}%{ 1  %}  i
+                   %{ 3  %}  klu -- bí -- tza
+                   %{ 2  %}  mút -- nay
+                   %{ 2, %}  pé -- nay,
+        %{SM 141 %}%{ 1  %}  i
+                   %{ 3  %}  klu -- bí -- tza
+                   %{ 2  %}  mút -- nay
+                   %{ 2, %}  pé -- nay,
+        %{SM 145 %}%{ 2  %}  mút -- nay
+                   %{ 2  %}  pé -- nay
+                   %{ 1  %}  val % yuly wrote " mút -- nay ", probably in error
+                   %{ 3, %}  klu -- bí -- tza,
+        %{SM 150 %}%{ 2  %}  mút -- nay
+                   %{ 2. %}  pé -- nay.
+        %{SM 157 %}%{ 1  %}  Stoy
+                   %{ 1  %}  zhe
+                   %{ 1, %}  ty,
+                   %{ 2  %}  u -- tyós
+                   %{ 3! %}  ma -- gú -- chi!
+                   %{ 3  %}  A -- ba -- zhdí
+                   %{ 1  %}  lish
+                   %{ 1, %}  chas,
+                   %{ 2- %}  dru -- goy- %yuly wants comma instead of emdash. % Yuly: which syllable has the accent? 
+        %{SM 161 %}%{ 3  %}  na -- da -- yést
+                   %{ 2  %}  val -- né
+                   %{ 3  %}  gre -- mú -- chey
+                   %{ 3  %}  va -- ye -- vat'
+                   %{ 2  %}  stva -- yey
+                   %{ 2… %}  pya -- toy… 
+        %{SM 165 %}%{ 3, %}  u -- ta -- myas', %Yuly: which syllable has accent?
+        %{SM 169 %}%{ 4  %}  pri -- smi -- ré -- yet
+                   %{ 1  %}  vno
+                   %{ 2- %}  v'a -- na-
+                   %{ 1  %}  i
+                   %{ 1  %}  bez
+                   %{ 2  %}  bó -- yu
+        %{SM 174 %}%{ 1  %}  i
+                   %{ 1  %}  bez
+                   %{ 2  %}  vó -- yu
+                   %{ 1  %}  vnof'
+                   %{ 4  %}  u -- lyá -- zhe -- tza
+                   %{ 2. %}  va -- lna.
     }
 }
     

@@ -41,9 +41,7 @@ sopranoMusic =
         
         
         | \barNumberCheck #018     a a a a a4. a8
-        % | \barNumberCheck #019     \once \set crescendoText = \markup { \italic "poco cresc." } bes\cresc bes a a g4. a8
-        | \barNumberCheck #019     \once {\set crescendoText = \markup { \italic "poco cresc." } \set crescendoSpanner = #'text } bes\<  bes a a g4. a8
-        % | \barNumberCheck #019     bes\pocoCrescendo  bes a a g4.\f a8
+        | \barNumberCheck #019      bes\pocoCrescendo  bes a a g4. a8
         | \barNumberCheck #020     bes bes a a g4 a8[( g)]
         \originalLineBreak
         

@@ -133,3 +133,16 @@ accentedI = \markup{ \combine i  \raise #0.75 #"´"  }
 % example: 
 % \markup{ \concat{ ab \accentedI c } }
 
+pocoCrescendo = #(make-music 
+    'CrescendoEvent
+    'span-direction START
+    'span-type 'text
+    'span-text "poco cresc."
+   )
+   
+pocoAPocoDiminuendo = #(make-music 
+    'DecrescendoEvent
+    'span-direction START
+    'span-type 'text
+    'span-text "poco a poco dim."
+   )

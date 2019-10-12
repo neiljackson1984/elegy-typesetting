@@ -38,7 +38,7 @@ bassMusic =
                                    
                                    
         | \barNumberCheck #018     c2. c4
-        | \barNumberCheck #019     \once {\set crescendoText = \markup { \italic "poco cresc." } \set crescendoSpanner = #'text } c2.\< c4
+        | \barNumberCheck #019     c2.\pocoCrescendo c4
         | \barNumberCheck #020     c2 c
         \originalLineBreak         
                                    
