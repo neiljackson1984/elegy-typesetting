@@ -333,11 +333,11 @@ altoOneLyrics = {
         %{ 2,   %}  plé -- schet,
         %{ 2    %}  sví -- schet
         %{ 1    %}  i
-        %{ 2,   %}  re -- vyót,
+        %{ 2,   %}  rev -- yót,
         %{ 2,   %}  plé -- schet,
         %{ 2    %}  sví -- schet
         %{ 1    %}  i
-        %{ 2.   %}  re -- vyót. %yuly wants an exclamation instead of period.
+        %{ 2.   %}  rev -- yót! %yuly wants an exclamation instead of period.
 
         %system that starts with measure 17:
         %{ 1    %}  Voln
@@ -556,66 +556,66 @@ altoOneLyrics = {
         %{ 1    %}  i
         %{ 3    %}  klu -- bí -- tza
         %{ 2    %}  mút -- nay
-        %{ 2,   %}  pé -- nay
+        %{ 2,   %}  pé -- nay,
 
         %system that starts with measure 141: 
-        %{ 1    %}  
-        %{ 3    %}  
-        %{ 2    %}  
-        %{ 2,   %}  
+        %{ 1    %}  i
+        %{ 3    %}  klu -- bí -- tza
+        %{ 2    %}  mút -- nay
+        %{ 2,   %}  pé -- nay,
 
         %system that starts with measure 145: 
-        %{ 2    %}  
-        %{ 2    %}  
-        %{ 1    %}  
-        %{ 3,   %}  
+        %{ 2    %}  mút -- nay
+        %{ 2    %}  pé -- nay
+        %{ 1    %}  val % yuly wrote " mút -- nay ", probably in error
+        %{ 3,   %}  klu -- bí -- tza,
 
         %system that starts with measure 150: 
-        %{ 1    %}  
-        %{ 3.   %}  
+        %{ 1    %}  i
+        %{ 3.   %}  klu -- bí -- tza
 
         %system that starts with measure 157: 
-        %{ 1    %}  
-        %{ 1    %}  
-        %{ 1,   %}  
-        %{ 2    %}  
-        %{ 3!   %}  
-        %{ 3    %}  
-        %{ 1    %}  
-        %{ 1,   %}  
-        %{ 2-   %}  
+        %{ 1    %}  Stoy
+        %{ 1    %}  zhe
+        %{ 1,   %}  ty,
+        %{ 2    %}  u -- tyós
+        %{ 3!   %}  ma -- gú -- chi!
+        %{ 3    %}  A -- ba -- zhdí
+        %{ 1    %}  lish
+        %{ 1,   %}  chas,
+        %{ 2-   %}  dru -- goy- %yuly wants comma instead of emdash. % Yuly: which syllable has the accent? 
 
         %system that starts with measure 161: 
-        %{ 3    %}  
-        %{ 2    %}  
-        %{ 3    %}  
-        %{ 3    %}  
-        %{ 2    %}  
-        %{ 2... %}  
+        %{ 3    %}  na -- da -- yést
+        %{ 2    %}  val -- né
+        %{ 3    %}  gre -- mú -- chey
+        %{ 3    %}  va -- ye -- vat'
+        %{ 2    %}  stva -- yey
+        %{ 2... %}  pya -- toy... 
 
         %system that starts with measure 165:
-        %{ 3    %}  
-        %{ 3    %}  
-        %{ 2,   %}  
-        %{ 3,   %}  
-        %{ 3    %}  
+        %{ 3    %}  u -- ta -- myas' %Yuly: which syllable has accent?
+        %{ 3    %}  pa -- te` -- hay
+        %{ 2,   %}  zlo` -- yu
+        %{ 3,   %}  u -- ta -- myas', %Yuly: which syllable has accent?
+        %{ 3    %}  pa -- te` -- hay
 
         %system that starts with measure 169: 
-        %{ 2,   %}  
-        %{ 4    %}  
-        %{ 1    %}  
-        %{ 2-   %}  
-        %{ 1    %}  
-        %{ 1    %}  
-        %{ 2    %}  
+        %{ 2,   %}  zlo` -- yu,
+        %{ 4    %}  pri -- smi -- ré -- yet
+        %{ 1    %}  vno
+        %{ 2-   %}  v'a -- na-
+        %{ 1    %}  i
+        %{ 1    %}  bez
+        %{ 2    %}  bó -- yu
 
         %system that starts with measure 174: 
-        %{ 1    %}  
-        %{ 1    %}  
-        %{ 2    %}  
-        %{ 1    %}  
-        %{ 4    %}  
-        %{ 2.   %}  
+        %{ 1    %}  i
+        %{ 1    %}  bez
+        %{ 2    %}  vó -- yu
+        %{ 1    %}  vnof'
+        %{ 4    %}  u -- lyá -- zhe -- tza
+        %{ 2.   %}  va -- lna.
         
     }
 }
