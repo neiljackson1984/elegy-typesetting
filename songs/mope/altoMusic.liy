@@ -330,8 +330,8 @@ altoOneLyrics = {
                    %{ 1    %}  i
                    %{ 2.   %}  rev -- yót! %yuly wants an exclamation instead of period.
         %{SM 17  %}%{ 1    %}  Voln
-                   %{ 4    %}  ne -- i` -- sta -- vyh
-                   %{ 3    %}  pri -- bo` -- yem
+                   %{ 4    %}  ne -- í -- sta -- vyh
+                   %{ 3    %}  pri -- bó -- yem
                    %{ 1,   %}  val,
         %{SM 21  %}%{ 4    %}  Be -- spre -- rý -- vna
                    %{ 1    %}  val
@@ -482,7 +482,7 @@ altoOneLyrics = {
                    %{ 3,   %}  pre -- la -- míf,
         %{SM 131 %}%{ 1    %}  val
                    %{ 3    %}  ad -- brý -- znul
-                   %{ 4,   %}  sa -- kru -- sho` -- ny,
+                   %{ 4,   %}  sa -- kru -- shó -- ny,
                    %{ 1,   %}  val,
         %{SM 136 %}%{ 1    %}  i
                    %{ 3    %}  klu -- bí -- tza
@@ -514,11 +514,11 @@ altoOneLyrics = {
                    %{ 2    %}  stva -- yey
                    %{ 2... %}  pya -- toy... 
         %{SM 165 %}%{ 3    %}  u -- ta -- myas' %Yuly: which syllable has accent?
-                   %{ 3    %}  pa -- te` -- hay
-                   %{ 2,   %}  zlo` -- yu
+                   %{ 3    %}  pa -- té -- hay
+                   %{ 2,   %}  zló -- yu
                    %{ 3,   %}  u -- ta -- myas', %Yuly: which syllable has accent?
-                   %{ 3    %}  pa -- te` -- hay
-        %{SM 169 %}%{ 2,   %}  zlo` -- yu,
+                   %{ 3    %}  pa -- té -- hay
+        %{SM 169 %}%{ 2,   %}  zló -- yu,
                    %{ 4    %}  pri -- smi -- ré -- yet
                    %{ 1    %}  vno
                    %{ 2-   %}  v'a -- na-
