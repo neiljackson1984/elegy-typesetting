@@ -1,0 +1,14 @@
+delete lines consisting of only spaces
+^\s*$ -> ""
+
+delete double newlines
+\r{0,1}\n\r{0,1}\n -> "\n"
+
+surround the syllable codes with block quotes
+^(\s*)([^%^s]{1})\s*$ -> "$1%{ $2    %}  "
+^(\s*)([^%^s]{2})\s*$ -> "$1%{ $2   %}  "
+^(\s*)([^%^s]{3})\s*$ -> "$1%{ $2  %}  "
+^(\s*)([^%^s]{4})\s*$ -> "$1%{ $2 %}  "
+
+insert newlines to divide systems
+^(\s*%system.*)$ -> "\n$1"
