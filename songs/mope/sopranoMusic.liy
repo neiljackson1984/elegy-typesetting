@@ -305,43 +305,42 @@ sopranoOneLyrics = {
     \context Lyrics = "lyricsUnderSopranoStaff" { 
         % \numberedSyllableDummyLyrics "s" \default
         
-
         %system that starts with measure 1: 
-        %{ 2,   %}  
-        %{ 2    %}  
-        %{ 1    %}  
-        %{ 2,   %}  
+        %{ 2,   %}  Ple` -- schet, 
+        %{ 2    %}  svi` -- schet
+        %{ 1    %}  i
+        %{ 2,   %}  rev -- yo`t,
 
         %system that starts with measure 5: 
-        %{ 1    %}  
-        %{ 1    %}  
-        %{ 1    %}  
-        %{ 3    %}  
-        %{ 2,   %}  
+        %{ 1    %}  i
+        %{ 1    %}  do
+        %{ 1    %}  zvyo`st
+        %{ 3    %}  da -- prya` -- nut'
+        %{ 2,   %}  ho` -- chet,
 
         %system that starts with measure 9: 
-        %{ 1    %}  
-        %{ 4    %}  
-        %{ 2... %}  
-        %{ 1    %}  
-        %{ 3    %}  
-        %{ 1    %}  
-        %{ 3,   %}  
+        %{ 1    %}  da
+        %{ 4    %}  ne -- zy` -- ble -- myh
+        %{ 2... %}  vy -- so`t... %yuly wants an exclamation point instead of ellipses
+        %{ 1    %}  I
+        %{ 3    %}  bun -- tu` -- yet %yuly wants a comma, even though the original has none. perhaps he really wants a breathe mark
+        %{ 1    %}  i
+        %{ 3,   %}  kla -- ko` -- chet,
 
         %system that starts with measure 13: 
-        %{ 2,   %}  
-        %{ 2    %}  
-        %{ 1    %}  
-        %{ 2,   %}  
-        %{ 2,   %}  
-        %{ 2    %}  
-        %{ 1    %}  
-        %{ 2.   %}  
+        %{ 2,   %}  ple` -- schet,
+        %{ 2    %}  svi` -- schet
+        %{ 1    %}  i
+        %{ 2,   %}  re -- vyo`t,
+        %{ 2,   %}  ple` -- schet,
+        %{ 2    %}  svi` -- schet
+        %{ 1    %}  i
+        %{ 2.   %}  re -- vyo`t. %yuly wants an exclamation instead of period.
 
         %system that starts with measure 17:
-        %{ 4    %}  
-        %{ 1    %}  
-        %{ 2    %}  
+        %{ 4    %}  Be -- spre -- ry` -- vna
+        %{ 1    %}  val
+        %{ 2    %}  mar -- sko`y
 
         %system that starts with measure 21: 
         %{ 2,   %}  
