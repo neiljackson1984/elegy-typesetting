@@ -54,7 +54,7 @@ tenorMusic =
         | \barNumberCheck #032     a[( b]) bis cis4.
         \originalLineBreak
         
-        | \barNumberCheck #033     bis4 b8 cis4 cis8
+        | \barNumberCheck #033     bis4 bis8 cis4 cis8
         | \barNumberCheck #034     bis4 bis8 < cis  gis >4 r8\fermata
         | \barNumberCheck #035     r4. \resetRelativeOctave d d=8[(\f e]) fis
         \originalLineBreak

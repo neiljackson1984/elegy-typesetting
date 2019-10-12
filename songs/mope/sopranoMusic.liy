@@ -132,7 +132,7 @@ sopranoMusic =
         \originalPageBreak
         
         | \barNumberCheck #077     bes='4 bes a\< a\!
-        | \barNumberCheck #078     ais4. ais8 gis4 a
+        | \barNumberCheck #078     ais4. ais8 gis4 ais
         | \barNumberCheck #079     gis(\> fis8)\! r8 fis4. a8
         | \barNumberCheck #080     bes4\> bes\! a4. a8
         \originalLineBreak

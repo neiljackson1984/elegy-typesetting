@@ -155,7 +155,7 @@ altoMusic =
         | \barNumberCheck #088     \time 6/8 a=8[(\!\pp cis]) e f4 e8
         | \barNumberCheck #089     \resetRelativeOctave a a=8[(\cresc cis]) e f4 e8
         | \barNumberCheck #090     \resetRelativeOctave a a=8[( d]) e f[( e]) d
-        | \barNumberCheck #091     \resetRelativeOctave a a=8[( cis]) e f4.\fermata
+        | \barNumberCheck #091     \resetRelativeOctave a a=8[( d]) e f4.\fermata
         \originalLineBreak
         
         | \barNumberCheck #092     \resetRelativeOctave bes bes=8[(\mf d]) f ges4 f8
