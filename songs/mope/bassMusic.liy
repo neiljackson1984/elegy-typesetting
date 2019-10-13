@@ -3,39 +3,39 @@
 bassMusic =  
     \relative {
         \time 6/8  \key d \major 
-        | \barNumberCheck #001     ais,8[(\mezzoPianoConMolto b]) cis d4 cis8
-        | \barNumberCheck #002     ais8[(\cresc b]) cis d4 cis8\!
+        | \barNumberCheck #001     ais,8[(\mezzoPianoConMolto b]) cis d4-> cis8
+        | \barNumberCheck #002     ais8[(\cresc b]) cis d4-> cis8\!
         | \barNumberCheck #003     b2.\p
         | \barNumberCheck #004     b2.
         \originalLineBreak
         
-        | \barNumberCheck #005     b8[(\mf cis]) d e4\cresc d8
-        | \barNumberCheck #006     b8[( cis]) d e4( d8)
+        | \barNumberCheck #005     b8[(\mf cis]) d e4\cresc-> d8
+        | \barNumberCheck #006     b8[( cis]) d e4(-> d8)
         | \barNumberCheck #007     cis8[(\f e]) fis g[( fis]) e
         | \barNumberCheck #008     dis[(\< fis]) a c[( b]) a
         \originalLineBreak
         
         | \barNumberCheck #009     gis8[( b]) cis d[( cis]) b
-        | \barNumberCheck #010     ais[( cis]) e\! fis,4.\fermata
+        | \barNumberCheck #010     ais[( cis]) e\! fis,4.\fermata->
         | \barNumberCheck #011     g4\ff g8 fis4 fis8
-        | \barNumberCheck #012     g4 g8 fis4 fis8
+        | \barNumberCheck #012     g4 g8 fis4-> fis8
         \originalLineBreak
         \originalPageBreak
         
         | \barNumberCheck #013     g4 g8 fis4 fis8
         | \barNumberCheck #014     g4 g8 fis4.
-        | \barNumberCheck #015     g4 g8 fis4 fis8
-        | \barNumberCheck #016     g4 g8 fis4 r8\fermata
+        | \barNumberCheck #015     g4-> g8 fis4-> fis8
+        | \barNumberCheck #016     g4-> g8 fis4-> r8\fermata
         \originalLineBreak
         
-        | \barNumberCheck #017     ais,8[(\mp b]) cis d4 cis8
-        | \barNumberCheck #018     ais8[(\cresc b]) cis d4 cis8
+        | \barNumberCheck #017     ais,8[(\mp b]) cis d4-> cis8
+        | \barNumberCheck #018     ais8[(\cresc b]) cis d4-> cis8
         | \barNumberCheck #019     b2.~
         | \barNumberCheck #020     b2.
         \originalLineBreak
         
-        | \barNumberCheck #021     b8[(\mf cis])\cresc d e4 d8
-        | \barNumberCheck #022     b8[( cis]) d e4( d8])
+        | \barNumberCheck #021     b8[(\mf cis])\cresc d e4-> d8
+        | \barNumberCheck #022     b8[( cis]) d e4(-> d8])
         | \barNumberCheck #023     cis8[(\f\< e]) fis g[( fis]) e
         | \barNumberCheck #024     dis[( fis]) a c[( b]) a
         \originalLineBreak
@@ -43,7 +43,7 @@ bassMusic =
         
         
         | \barNumberCheck #025     gis8[( b]) cis d[( cis]) b
-        | \barNumberCheck #026     ais[( cis]) e\! fis,4.\fermata
+        | \barNumberCheck #026     ais[( cis]) e\! fis,4.\fermata->
         | \barNumberCheck #027     fis4.~\ff fis4 fis8
         | \barNumberCheck #028     e4.~ e4 e8
         \originalLineBreak
@@ -54,8 +54,8 @@ bassMusic =
         | \barNumberCheck #032     d4. cis4.
         \originalLineBreak
         
-        | \barNumberCheck #033     d4 d8 cis4 cis8
-        | \barNumberCheck #034     d4 d8 cis4 r8\fermata
+        | \barNumberCheck #033     d4-> d8 cis4-> cis8
+        | \barNumberCheck #034     d4-> d8 cis4-> r8\fermata
         | \barNumberCheck #035     a8[(\f b]) cis d4.
         \originalLineBreak
         \originalPageBreak
@@ -89,24 +89,24 @@ bassMusic =
         | \barNumberCheck #051     fis2.~\mf \dim
         | \barNumberCheck #052     fis2.~
         | \barNumberCheck #053     fis2.\fermata
-        | \barNumberCheck #054     eis4\p \dim fis8 eis4 fis8
-        | \barNumberCheck #055     eis4 fis8 eis4.(
+        | \barNumberCheck #054     eis4\p-> \dim fis8 eis4-> fis8
+        | \barNumberCheck #055     eis4-> fis8 eis4.(
         | \barNumberCheck #056     eis2.)\fermata
         \originalLineBreak
         
         | \barNumberCheck #057     fis2.~\pp\dim
         | \barNumberCheck #058     fis2.~
         | \barNumberCheck #059     fis2.\!\fermata
-        | \barNumberCheck #060     <fis' fis,>4\f <eis eis,>8 <fis fis,>4 <g g,>8
-        | \barNumberCheck #061      <fis fis,>4 <eis eis,>8 <fis fis,>4.~
+        | \barNumberCheck #060     <fis' fis,>4\f-> <eis eis,>8 <fis fis,>4-> <g g,>8
+        | \barNumberCheck #061      <fis fis,>4-> <eis eis,>8 <fis fis,>4.~
         \originalLineBreak
         \originalPageBreak
         
         
         | \barNumberCheck #062     <fis fis,>2.\<
         | \barNumberCheck #063     <fis fis,>2.
-        | \barNumberCheck #064     <fis fis,>4\! <eis eis,>8 <fis fis,>4 <g g,>8
-        | \barNumberCheck #065     <fis fis,>4 <eis eis,>8 <fis fis,>4.~
+        | \barNumberCheck #064     <fis fis,>4\!-> <eis eis,>8 <fis fis,>4-> <g g,>8
+        | \barNumberCheck #065     <fis fis,>4-> <eis eis,>8 <fis fis,>4.~
         \originalLineBreak
         
         | \barNumberCheck #066     <fis fis,>2.
@@ -175,16 +175,16 @@ bassMusic =
         \originalLineBreak
         \originalPageBreak
         
-        | \barNumberCheck #088     \time 6/8 a,8[(\!\pp cis]) e f4 e8
+        | \barNumberCheck #088     \time 6/8 a,8[(\!\pp cis]) e f4-> e8
         % the above \pp, in combination with the previous decrescendos, produces an "Impossible or ambiguous (de)crescendo in MIDI." warning, but there is no good
         % way to avoid the error, so I am tolerating it for now.
-        | \barNumberCheck #089     a,8[(\cresc cis]) e f4 e8
+        | \barNumberCheck #089     a,8[(\cresc cis]) e f4-> e8
         | \barNumberCheck #090     a,8[( d]) e f[( e]) d
         | \barNumberCheck #091     a8[( d]) e f4.\fermata
         \originalLineBreak
         
-        | \barNumberCheck #092     bes,8[(\mf d]) f ges4 f8
-        | \barNumberCheck #093     bes,8[(\cresc d]) f ges4 f8
+        | \barNumberCheck #092     bes,8[(\mf d]) f ges4-> f8
+        | \barNumberCheck #093     bes,8[(\cresc d]) f ges4-> f8
         | \barNumberCheck #094     bes,8[( ees]) fes ges[( fes]) ees
         | \barNumberCheck #095     bes8[( ees]) fes ges4.\fermata
         \originalLineBreak
@@ -200,11 +200,11 @@ bassMusic =
         | \barNumberCheck #100     cis8[( e]) fis g[( fis]) e
         | \barNumberCheck #101     dis8[( fis]) a c[( b]) a
         | \barNumberCheck #102     gis[( b]) cis d[( cis]) b
-        | \barNumberCheck #103     ais[( cis]) e fis,4.\fermata
+        | \barNumberCheck #103     ais[( cis]) e fis,4.\fermata->
         \originalLineBreak
         
         | \barNumberCheck #104     g4\ff g8 fis4 fis8
-        | \barNumberCheck #105     g4 g8 fis4 fis8
+        | \barNumberCheck #105     g4 g8 fis4-> fis8
         | \barNumberCheck #106     g4 g8 fis4 fis8
         | \barNumberCheck #107     g4 g8 fis4.
 
@@ -311,11 +311,11 @@ bassMusic =
         | \barNumberCheck #169     fis4 fis8 r8 e8 e8
         | \barNumberCheck #170     b4 b e8 e
         | \barNumberCheck #171     b2 b8.\p a16 
-        | \barNumberCheck #172     g2.(
+        | \barNumberCheck #172     g2.(->
         | \barNumberCheck #173     g4) g g8.\> fis16\!
         \originalLineBreak
         
-        | \barNumberCheck #174     eis2.(
+        | \barNumberCheck #174     eis2.(->
         %| \barNumberCheck #175     \once {\set decrescendoText = \markup { \italic "poco a poco dim." } \set decrescendoSpanner = #'text } eis2)  \> eis4
         | \barNumberCheck #175     eis2)\pocoAPocoDiminuendo   eis4
         | \barNumberCheck #176     fis2 fis4

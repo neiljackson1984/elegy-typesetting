@@ -5,8 +5,8 @@ tenorMusic =
         \time 6/8  \key d \major 
         | \barNumberCheck #001     R2.
         | \barNumberCheck #002     R2.
-        | \barNumberCheck #003     \resetRelativeOctave b, b=,8[(\pianoConMolto d8]) fis g4 fis8
-        | \barNumberCheck #004     \resetRelativeOctave b, b=,8[(\cresc d8]) fis g4.~
+        | \barNumberCheck #003     \resetRelativeOctave b, b=,8[(\pianoConMolto d8]) fis g4-> fis8
+        | \barNumberCheck #004     \resetRelativeOctave b, b=,8[(\cresc d8]) fis g4.~->
         \originalLineBreak
         
         | \barNumberCheck #005     g2.~
@@ -16,22 +16,22 @@ tenorMusic =
         \originalLineBreak
         
         | \barNumberCheck #009     gis([ b)] cis d([ cis)] b
-        | \barNumberCheck #010     ais([ cis)] e\! e4. \fermata
+        | \barNumberCheck #010     ais([ cis)] e\! e4.-> \fermata
         | \barNumberCheck #011     e8[(\ff d]) cis g'[( fis]) e
-        | \barNumberCheck #012     d[( e]) eis fis4 e8
+        | \barNumberCheck #012     d[( e]) eis fis4-> e8
         \originalLineBreak
         \originalPageBreak
         
         | \barNumberCheck #013     e8[( d]) cis g'[( fis]) e
         | \barNumberCheck #014     d[( e]) eis fis4.
-        | \barNumberCheck #015     eis4 eis8 fis4 fis8
-        | \barNumberCheck #016     eis4 eis8 <fis cis>4 r8\fermata
+        | \barNumberCheck #015     eis4-> eis8 fis4-> fis8
+        | \barNumberCheck #016     eis4-> eis8 <fis cis>4-> r8\fermata
         \originalLineBreak
         
         | \barNumberCheck #017     R2.
         | \barNumberCheck #018     R2.
-        | \barNumberCheck #019     \resetRelativeOctave b, b=,8([\p d)] fis g4 fis8
-        | \barNumberCheck #020     b,([\cresc d)] fis g4.~
+        | \barNumberCheck #019     \resetRelativeOctave b, b=,8([\p d)] fis g4-> fis8
+        | \barNumberCheck #020     b,([\cresc d)] fis g4.~->
         \originalLineBreak
         
         | \barNumberCheck #021     g2.~
@@ -43,19 +43,19 @@ tenorMusic =
         
         
         | \barNumberCheck #025     gis8[( b]) cis d[( cis]) b
-        | \barNumberCheck #026     ais[( cis]) e8\! e4.\fermata
+        | \barNumberCheck #026     ais[( cis]) e8\! e4.\fermata->
         | \barNumberCheck #027     d8[(\ff cis]) b fis'[( e]) d
         | \barNumberCheck #028     cis[( b]) a e'[( d]) cis
         \originalLineBreak
         
         | \barNumberCheck #029     b[( a]) gis d'[( cis]) b
-        | \barNumberCheck #030     a[( b]) bis cis4 b8
+        | \barNumberCheck #030     a[( b]) bis cis4-> b8
         | \barNumberCheck #031     b8[( a]) gis d'[( cis]) b
         | \barNumberCheck #032     a[( b]) bis cis4.
         \originalLineBreak
         
-        | \barNumberCheck #033     bis4 bis8 cis4 cis8
-        | \barNumberCheck #034     bis4 bis8 < cis  gis >4 r8\fermata
+        | \barNumberCheck #033     bis4-> bis8 cis4-> cis8
+        | \barNumberCheck #034     bis4-> bis8 < cis  gis >4-> r8\fermata
         | \barNumberCheck #035     r4. \resetRelativeOctave d d=8[(\f e]) fis
         \originalLineBreak
         \originalPageBreak
@@ -86,16 +86,16 @@ tenorMusic =
         | \barNumberCheck #050     d2.\!\fermata
         \originalLineBreak
         
-        | \barNumberCheck #051     d4\mf\dim cis8 d4 cis8 
-        | \barNumberCheck #052     d4 cis8 d4.~
+        | \barNumberCheck #051     d4\mf\dim-> cis8 d4-> cis8 
+        | \barNumberCheck #052     d4-> cis8 d4.~
         | \barNumberCheck #053     d2.\fermata
         | \barNumberCheck #054     d2.~\p\dim
         | \barNumberCheck #055     d2.~
         | \barNumberCheck #056     d2.\fermata
         \originalLineBreak
         
-        | \barNumberCheck #057     cis4\pp\dim d8 cis4 d8
-        | \barNumberCheck #058     cis4 d8 cis4.~
+        | \barNumberCheck #057     cis4\pp\dim-> d8 cis4-> d8
+        | \barNumberCheck #058     cis4-> d8 cis4.~
         | \barNumberCheck #059     cis2.\!
         | \barNumberCheck #060     R2.
         | \barNumberCheck #061     R2.
@@ -109,9 +109,9 @@ tenorMusic =
         | \barNumberCheck #065     R2.
         \originalLineBreak
         
-        | \barNumberCheck #066     d4\> d8 cis4 cis8\!
+        | \barNumberCheck #066     d4\>-> d8 cis4-> cis8\!
         | \barNumberCheck #067     R2.
-        | \barNumberCheck #068     b4\dim b8 ais4 ais8
+        | \barNumberCheck #068     b4\dim-> b8 ais4-> ais8
         | \barNumberCheck #069     R2.
         | \barNumberCheck #070     R2.
         \originalLineBreak
@@ -158,8 +158,8 @@ tenorMusic =
         | \barNumberCheck #095     R2.\fermataMarkup
         \originalLineBreak
         
-        | \barNumberCheck #096     \resetRelativeOctave b, b=,8[(\f dis]) fis g4 fis8
-        | \barNumberCheck #097     b,8[(\cresc dis]) fis g4 fis8
+        | \barNumberCheck #096     \resetRelativeOctave b, b=,8[(\f dis]) fis g4-> fis8
+        | \barNumberCheck #097     b,8[(\cresc dis]) fis g4-> fis8
         | \barNumberCheck #098     b,[( e]) fis g[( fis]) e
         | \barNumberCheck #099     c[( e]) fis g[( fis e])
         \originalLineBreak
@@ -169,19 +169,19 @@ tenorMusic =
         | \barNumberCheck #100     cis8[(\cresc e]) fis g[( fis]) e
         | \barNumberCheck #101     dis[( fis]) a c[( b]) a
         | \barNumberCheck #102     gis[( b]) cis d[( cis]) b
-        | \barNumberCheck #103     ais[( cis]) e e4.\fermata
+        | \barNumberCheck #103     ais[( cis]) e e4.\fermata->
         \originalLineBreak
         
         | \barNumberCheck #104     e8[(\ff d]) cis g'[( fis]) e
-        | \barNumberCheck #105     d[( e]) eis fis4 e8
+        | \barNumberCheck #105     d[( e]) eis fis4-> e8
         | \barNumberCheck #106     e[( d]) cis g'[( fis]) e
-        | \barNumberCheck #107     d[( e]) eis fis4( e8)
+        | \barNumberCheck #107     d[( e]) eis fis4(-> e8)
 
         \originalLineBreak
         | \barNumberCheck #108     d8[( cis]) b fis'[( e]) d
         | \barNumberCheck #109     cis[( b]) a e'[( d]) cis
         | \barNumberCheck #110     b[( a]) gis d'[( cis]) b
-        | \barNumberCheck #111     a[( b]) bis cis4 b8
+        | \barNumberCheck #111     a[( b]) bis cis4-> b8
         \originalLineBreak
         \originalPageBreak
         
