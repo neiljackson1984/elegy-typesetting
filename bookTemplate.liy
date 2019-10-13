@@ -2,7 +2,7 @@
 #(ly:set-option 'point-and-click #f)
 \include "utility.liy"
 
-versionCode = #(strftime "%Y-%m-%d-%H-%M" (localtime (current-time)))
+versionCode = #(strftime "%Y-%m-%d-%H%M" (localtime (current-time)))
 %we will use this date/timestamp as a version code
 
 deEmphasisRatioForMidiEmphasizedParts = #0.4
@@ -96,7 +96,7 @@ deEmphasisRatioForMidiEmphasizedParts = #0.4
     %=== The below parameters are in units of staff-spaces (The staff-space is the distance between two adjacent staff lines) 
     % markup-system-spacing:  the distance between a (title or top-level) markup and the system that follows it.
         %DEFAULT:    markup-system-spacing = #'((basic-distance . 5) (padding . 0.5) (stretchability . 30))
-        markup-system-spacing #'padding = #10
+        markup-system-spacing #'padding = #6
     
     % score-markup-spacing:   the distance between the last system of a score and the (title or top-level) markup that follows it.
         %DEFAULT:  score-markup-spacing = #'((basic-distance . 12) (padding . 0.5) (stretchability . 60))
@@ -122,7 +122,7 @@ deEmphasisRatioForMidiEmphasizedParts = #0.4
         
     % top-markup-spacing:     the distance from the top of the printable area (i.e. the bottom of the top margin) to the first (title or top-level) markup on a page, when there is no system between the two. 
         %DEFAULT:  top-markup-spacing = #'((basic-distance . 0) (minimum-distance . 0) (padding . 1))
-        top-markup-spacing #'basic-distance = #8
+        top-markup-spacing #'basic-distance = #4
 
 	
 	print-first-page-number = ##t

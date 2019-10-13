@@ -4,14 +4,14 @@
 
 \header{
     title = \markup{ \caps {Elegy} } 
-    composer = "Vasily Sergeyevich Kalinnikov (1866 – 1901)"
+    composer = "music by Vasily Sergeyevich Kalinnikov (1866 – 1901)"
     poet = \markup {
       \column {
         \line {
           "words by Alexander Sergeyevich Pushkin (1799 – 1837)"
         }
         \line {
-            phonetization by Yuly Vladimirovich Kopkin  (1981 – )
+            phonetization by Yuly Vladimirovich Kopkin  (1980 – )
         }
       }
    }

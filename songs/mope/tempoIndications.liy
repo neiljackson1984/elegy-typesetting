@@ -87,7 +87,7 @@ tempoIndications =
         | \barNumberCheck #050     s2.
         
         
-        | \barNumberCheck #051     s2.
+        | \barNumberCheck #051     \tempo "meno mosso" s2.
         | \barNumberCheck #052     s2.
         | \barNumberCheck #053     s2.
         | \barNumberCheck #054     s2.
@@ -98,7 +98,7 @@ tempoIndications =
         | \barNumberCheck #057     s2.
         | \barNumberCheck #058     s2.
         | \barNumberCheck #059     s2.
-        | \barNumberCheck #060     s2.
+        | \barNumberCheck #060     \tempo "in tempo" s2.
         | \barNumberCheck #061     s2.
         
         
@@ -124,7 +124,7 @@ tempoIndications =
         | \barNumberCheck #075     
             \time 4/4     
             \set Timing.measureLength=#(ly:make-moment 2/4)    
-            s2
+            \tempo "Adagio e tranquillo" s2
         | \barNumberCheck #076     \set Timing.measureLength=#(ly:make-moment 4/4)    s1
         
         
@@ -141,12 +141,12 @@ tempoIndications =
         
         | \barNumberCheck #084     s1
         | \barNumberCheck #085     s1
-        | \barNumberCheck #086     s1
+        | \barNumberCheck #086     s2 \tempo "rit." s2
         | \barNumberCheck #087     s1
         
         
         
-        | \barNumberCheck #088     \time 6/8 s2.
+        | \barNumberCheck #088     \time 6/8 \tempo "Tempo I" s2.
         | \barNumberCheck #089     s2.
         | \barNumberCheck #090     s2.
         | \barNumberCheck #091     s2.
@@ -218,7 +218,7 @@ tempoIndications =
         
         
         | \barNumberCheck #131     s2.
-        | \barNumberCheck #132     s2.
+        | \barNumberCheck #132     \tempo "Meno mosso" s2.
         | \barNumberCheck #133     s2.
         | \barNumberCheck #134     s2.
         | \barNumberCheck #135     s2.
@@ -233,7 +233,7 @@ tempoIndications =
         | \barNumberCheck #140     s2.
         
         
-        | \barNumberCheck #141     s2.
+        | \barNumberCheck #141     \tempo "in tempo" s2.
         | \barNumberCheck #142     s2.
         | \barNumberCheck #143     s2.
         | \barNumberCheck #144     s2.
@@ -257,7 +257,7 @@ tempoIndications =
         | \barNumberCheck #156     s2.
         
         
-        | \barNumberCheck #157     \time 3/4 \set Timing.measureLength=#(ly:make-moment 1/4)     s8. s16 
+        | \barNumberCheck #157     \time 3/4 \set Timing.measureLength=#(ly:make-moment 1/4)     \tempo "Maestoso" s8. s16 
         | \barNumberCheck #158     \set Timing.measureLength=#(ly:make-moment 3/4)    s2.
         | \barNumberCheck #159     s2.
         | \barNumberCheck #160     s2.
