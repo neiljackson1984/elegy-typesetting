@@ -1,7 +1,7 @@
 \version "2.18.2"
 
 
-    
+     
 
 sopranoMusic =  
     \relative {
@@ -99,7 +99,7 @@ sopranoMusic =
         
         | \barNumberCheck #057     fis2.~\pp\dim
         | \barNumberCheck #058     fis2.~
-        | \barNumberCheck #059     fis2.\fermata
+        | \barNumberCheck #059     fis2.\!\fermata
         | \barNumberCheck #060     R2.
         | \barNumberCheck #061     R2.
         \originalLineBreak
@@ -145,11 +145,11 @@ sopranoMusic =
         | \barNumberCheck #084     e2\p e\dim
         | \barNumberCheck #085     d d 
         | \barNumberCheck #086     d~ d4. f8
-        | \barNumberCheck #087     e1\fermata
+        | \barNumberCheck #087     e1\>\fermata
         \originalLineBreak
         \originalPageBreak
         
-        | \barNumberCheck #088     \time 6/8 R2.
+        | \barNumberCheck #088     \time 6/8 R2.\!
         | \barNumberCheck #089     R2.
         | \barNumberCheck #090     R2.
         | \barNumberCheck #091     R2.\fermataMarkup
@@ -233,7 +233,7 @@ sopranoMusic =
         | \barNumberCheck #137     g4. g4.\fermata
         | \barNumberCheck #138     fis2.~
         | \barNumberCheck #139     fis2.~
-        | \barNumberCheck #140     fis2.\fermata
+        | \barNumberCheck #140     fis2.\!\fermata
         \originalLineBreak
         
         | \barNumberCheck #141     R2.
@@ -246,7 +246,7 @@ sopranoMusic =
         | \barNumberCheck #146     R2.
         | \barNumberCheck #147     cis4\dim b8 b4 ais8
         | \barNumberCheck #148     R2.
-        | \barNumberCheck #149     g4 fis8 fis4 e8
+        | \barNumberCheck #149     g4 fis8 fis4 e8\!
         \originalLineBreak
         \originalPageBreak
 
@@ -268,7 +268,7 @@ sopranoMusic =
         
         | \barNumberCheck #161     fis2\cresc fis8 fis
         | \barNumberCheck #162     b4. gis8 fis fis
-        | \barNumberCheck #163     b4 e, b'8 cis
+        | \barNumberCheck #163     b4 e, b'8 cis\!
         | \barNumberCheck #164     dis4.\f dis8 dis cis
         \originalLineBreak
         \originalPageBreak
