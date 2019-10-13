@@ -96,7 +96,7 @@ tenorMusic =
         
         | \barNumberCheck #057     cis4\pp\dim d8 cis4 d8
         | \barNumberCheck #058     cis4 d8 cis4.~
-        | \barNumberCheck #059     cis2.
+        | \barNumberCheck #059     cis2.\!
         | \barNumberCheck #060     R2.
         | \barNumberCheck #061     R2.
         \originalLineBreak
@@ -227,7 +227,7 @@ tenorMusic =
         
         
         | \barNumberCheck #136     d2.~
-        | \barNumberCheck #137     d2.\fermata
+        | \barNumberCheck #137     d2.\!\fermata
         | \barNumberCheck #138     cis4\p d8 cis4 d8
         | \barNumberCheck #139     cis4 d8 cis4.~ 
         | \barNumberCheck #140     cis4. cis4.\fermata
@@ -265,7 +265,7 @@ tenorMusic =
         
         | \barNumberCheck #161     fis2 a8\cresc a8 
         | \barNumberCheck #162     gis4. b8 b b 
-        | \barNumberCheck #163     b4 b b8 b 
+        | \barNumberCheck #163     b4 b b8 b\! 
         | \barNumberCheck #164     b4.\f b8 gis ais
         \originalLineBreak
         \originalPageBreak
@@ -290,7 +290,7 @@ tenorMusic =
         | \barNumberCheck #176     dis2 dis4
         | \barNumberCheck #177     d2 cis4
         | \barNumberCheck #178     cis2.
-        | \barNumberCheck #179     cis2.
+        | \barNumberCheck #179     cis2.\!
         | \barNumberCheck #180     b2.\fermata\pp
         \bar "|."
         \originalLineBreak

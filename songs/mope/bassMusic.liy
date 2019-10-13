@@ -4,7 +4,7 @@ bassMusic =
     \relative {
         \time 6/8  \key d \major 
         | \barNumberCheck #001     ais,8[(\mezzoPianoConMolto b]) cis d4 cis8
-        | \barNumberCheck #002     ais8[(\cresc b]) cis d4 cis8
+        | \barNumberCheck #002     ais8[(\cresc b]) cis d4 cis8\!
         | \barNumberCheck #003     b2.\p
         | \barNumberCheck #004     b2.
         \originalLineBreak
@@ -96,7 +96,7 @@ bassMusic =
         
         | \barNumberCheck #057     fis2.~\pp\dim
         | \barNumberCheck #058     fis2.~
-        | \barNumberCheck #059     fis2.\fermata
+        | \barNumberCheck #059     fis2.\!\fermata
         | \barNumberCheck #060     <fis' fis,>4\f <eis eis,>8 <fis fis,>4 <g g,>8
         | \barNumberCheck #061      <fis fis,>4 <eis eis,>8 <fis fis,>4.~
         \originalLineBreak
@@ -119,11 +119,40 @@ bassMusic =
         | \barNumberCheck #071     <fis fis,>4\! r8 r4.
         | \barNumberCheck #072     R2.
         | \barNumberCheck #073     r4. fis,4.~\p
+        %% | \barNumberCheck #074     fis2.\>\fermata
+        %% | \barNumberCheck #074     << s2.\> fis2.\fermata  >>
+        %% | \barNumberCheck #074     fis4.\<~ fis4.\!\fermata
+        %% | \barNumberCheck #074     fis2.\>\fermata
+        %% <<
+            %% {
+                %% | \barNumberCheck #074     fis2.\fermata
+                %% | \barNumberCheck #075     
+                    %% \time 4/4     
+                    %% \set Timing.measureLength=#(ly:make-moment 2/4)    
+                    %% %% d'4.\p d8
+                    %% d'4.\p d8
+                    %% %% \zeroDurationCrescendoTerminator d'4\p d8
+                    %% %% << s4.\! d'4.\p >> d8
+            %% }
+            %% \new Voice {
+                %% | \barNumberCheck #074     s2.\xppp\>
+                %% | \barNumberCheck #075     s16\!
+            %% }
+        %% >>
         | \barNumberCheck #074     fis2.\>\fermata
         | \barNumberCheck #075     
             \time 4/4     
             \set Timing.measureLength=#(ly:make-moment 2/4)    
             d'4.\p d8
+            %the 'p' dynamic event occuring in measure 75, which terminates the decrescendo started in the previous measure while already at dynamic 'p',
+            %causes the midi interpreter to regard the decrescendo as "impossible or ambiguous", because it is a decrescendo from a volume level of 'p' 
+            % to a volume level of 'p'.  Unfortunately, there is no good way around this.  the fundamental problem, I think, is that there is no way to tell the
+            % midi interpreter what the target volume of the gradual change of volume should be except to specify the volume of the next note. 
+            % The result is that the system cannot handle the case where you want to have a continuous gradual reduction in volume over the entire span of
+            % one note, and then, at the beginning of the next note,
+            % jump to a new volume that is equal to or greater than the starting volume of the previous gradual reduction.
+            % For now, I will simply tolerate the "Impossible or ambiguous (de)crescendo in MIDI.", which fortunately does not
+            % seriously detract from teh usability of the MIDI files, in this instance.
         | \barNumberCheck #076     \set Timing.measureLength=#(ly:make-moment 4/4)    d4\> d4\! d4. d8
         \originalLineBreak
         \originalPageBreak
@@ -147,6 +176,8 @@ bassMusic =
         \originalPageBreak
         
         | \barNumberCheck #088     \time 6/8 a,8[(\!\pp cis]) e f4 e8
+        % the above \pp, in combination with the previous decrescendos, produces an "Impossible or ambiguous (de)crescendo in MIDI." warning, but there is no good
+        % way to avoid the error, so I am tolerating it for now.
         | \barNumberCheck #089     a,8[(\cresc cis]) e f4 e8
         | \barNumberCheck #090     a,8[( d]) e f[( e]) d
         | \barNumberCheck #091     a8[( d]) e f4.\fermata
@@ -265,7 +296,7 @@ bassMusic =
         
         | \barNumberCheck #161     dis2\! dis8\cresc dis
         | \barNumberCheck #162     e4. gis8 a a 
-        | \barNumberCheck #163     gis4 gis gis8 g
+        | \barNumberCheck #163     gis4 gis gis8 g\!
         | \barNumberCheck #164     fis4.\f fis8 fis fis
         \originalLineBreak
         \originalPageBreak
@@ -290,7 +321,7 @@ bassMusic =
         | \barNumberCheck #176     fis2 fis4
         | \barNumberCheck #177     g2 g4
         | \barNumberCheck #178     fis2.
-        | \barNumberCheck #179     fis2.
+        | \barNumberCheck #179     fis2.\!
         | \barNumberCheck #180     <b b,>2.\fermata\pp
         \bar "|."
         \originalLineBreak

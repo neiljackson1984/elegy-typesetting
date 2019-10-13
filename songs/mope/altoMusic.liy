@@ -96,7 +96,7 @@ altoMusic =
         
         | \barNumberCheck #057     ais4\pp\dim b8 ais4 b8
         | \barNumberCheck #058     ais4 b8 ais4.~
-        | \barNumberCheck #059     ais2.\fermata
+        | \barNumberCheck #059     ais2.\!\fermata
         | \barNumberCheck #060     R2.
         | \barNumberCheck #061     R2.
         \originalLineBreak
@@ -233,7 +233,7 @@ altoMusic =
         
         
         | \barNumberCheck #136     b2.~
-        | \barNumberCheck #137     b2.\fermata
+        | \barNumberCheck #137     b2.\!\fermata
         | \barNumberCheck #138     ais4\p b8 ais4 b8
         | \barNumberCheck #139     ais4 b8 ais4.(
         | \barNumberCheck #140     ais4.) ais4.\fermata
@@ -271,7 +271,7 @@ altoMusic =
         
         | \barNumberCheck #161     b2 b8\cresc b
         | \barNumberCheck #162     b4. e8 dis8 dis8
-        | \barNumberCheck #163     e4 e e8 eis
+        | \barNumberCheck #163     e4 e e8 eis\!
         | \barNumberCheck #164     fis4.\f fis8 e e
         \originalLineBreak
         \originalPageBreak
@@ -296,7 +296,7 @@ altoMusic =
         | \barNumberCheck #176     b2 b4
         | \barNumberCheck #177     b2 b4
         | \barNumberCheck #178     b2. 
-        | \barNumberCheck #179     ais2.
+        | \barNumberCheck #179     ais2.\!
         | \barNumberCheck #180     b2.\pp\fermata
         \bar "|."
         \originalLineBreak

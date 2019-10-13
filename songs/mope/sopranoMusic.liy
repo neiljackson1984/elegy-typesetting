@@ -298,7 +298,7 @@ sopranoMusic =
         | \barNumberCheck #176     fis2 fis4
         | \barNumberCheck #177     eis2 eis4
         | \barNumberCheck #178     fis2.
-        | \barNumberCheck #179     fis2.
+        | \barNumberCheck #179     fis2.\!
         | \barNumberCheck #180     b,2.\fermata\pp
         \bar "|."
         \originalLineBreak
