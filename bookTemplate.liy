@@ -307,7 +307,7 @@ layoutSettings = \layout {
                         \numericTimeSignature
                         \override DynamicText.direction = #UP
                         \override DynamicLineSpanner.direction = #UP
-                         % skipTypesetting = ##t
+                         %% skipTypesetting = ##t
                     }
                 }
                 
@@ -364,13 +364,64 @@ sopranoEmphasisMidiSettings = \midi{
     tagline =  "Engraved 2019 in Seattle for The Meridian Ensemble; Yuly Kopkin, Artistic Director"
 }
 
-
+ 
 
 %%%% make the graphical output, if so requested by the makeGraphicalOutput variable.
+%% $(if makeGraphicalOutput
+    %% (begin (newline)(display "we are making graphical output.")(newline)
+        %% #{
+            %% \book {
+                %% %% \markup { PREFACE WILL FOLLOW, IF IT EXISTS }
+                %% #(if (defined? 'preface)
+                    %% #{ #@preface #}
+                    %% #{ \markup { THERE WAS NO PREFACE } #}
+                %% )
+                %% \score{
+                    %% \scorecontents
+                    %% \layout {\layoutSettings} 
+                    %% \scoreHeader
+                %% } 
+            %% }
+        %% #}
+    %% )
+    %% (begin (newline)(display "we are not making graphical output.")(newline))
+%% )
 $(if makeGraphicalOutput
     (begin (newline)(display "we are making graphical output.")(newline)
         #{
-            \book { \score{ \scorecontents  \layout {\layoutSettings} } }
+            \book { 
+                %% %% $(if (defined? 'preface)
+                    %% %% #{  
+                        %% %% \markuplist{
+                            %% %% \justified-lines{This is the cover page.  }
+                            %% %% \justified-lines{
+                                %% %% The only purpose of this page is to make two-sided printing work correctly, and to make 
+                                %% %% the page breaks match the original score, which will facilitate transcription of the original score.
+                            %% %% }
+                        %% %% }
+                    %% %% #}
+                    %% %% #{ \markup { THERE WAS NO PREFACE } #}
+                %% %% )
+
+                %% $(if (defined? 'preface)
+                    %% #{  
+                        %% $@preface
+                    %% #}
+                    %% #{ \markup { THERE WAS NO PREFACE } #}
+                %% )
+                %% %% $(if (defined? 'preface)
+                    %% %% #{  
+                        %% %% \pageBreak
+                    %% %% #}
+                    %% %% #{ \markup {  } #}
+                %% %% )
+                $(if (defined? 'preface) 
+                    #{
+                        #preface
+                    #}
+                )
+                \score{ \scorecontents  \layout {\layoutSettings} } 
+            }
         #}
     )
     (begin (newline)(display "we are not making graphical output.")(newline))
