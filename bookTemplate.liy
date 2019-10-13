@@ -83,6 +83,8 @@ deEmphasisRatioForMidiEmphasizedParts = #0.4
 
 
 \paper {
+    #(include-special-characters)
+
 	% line-width = 6.5\in
     top-margin = 0.3\in
     left-margin = 1\in

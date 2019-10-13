@@ -119,7 +119,7 @@ mezzoPianoConMolto =
 % textemdash = $(list->string (list (integer->char 8212)))
 % the above both throw an error -- probably something relating to string encoding mismatch.
 
-textemdash = #"–"
+%% textemdash = #"–"
 %the above works
 
 % i̇́i %CC%87 %CC%81 <U+0069, U+0307, U+0301>
@@ -130,8 +130,18 @@ textemdash = #"–"
 % Unicode Character 'LATIN SMALL LETTER I' (U+0069)
 
 accentedI = \markup{ \combine i  \raise #0.75 #"´"  }
+%% simpleAccentedI = \markup{ \simple { \combine i  \raise #0.75 #"´" } }
 % example: 
 % \markup{ \concat{ ab \accentedI c } }
+\paper {
+    #(add-text-replacements!
+        '(
+            ("&iAcute;" . " { \\accentedI } ")
+            ; this does not work as desired
+            ; ("&iAcute;" . \markup{ \combine i  \raise #0.75 #"´"  } )
+        )
+    )
+}
 
 pocoCrescendo = #(make-music 
     'CrescendoEvent

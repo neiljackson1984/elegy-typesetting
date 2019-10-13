@@ -41,3 +41,5 @@ i` -> í
 o` -> ó
 u` -> ú
 y` -> ý
+
+(\s)(\S*)í(\S*)(\s) -> $1\\markup \\concat{ $2 \\accentedI  $3 }$4

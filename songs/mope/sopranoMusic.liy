@@ -309,7 +309,7 @@ sopranoOneLyrics = {
     \context Lyrics = "lyricsUnderSopranoStaff" \lyricmode { 
         % \numberedSyllableDummyLyrics "s" \default
         %{SM 1   %}%{ 2, %}  Plé -- schet, 
-                   %{ 2  %}  sví -- schet
+                   %{ 2  %}  \markup \concat{ sv \accentedI   } -- schet
                    %{ 1  %}  i
                    %{ 2, %}  rev -- yót,
         %{SM 5   %}%{ 1  %}  i
@@ -325,36 +325,36 @@ sopranoOneLyrics = {
                    %{ 1  %}  i
                    %{ 3, %}  kla -- kó -- chet,
         %{SM 13  %}%{ 2, %}  plé -- schet,
-                   %{ 2  %}  sví -- schet
+                   %{ 2  %}  \markup \concat{ sv \accentedI   } -- schet
                    %{ 1  %}  i
                    %{ 2, %}  rev -- yót,
                    %{ 2, %}  plé -- schet,
-                   %{ 2  %}  sví -- schet
+                   %{ 2  %}  \markup \concat{ sv \accentedI   } -- schet
                    %{ 1  %}  i
                    %{ 2. %}  rev -- yót! %yuly wants an exclamation instead of period.
         %{SM 17  %}%{ 4  %}  Be -- spre -- rý -- vna
                    %{ 1  %}  val
                    %{ 2  %}  mar -- skóy
         %{SM 21  %}%{ 2, %}  srýo -- vam,
-                   %{ 2, %}  sví -- stam,
-                   %{ 2, %}  ví -- zgam,
+                   %{ 2, %}  \markup \concat{ sv \accentedI   } -- stam,
+                   %{ 2, %}  \markup \concat{ v \accentedI   } -- zgam,
                    %{ 2  %}  vó -- yem
         %{SM 25  %}%{ 1  %}  byot
                    %{ 2  %}  v_u -- tyós
                    %{ 4, %}  be -- re -- ga -- vóy,
                    %{ 2, %}  srýo -- vam,
-                   %{ 2, %}  sví -- stam,
-                   %{ 2, %}  ví -- zgam, 
+                   %{ 2, %}  \markup \concat{ sv \accentedI   } -- stam,
+                   %{ 2, %}  \markup \concat{ v \accentedI   } -- zgam, 
                    %{ 2, %}  vó -- yem,
         %{SM 29  %}%{ 2, %}  srýo -- vam,
-                   %{ 2, %}  sví -- stam,
-                   %{ 2, %}  ví -- zgam, 
+                   %{ 2, %}  \markup \concat{ sv \accentedI   } -- stam,
+                   %{ 2, %}  \markup \concat{ v \accentedI   } -- zgam, 
                    %{ 2  %}  vó -- yem
                    %{ 1  %}  byot
                    %{ 2  %}  v_u -- tyós
                    %{ 4, %}  be -- re -- ga -- vóy,
         %{SM 33  %}%{ 2, %}  srýo -- vam,
-                   %{ 2  %}  sví -- stam
+                   %{ 2  %}  \markup \concat{ sv \accentedI   } -- stam
                    %{ 1  %}  byot
                    %{ 2. %}  v_u -- tyós.
                    %{ 1  %}  Val
@@ -363,9 +363,9 @@ sopranoOneLyrics = {
                    %{ 2  %}  v_u -- tyós
                    %{ 4, %}  be -- re -- ga -- vóy,
                    %{ 2, %}  plé -- schet,
-        %{SM 39  %}%{ 2, %}  sví -- schet,
+        %{SM 39  %}%{ 2, %}  \markup \concat{ sv \accentedI   } -- schet,
                    %{ 2, %}  srýo -- vam,
-                   %{ 2, %}  ví -- zgam, 
+                   %{ 2, %}  \markup \concat{ v \accentedI   } -- zgam, 
                    %{ 2  %}  vó -- yem
         %{SM 43  %}%{ 1  %}  byot
                    %{ 2  %}  v_u -- tyós
@@ -385,14 +385,14 @@ sopranoOneLyrics = {
                    %{ 4, %}  be -- re -- ga -- vóy,
         %{SM 57  %}%{ 1  %}  val
         %{SM 62  %}%{ 2, %}  srýo -- vam,
-                   %{ 2, %}  sví -- stam,
-                   %{ 2, %}  ví -- zgam, 
+                   %{ 2, %}  \markup \concat{ sv \accentedI   } -- stam,
+                   %{ 2, %}  \markup \concat{ v \accentedI   } -- zgam, 
                    %{ 2, %}  vó -- yem,
         %{SM 66  %}%{ 2, %}  srýo -- vam,
-                   %{ 2, %}  sví -- stam,
-                   %{ 2, %}  ví -- zgam, 
+                   %{ 2, %}  \markup \concat{ sv \accentedI   } -- stam,
+                   %{ 2, %}  \markup \concat{ v \accentedI   } -- zgam, 
                    %{ 2. %}  vó -- yem.
-        %{SM 71  %}%{ 1  %}  no
+        %{SM 71  %}%{ 1  %}  No
                    %{ 3  %}  spa -- kóy -- ny
                    %{ 1  %}  i
                    %{ 3, %}  nad -- mé -- ny,
@@ -400,14 +400,14 @@ sopranoOneLyrics = {
                    %{ 1  %}  voln
                    %{ 1  %}  ne
                    %{ 3, %}  a -- bu -- yán,
-                   %{ 4, %}  ne -- pa -- dvízh -- ny,
+                   %{ 4, %}  ne -- pa -- \markup \concat{ dv \accentedI  zh } -- ny,
                    %{ 4, %}  ne -- i -- zmé -- ny,
         %{SM 81  %}%{ 1  %}  ty
-                   %{ 2, %}  sta -- ísh,
+                   %{ 2, %}  sta -- \markup \concat{  \accentedI  sh, }
                    %{ 1  %}  nash
                    %{ 3! %}  ve -- li -- kán!
         %{SM 84  %}%{ 1  %}  Ty
-                   %{ 2, %}  sta -- ísh,
+                   %{ 2, %}  sta -- \markup \concat{  \accentedI  sh, }
                    %{ 1  %}  nash
                    %{ 3! %}  ve -- li -- kán!
         %{SM 88  %}%{ 0  %}  %SILENCE
@@ -417,14 +417,14 @@ sopranoOneLyrics = {
                    %{ 2, %}  bó -- yem,
                    %{ 1  %}  kak
                    %{ 1  %}  na
-                   %{ 2  %}  prí -- stup
+                   %{ 2  %}  \markup \concat{ pr \accentedI   } -- stup
                    %{ 3, %}  ra -- ka -- vóy,
         %{SM 100 %}%{ 2  %}  snó -- va 
                    %{ 2  %}  vól -- ny
                    %{ 2  %}  lé -- zut
                    %{ 2  %}  svó -- yem
                    %{ 1  %}  na
-                   %{ 2  %}  gra -- nít
+                   %{ 2  %}  gra -- \markup \concat{ n \accentedI  t }
                    %{ 3  %}  gra -- má -- dny 
                    %{ 1, %}  tvoy! %yuly wants exclamation
         %{SM 104 %}%{ 1  %}  I
@@ -432,7 +432,7 @@ sopranoOneLyrics = {
                    %{ 2, %}  bó -- yem,
                    %{ 1  %}  kak
                    %{ 1  %}  na
-                   %{ 2  %}  prí -- stup
+                   %{ 2  %}  \markup \concat{ pr \accentedI   } -- stup
                    %{ 3, %}  ra -- ka -- vóy,
         %{SM 108 %}%{ 1  %}  i
                    %{ 5  %}  a -- zló -- ble -- ny -- ye
@@ -442,26 +442,26 @@ sopranoOneLyrics = {
                    %{ 2  %}  lé -- zut
                    %{ 2  %}  svó -- yem
         %{SM 112 %}%{ 1  %}  na
-                   %{ 2  %}  gra -- nít
+                   %{ 2  %}  gra -- \markup \concat{ n \accentedI  t }
                    %{ 3  %}  gra -- má -- dny 
                    %{ 1, %}  tvoy,
                    %{ 2  %}  vól -- ny
                    %{ 2  %}  lé -- zut
                    %{ 1  %}  na
-                   %{ 2, %}  gra -- nít,
+                   %{ 2, %}  gra -- \markup \concat{ n \accentedI  t, }
         %{SM 116 %}%{ 2  %}  snó -- va 
                    %{ 2  %}  vól -- ny
                    %{ 2  %}  lé -- zut
                    %{ 2  %}  svó -- yem
                    %{ 1  %}  na
-                   %{ 2, %}  gra -- nít,
+                   %{ 2, %}  gra -- \markup \concat{ n \accentedI  t, }
         %{SM 119 %}%{ 2  %}  snó -- va 
                    %{ 2  %}  vól -- ny
                    %{ 2  %}  lé -- zut
                    %{ 2, %}  svó -- yem,
         %{SM 123 %}%{ 2  %}  lé -- zut
                    %{ 1  %}  na
-                   %{ 2  %}  gra -- nít
+                   %{ 2  %}  gra -- \markup \concat{ n \accentedI  t }
                    %{ 3  %}  gra -- má -- dny 
                    %{ 1. %}  tvoy! %yuly wants exclamation here.
                    %{ 1  %}  No
@@ -470,33 +470,33 @@ sopranoOneLyrics = {
         %{SM 127 %}%{ 4  %}  ne -- i -- zmé -- ny
                    %{ 2  %}  búr -- ny
                    %{ 2  %}  ná -- tisk
-                   %{ 3, %}  pre -- la -- míf,
+                   %{ 3, %}  pre -- la -- \markup \concat{ m \accentedI  f, }
                    %{ 1  %}  val
                    %{ 3, %}  ad -- brý -- znul,
         %{SM 131 %}%{ 1, %}  val,
                    %{ 1  %}  i
-                   %{ 3  %}  klu -- bí -- tza
+                   %{ 3  %}  klu -- \markup \concat{ b \accentedI   } -- tza
         %{SM 136 %}%{ 2  %}  mút -- nay
                    %{ 2  %}  pé -- nay
                    %{ 1, %}  val,
         %{SM 141 %}%{ 1  %}  i
-                   %{ 3  %}  klu -- bí -- tza
+                   %{ 3  %}  klu -- \markup \concat{ b \accentedI   } -- tza
                    %{ 2  %}  mút -- nay
                    %{ 2, %}  pé -- nay,
         %{SM 145 %}%{ 2  %}  mút -- nay
                    %{ 2  %}  pé -- nay
                    %{ 1  %}  val % yuly wrote " mút -- nay ", probably in error
-                   %{ 3. %}  klu -- bí -- tza,
+                   %{ 3. %}  klu -- \markup \concat{ b \accentedI   } -- tza,
         %{SM 150 %}%{ 0  %}  %SILENCE
         %{SM 157 %}%{ 1  %}  Stoy
                    %{ 1  %}  zhe
                    %{ 1, %}  ty,
                    %{ 2  %}  u -- tyós
                    %{ 3! %}  ma -- gú -- chi!
-                   %{ 3  %}  A -- ba -- zhdí
+                   %{ 3  %}  A -- ba -- \markup \concat{ zhd \accentedI   }
                    %{ 1  %}  lish
                    %{ 1, %}  chas,
-                   %{ 2- %}  dru -- goy- %yuly wants comma instead of emdash. % Yuly: which syllable has the accent? 
+                   %{ 2- %}  dru -- goy&mdash; %yuly wants comma instead of emdash. % Yuly: which syllable has the accent? 
         %{SM 161 %}%{ 3  %}  na -- da -- yést
                    %{ 2  %}  val -- né
                    %{ 3  %}  gre -- mú -- chey
