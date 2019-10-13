@@ -114,7 +114,7 @@ deEmphasisRatioForMidiEmphasizedParts = #0.4
         
     % last-bottom-spacing:    the distance from the last system or top-level markup on a page to the bottom of the printable area (i.e. the top of the bottom margin).
         %DEFAULT:  last-bottom-spacing = #'((basic-distance . 1) (minimum-distance . 0) (padding . 1) (stretchability . 30))
-        last-bottom-spacing #'basic-distance = #10
+        last-bottom-spacing #'basic-distance = #12
     
     % top-system-spacing:     the distance from the top of the printable area (i.e. the bottom of the top margin) to the first system on a page, when there is no (title or top-level) markup between the two.
         %DEFAULT:  top-system-spacing = #'((basic-distance . 1) (minimum-distance . 0) (padding . 1))
