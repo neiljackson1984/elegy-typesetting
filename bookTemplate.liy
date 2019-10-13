@@ -284,6 +284,7 @@ layoutSettings = \layout {
                         \Staff
                         %\remove Instrument_name_engraver
                         %{ \override DynamicTextSpanner.dash-period = #0 %removes the dashed lines representing "cresc." crescendos, and similar decrescendoes and diminuendos. %}
+                        %This seems like a cleaner way to remove the dynamic spanners:
                         \override DynamicTextSpanner.style = #'none %removes the dashed lines representing "cresc." crescendos, and similar decrescendoes and diminuendos.
                         \override TextSpanner.dash-period = #0 %removes the dashed lines 
                         \accidentalStyle modern-voice-cautionary
