@@ -129,7 +129,8 @@ mezzoPianoConMolto =
 % Unicode Character 'COMBINING ACUTE ACCENT' (U+0301)
 % Unicode Character 'LATIN SMALL LETTER I' (U+0069)
 
-accentedI = \markup{ \combine i  \raise #0.75 #"´"  }
+accentedI = \markup{ \combine i  \raise #0.7 #"´"  }
+%{ accentedI = \markup{ i  } %}
 %% simpleAccentedI = \markup{ \simple { \combine i  \raise #0.75 #"´" } }
 % example: 
 % \markup{ \concat{ ab \accentedI c } }
